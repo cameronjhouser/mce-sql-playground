@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCE SQL Playground</title>
+<link rel="icon" type="image/png" href="AcademyImage_AKey.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/sql/sql.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/show-hint.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/sql-hint.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/show-hint.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.2/sql-wasm.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, sans-serif; background: #0f1117; color: #e0e0e0;
+         display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+
+  /* ── TOP NAV ── */
+  .topnav {
+    background: #0d1b2a; display: flex; align-items: center; gap: 10px;
+    padding: 0 14px; height: 44px; flex-shrink: 0; border-bottom: 1px solid #1e3a5f;
+  }
+  .logo { display: flex; align-items: center; }
+  .logo img { height: 32px; width: auto; display: block; }
+  .app-title { font-size: 14px; font-weight: bold; color: #fff; }
+  .badge { background: #0070d2; color: #fff; font-size: 10px; font-weight: bold;
+    padding: 2px 7px; border-radius: 3px; letter-spacing: .5px; }
+  .topnav-right { margin-left: auto; display: flex; gap: 8px; align-items: center; }
+
+  /* Sample queries dropdown */
+  .sample-wrap { position: relative; }
+  .btn-samples {
+    background: #1a1f2e; border: 1px solid #1e3a5f; color: #a0c4e8;
+    padding: 5px 12px; border-radius: 4px; font-size: 12px; cursor: pointer;
+    white-space: nowrap; display: flex; align-items: center; gap: 5px;
+  }
+  .btn-samples:hover { border-color: #0070d2; color: #fff; }
+  .samples-dropdown {
+    position: absolute; top: calc(100% + 4px); right: 0; z-index: 999;
+    background: #0d1b2a; border: 1px solid #1e3a5f; border-radius: 6px;
+    min-width: 320px; max-height: 480px; overflow-y: auto;
+    box-shadow: 0 8px 24px rgba(0,0,0,.6); display: none;
+  }
+  .samples-dropdown.open { display: block; }
+  .samples-cat-header {
+    font-size: 10px; font-weight: bold; letter-spacing: .8px; color: #0070d2;
+    padding: 8px 12px 4px; text-transform: uppercase; border-top: 1px solid #1e3a5f;
+    margin-top: 2px;
+  }
+  .samples-cat-header:first-child { border-top: none; margin-top: 0; }
+  .sample-item {
+    padding: 6px 12px; cursor: pointer; font-size: 12px; color: #c0d8f0;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .sample-item:hover { background: #1a2f4a; color: #fff; }
+  .sample-item .si-icon { font-size: 10px; color: #3a5a80; }
+
+  .btn-run {
+    background: #0070d2; color: #fff; border: none; padding: 5px 16px;
+    border-radius: 4px; font-size: 13px; font-weight: bold; cursor: pointer;
+  }
+  .btn-run:hover { background: #005fb2; }
+  .btn-run:disabled { background: #1e3a5f; color: #445; cursor: default; }
+  .btn-clear {
+    background: transparent; color: #7b9ec4; border: 1px solid #1e3a5f;
+    padding: 5px 12px; border-radius: 4px; font-size: 12px; cursor: pointer;
+  }
+  .btn-clear:hover { border-color: #0070d2; color: #fff; }
+
+  /* ── QUERY TABS ── */
+  .tabbar {
+    background: #0d1b2a; border-bottom: 1px solid #1e3a5f;
+    display: flex; align-items: center; padding: 0 14px; height: 32px; flex-shrink: 0; gap: 2px;
+  }
+  .tab {
+    font-size: 12px; padding: 0 14px; height: 32px; display: flex; align-items: center;
+    cursor: pointer; color: #7b9ec4; border-bottom: 2px solid transparent; white-space: nowrap;
+  }
+  .tab.active { color: #fff; border-bottom-color: #0070d2; }
+  .tab:hover:not(.active) { color: #ccc; }
+
+  /* ── MAIN LAYOUT ── */
+  .main { display: flex; flex: 1; overflow: hidden; min-height: 0; }
+
+  /* ── EDITOR PANE ── */
+  .editor-pane {
+    flex: 1; display: flex; flex-direction: column; border-right: 1px solid #1e3a5f; min-width: 0;
+  }
+  .editor-wrap { flex: 1; overflow: hidden; }
+  .editor-wrap .CodeMirror {
+    height: 100%; font-size: 13px; font-family: 'Consolas','Courier New',monospace;
+  }
+
+  /* ── RIGHT DATA PANE ── */
+  .data-pane {
+    width: 370px; flex-shrink: 0; display: flex; flex-direction: column; background: #111827;
+  }
+  .data-tabs {
+    display: flex; background: #0d1b2a; border-bottom: 1px solid #1e3a5f;
+    padding: 0 10px; flex-shrink: 0;
+  }
+  .data-tab {
+    font-size: 12px; padding: 7px 11px; cursor: pointer; color: #7b9ec4;
+    border-bottom: 2px solid transparent; white-space: nowrap;
+  }
+  .data-tab.active { color: #fff; border-bottom-color: #0070d2; }
+  .data-tab:hover:not(.active) { color: #ccc; }
+
+  .panel-body {
+    flex: 1; overflow-y: auto; padding: 8px 10px;
+    display: flex; flex-direction: column; gap: 7px;
+  }
+  .panel-body.hidden { display: none; }
+
+  /* DE panel */
+  .de-header { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+  .de-select {
+    flex: 1; background: #1a1f2e; border: 1px solid #1e3a5f; color: #e0e0e0;
+    padding: 5px 7px; border-radius: 4px; font-size: 12px;
+  }
+  .btn-upload-wrap { position: relative; flex-shrink: 0; }
+  .btn-upload {
+    background: #1a1f2e; border: 1px solid #1e3a5f; color: #7b9ec4;
+    padding: 5px 9px; border-radius: 4px; font-size: 12px; cursor: pointer; white-space: nowrap;
+  }
+  .btn-upload:hover { border-color: #0070d2; color: #fff; }
+  #csvFileInput { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; }
+  .de-info { font-size: 11px; color: #7b9ec4; flex-shrink: 0; }
+  .de-json-editor {
+    flex: 1; background: #0d1b2a; border: 1px solid #1e3a5f; color: #86efac;
+    font-family: 'Consolas','Courier New',monospace; font-size: 11px;
+    padding: 7px; border-radius: 4px; resize: none; min-height: 100px; overflow-y: auto;
+  }
+  .de-card {
+    background: #1a1f2e; border: 1px solid #1e3a5f; border-radius: 5px;
+    padding: 6px 9px; display: flex; align-items: center; justify-content: space-between;
+    flex-shrink: 0;
+  }
+  .de-card-name { font-size: 12px; font-weight: bold; color: #60a5fa; }
+  .de-card-meta { font-size: 10px; color: #7b9ec4; }
+  .de-card-del { background: none; border: none; color: #c03030; cursor: pointer; font-size: 13px; padding: 0 2px; }
+  .de-card-del:hover { color: #f55; }
+
+  /* Results */
+  .results-meta { font-size: 11px; color: #7b9ec4; flex-shrink: 0; }
+  .results-wrap { flex: 1; overflow: auto; }
+  .results-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+  .results-table th {
+    background: #0d1b2a; color: #60a5fa; padding: 5px 8px; text-align: left;
+    border-bottom: 1px solid #1e3a5f; white-space: nowrap; position: sticky; top: 0; z-index: 1;
+  }
+  .results-table td { padding: 4px 8px; border-bottom: 1px solid #1a2540; white-space: nowrap; color: #d0e8ff; }
+  .results-table tr:hover td { background: #1a1f2e; }
+  .empty-state { color: #3a4a5a; font-size: 12px; padding: 20px 0; text-align: center; }
+  .error-box {
+    background: #2a0d0d; border: 1px solid #7b1010; color: #f87171;
+    padding: 8px 10px; border-radius: 4px; font-size: 12px; font-family: monospace;
+  }
+
+  /* Schema */
+  .schema-table-name { font-size: 12px; font-weight: bold; color: #60a5fa; margin-bottom: 3px; }
+  .schema-col { font-size: 11px; color: #7b9ec4; padding: 1px 0 1px 10px; }
+  .schema-col span { color: #c0d8f0; }
+  .schema-type { color: #3a5a80; }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: #07101c; border-top: 2px solid #1e3a5f;
+    flex-shrink: 0;
+  }
+  .footer-cats {
+    display: flex; overflow-x: auto; padding: 0 12px;
+    scrollbar-width: none; border-bottom: 1px solid #1a2540;
+  }
+  .footer-cats::-webkit-scrollbar { display: none; }
+  .footer-cat {
+    font-size: 11px; font-weight: bold; padding: 5px 12px; cursor: pointer;
+    color: #4a6a8a; border-bottom: 2px solid transparent; white-space: nowrap; letter-spacing: .3px;
+  }
+  .footer-cat.active { color: #fff; border-bottom-color: #0070d2; }
+  .footer-cat:hover:not(.active) { color: #a0c0e0; }
+  .footer-chips {
+    display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 5px;
+    padding: 5px 12px 7px;
+    scrollbar-width: thin; scrollbar-color: #1e3a5f transparent;
+    min-height: 54px; align-items: flex-start;
+  }
+  .footer-chips::-webkit-scrollbar { height: 3px; }
+  .footer-chips::-webkit-scrollbar-thumb { background: #1e3a5f; }
+  .fn-chip {
+    display: flex; flex-direction: column; align-items: flex-start;
+    background: #0d1b2a; border: 1px solid #1e3a5f; border-radius: 4px;
+    padding: 4px 8px; cursor: pointer; min-width: 76px; flex-shrink: 0;
+  }
+  .fn-chip:hover { border-color: #0070d2; background: #101e32; }
+  .fn-name { font-size: 11px; font-weight: bold; color: #60a5fa; font-family: monospace; }
+  .fn-desc { font-size: 10px; color: #4a6a8a; margin-top: 1px; white-space: nowrap; }
+
+  /* scrollbars */
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #1e3a5f; border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<div class="topnav">
+  <div class="logo">
+    <img src="AcademyImage_WhiteText.png" alt="ListEngage Academy">
+  </div>
+  <span class="app-title">MCE SQL Playground</span>
+  <span class="badge">SQL</span>
+  <div class="topnav-right">
+    <!-- Sample Queries Dropdown -->
+    <div class="sample-wrap">
+      <button class="btn-samples" id="samplesBtn" onclick="toggleSamples(event)">
+        &#9660; Sample Queries
+      </button>
+      <div class="samples-dropdown" id="samplesDropdown"></div>
+    </div>
+    <button class="btn-clear" onclick="clearEditor()">Clear</button>
+    <button class="btn-run" id="runBtn" onclick="runSQL()">&#9654; Run Query</button>
+  </div>
+</div>
+
+<!-- QUERY TABS -->
+<div class="tabbar">
+  <div class="tab active" id="tab-q1" onclick="switchTab('q1')">Query 1</div>
+  <div class="tab" id="tab-q2" onclick="switchTab('q2')">Query 2</div>
+  <div class="tab" id="tab-q3" onclick="switchTab('q3')">Query 3</div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+  <!-- EDITOR -->
+  <div class="editor-pane">
+    <div class="editor-wrap">
+      <textarea id="sqlEditor"></textarea>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="data-pane">
+    <div class="data-tabs">
+      <div class="data-tab active" id="dtab-de" onclick="switchDataTab('de')">Data Extensions</div>
+      <div class="data-tab" id="dtab-results" onclick="switchDataTab('results')">Results</div>
+      <div class="data-tab" id="dtab-schema" onclick="switchDataTab('schema')">Schema</div>
+    </div>
+
+    <!-- DE PANEL -->
+    <div class="panel-body" id="panel-de">
+      <div class="de-header">
+        <select class="de-select" id="deSelect" onchange="onDeSelectChange()">
+          <option value="">— select DE —</option>
+        </select>
+        <div class="btn-upload-wrap">
+          <button class="btn-upload">&#8679; Upload CSV</button>
+          <input type="file" id="csvFileInput" accept=".csv" multiple onchange="handleCSVUpload(event)">
+        </div>
+      </div>
+      <div id="deCardList"></div>
+      <div class="de-info" id="deInfoLabel">No DE selected — upload a CSV to begin</div>
+      <textarea class="de-json-editor" id="deJsonEditor" spellcheck="false"
+        placeholder="Row preview shown here as JSON..."></textarea>
+    </div>
+
+    <!-- RESULTS PANEL -->
+    <div class="panel-body hidden" id="panel-results">
+      <div class="results-meta" id="resultsMeta">Run a query to see results.</div>
+      <div class="results-wrap" id="resultsWrap">
+        <div class="empty-state">No results yet.</div>
+      </div>
+    </div>
+
+    <!-- SCHEMA PANEL -->
+    <div class="panel-body hidden" id="panel-schema">
+      <div id="schemaContent"><div class="empty-state">Upload CSVs to see schemas.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-cats" id="footerCats"></div>
+  <div class="footer-chips" id="footerChips"></div>
+</div>
+
+<script>
+// ════════════════════════════════════════════════════════════
+//  DATA — FOOTER CHIPS
+// ════════════════════════════════════════════════════════════
+const SQL_CATS = [
+  { name: 'SELECT', items: [
+    { n: 'SELECT',       d: 'Choose columns',    s: 'SELECT ' },
+    { n: 'SELECT *',     d: 'All columns',        s: 'SELECT * FROM ' },
+    { n: 'SELECT TOP',   d: 'Limit rows',         s: 'SELECT TOP 100 ' },
+    { n: 'TOP PERCENT',  d: '% of rows',          s: 'SELECT TOP 10 PERCENT ' },
+    { n: 'DISTINCT',     d: 'Unique values',      s: 'SELECT DISTINCT ' },
+    { n: 'AS alias',     d: 'Column alias',       s: ' AS "MyAlias"' },
+    { n: 'FROM',         d: 'Source table',       s: 'FROM ' },
+    { n: 'ORDER BY ASC', d: 'Sort ascending',     s: 'ORDER BY col ASC' },
+    { n: 'ORDER BY DESC',d: 'Sort descending',    s: 'ORDER BY col DESC' },
+    { n: 'OFFSET/FETCH', d: 'Pagination',         s: 'ORDER BY col OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY' },
+  ]},
+  { name: 'FILTERING', items: [
+    { n: 'WHERE',        d: 'Filter rows',        s: 'WHERE ' },
+    { n: '= equal',      d: 'Exact match',        s: "WHERE col = 'value'" },
+    { n: '<> not equal', d: 'Exclude value',      s: "WHERE col <> 'value'" },
+    { n: 'BETWEEN',      d: 'Range filter',       s: "WHERE col BETWEEN 'a' AND 'b'" },
+    { n: 'IN (...)',     d: 'List filter',        s: "WHERE col IN ('a','b','c')" },
+    { n: 'NOT IN',       d: 'Exclude list',       s: "WHERE col NOT IN ('a','b')" },
+    { n: 'IS NULL',      d: 'Null check',         s: 'WHERE col IS NULL' },
+    { n: 'IS NOT NULL',  d: 'Non-null check',     s: 'WHERE col IS NOT NULL' },
+    { n: 'LIKE %',       d: 'Contains pattern',   s: "WHERE col LIKE '%value%'" },
+    { n: 'LIKE _',       d: 'Single char',        s: "WHERE col LIKE '_a%'" },
+    { n: 'LIKE [...]',   d: 'Char group',         s: "WHERE col LIKE '[ABC]%'" },
+    { n: 'LIKE [^...]',  d: 'Exclude chars',      s: "WHERE col LIKE '[^C]%'" },
+  ]},
+  { name: 'LOGIC', items: [
+    { n: 'AND',          d: 'Both true',          s: ' AND ' },
+    { n: 'OR',           d: 'Either true',        s: ' OR ' },
+    { n: 'NOT',          d: 'Negate',             s: 'NOT ' },
+    { n: 'NOT BETWEEN',  d: 'Exclude range',      s: 'WHERE col NOT BETWEEN 10 AND 20' },
+    { n: 'AND+OR combo', d: 'Grouped logic',      s: "WHERE col1 = 'a' AND (col2 = 'b' OR col2 = 'c')" },
+  ]},
+  { name: 'STRING', items: [
+    { n: 'CONCAT()',     d: 'Join strings',       s: "CONCAT(FirstName, ' ', LastName)" },
+    { n: 'UPPER()',      d: 'Uppercase',           s: 'UPPER(col)' },
+    { n: 'LOWER()',      d: 'Lowercase',           s: 'LOWER(col)' },
+    { n: 'LTRIM()',      d: 'Trim left',           s: 'LTRIM(col)' },
+    { n: 'RTRIM()',      d: 'Trim right',          s: 'RTRIM(col)' },
+    { n: 'LEN()',        d: 'String length',       s: 'LEN(col)' },
+    { n: 'CHARINDEX()',  d: 'Find position',       s: "CHARINDEX('x', col)" },
+    { n: 'SUBSTRING()',  d: 'Extract part',        s: 'SUBSTRING(col, 1, 5)' },
+    { n: 'REPLACE()',    d: 'Replace text',        s: "REPLACE(col, 'old', 'new')" },
+    { n: 'STUFF()',      d: 'Insert/replace',      s: "STUFF(col, 1, 3, 'new')" },
+  ]},
+  { name: 'DATE', items: [
+    { n: 'GETDATE()',    d: 'Current datetime',    s: 'GETDATE()' },
+    { n: 'DATEPART()',   d: 'Extract part',        s: 'DATEPART(YEAR, col)' },
+    { n: 'DATENAME()',   d: 'Named part',          s: 'DATENAME(WEEKDAY, col)' },
+    { n: 'DATEDIFF()',   d: 'Days between dates',  s: 'DATEDIFF(day, StartDate, GETDATE())' },
+    { n: 'DATEADD()',    d: 'Add to date',         s: 'DATEADD(day, 30, GETDATE())' },
+    { n: 'CONVERT date', d: 'Format date',         s: 'CONVERT(NVARCHAR, col, 112)' },
+    { n: 'Birthday mo.', d: 'Current month filter',s: 'DATEPART(MONTH, Birthdate) = DATEPART(MONTH, GETDATE())' },
+  ]},
+  { name: 'CONVERT', items: [
+    { n: 'CAST INT',     d: 'To integer',          s: 'CAST(col AS INT)' },
+    { n: 'CAST decimal', d: 'To decimal',          s: 'CAST(col AS DECIMAL(18,2))' },
+    { n: 'CAST text',    d: 'To varchar',          s: 'CAST(col AS NVARCHAR(254))' },
+    { n: 'CONVERT()',    d: 'Convert type',        s: 'CONVERT(INT, col)' },
+    { n: 'NULLIF()',     d: 'Null if equal',       s: 'NULLIF(col1, col2)' },
+  ]},
+  { name: 'AGGREGATE', items: [
+    { n: 'COUNT(*)',     d: 'Count all rows',      s: 'COUNT(*)' },
+    { n: 'COUNT(col)',   d: 'Count non-null',      s: 'COUNT(col)' },
+    { n: 'COUNT DIST.',  d: 'Count unique',        s: 'COUNT(DISTINCT col)' },
+    { n: 'SUM()',        d: 'Total',               s: 'SUM(col)' },
+    { n: 'AVG()',        d: 'Average',             s: 'AVG(col)' },
+    { n: 'MIN()',        d: 'Minimum',             s: 'MIN(col)' },
+    { n: 'MAX()',        d: 'Maximum',             s: 'MAX(col)' },
+    { n: 'ROUND()',      d: 'Round number',        s: 'ROUND(col, 2)' },
+    { n: 'Null %',       d: 'Null percentage',     s: '(COUNT(*) - COUNT(col)) * 100 / COUNT(*) AS NullPct' },
+  ]},
+  { name: 'GROUP BY', items: [
+    { n: 'GROUP BY',     d: 'Group rows',          s: 'GROUP BY col' },
+    { n: 'HAVING',       d: 'Filter groups',       s: 'HAVING COUNT(*) > 1' },
+    { n: 'HAVING AVG',   d: 'Avg threshold',       s: 'HAVING AVG(col) > 1000' },
+    { n: 'ROLLUP',       d: 'Subtotals',           s: 'GROUP BY ROLLUP(col1, col2)' },
+    { n: 'CUBE',         d: 'All subtotals',       s: 'GROUP BY CUBE(col1, col2)' },
+  ]},
+  { name: 'CASE', items: [
+    { n: 'CASE WHEN',    d: 'Conditional col',     s: "CASE\n  WHEN col > 10 THEN 'High'\n  WHEN col > 5 THEN 'Mid'\n  ELSE 'Low'\nEND AS Category" },
+    { n: 'CASE simple',  d: 'Exact match',         s: "CASE col\n  WHEN 'A' THEN 'Alpha'\n  WHEN 'B' THEN 'Beta'\n  ELSE 'Other'\nEND" },
+    { n: 'CASE range',   d: 'Tier buckets',        s: "CASE\n  WHEN Amount > 10000 THEN 'Platinum'\n  WHEN Amount > 5000 THEN 'Gold'\n  WHEN Amount > 1000 THEN 'Silver'\n  ELSE 'Bronze'\nEND AS Tier" },
+  ]},
+  { name: 'JOINS', items: [
+    { n: 'INNER JOIN',   d: 'Matching rows',       s: 'INNER JOIN table2 t2 ON t1.id = t2.id' },
+    { n: 'LEFT JOIN',    d: 'All left rows',       s: 'LEFT JOIN table2 t2 ON t1.id = t2.id' },
+    { n: 'RIGHT JOIN',   d: 'All right rows',      s: 'RIGHT OUTER JOIN table2 t2 ON t1.id = t2.id' },
+    { n: 'FULL OUTER',   d: 'All rows both',       s: 'FULL OUTER JOIN table2 t2 ON t1.id = t2.id' },
+    { n: 'LEFT excl.',   d: 'No match rows',       s: 'LEFT JOIN table2 t2 ON t1.id = t2.id\nWHERE t2.id IS NULL' },
+    { n: '3-table JOIN', d: 'Chain joins',         s: 'INNER JOIN t2 ON t1.id = t2.id\nINNER JOIN t3 ON t2.id = t3.id' },
+    { n: 'INTERSECT',    d: 'Common rows',         s: 'SELECT col FROM t1\nINTERSECT\nSELECT col FROM t2' },
+  ]},
+  { name: 'WINDOW', items: [
+    { n: 'RANK()',        d: 'Rank with gaps',      s: 'RANK() OVER (ORDER BY col DESC) AS Rnk' },
+    { n: 'DENSE_RANK()', d: 'Rank no gaps',        s: 'DENSE_RANK() OVER (ORDER BY col DESC) AS DRnk' },
+    { n: 'ROW_NUMBER()', d: 'Row sequence',        s: 'ROW_NUMBER() OVER (ORDER BY col DESC) AS RowNum' },
+    { n: 'PARTITION BY', d: 'Rank within group',   s: 'RANK() OVER (PARTITION BY group_col ORDER BY col DESC) AS GroupRank' },
+    { n: 'SUM OVER',     d: 'Running total',       s: 'SUM(col) OVER (ORDER BY col2) AS RunTotal' },
+    { n: 'AVG OVER',     d: 'Running avg',         s: 'AVG(col) OVER (ORDER BY col2) AS RunAvg' },
+    { n: 'ROWS BETWEEN', d: 'Cumulative sum',      s: 'SUM(col) OVER (\n  ORDER BY col2\n  ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW\n) AS CumSum' },
+    { n: '30-day avg',   d: 'Moving average',      s: 'AVG(col) OVER (\n  ORDER BY DateCol\n  ROWS BETWEEN 29 PRECEDING AND CURRENT ROW\n) AS Avg30Day' },
+    { n: 'OVER ()',      d: 'Global aggregate',    s: 'MIN(col) OVER () AS GlobalMin, MAX(col) OVER () AS GlobalMax' },
+  ]},
+  { name: 'SFMC', items: [
+    { n: 'ent. prefix',  d: 'Shared DE',           s: 'SELECT * FROM ent.DEName' },
+    { n: '[Field Name]', d: 'Space in field',      s: '[Field Name]' },
+    { n: '_Open DV',     d: 'Open data view',      s: 'ENT.OpenDataView o' },
+    { n: '_Sent DV',     d: 'Sent data view',      s: 'ENT.SentDataView s' },
+    { n: '_Click DV',    d: 'Click data view',     s: 'ENT.ClickDataView c' },
+    { n: '_Bounce DV',   d: 'Bounce data view',    s: 'ENT.BounceDataView b' },
+    { n: '_Unsub DV',    d: 'Unsub data view',     s: 'ENT.UnsubscribeDataView u' },
+    { n: 'ORDER BY fix', d: 'Automation fix',      s: 'ORDER BY col OFFSET 0 ROWS' },
+  ]},
+];
+
+// ════════════════════════════════════════════════════════════
+//  DATA — SAMPLE QUERIES
+// ════════════════════════════════════════════════════════════
+const SAMPLE_QUERIES = [
+  { cat: 'SELECT & ORDER BY', queries: [
+    { label: 'Basic SELECT with ORDER BY',
+      sql: `SELECT *\nFROM Subscribers\nORDER BY LastName ASC` },
+    { label: 'SELECT TOP 100 specific columns',
+      sql: `SELECT TOP 100\n  [First Name],\n  [Last Name],\n  [Email Address],\n  State,\n  Tier\nFROM Subscribers\nORDER BY [Last Name] ASC` },
+    { label: 'SELECT DISTINCT values',
+      sql: `SELECT DISTINCT State\nFROM Subscribers\nORDER BY State ASC` },
+    { label: 'OFFSET / FETCH pagination',
+      sql: `SELECT [First Name], [Last Name], [Email Address]\nFROM Subscribers\nORDER BY [Last Name] ASC\nOFFSET 0 ROWS FETCH NEXT 25 ROWS ONLY` },
+  ]},
+  { cat: 'WHERE / FILTERING', queries: [
+    { label: 'Filter by state and tier',
+      sql: `SELECT [First Name], [Last Name], [Email Address], State, Tier\nFROM Subscribers\nWHERE State = 'TX'\n  AND Tier >= 4\nORDER BY Tier DESC` },
+    { label: 'BETWEEN date range',
+      sql: `SELECT [First Name], [Last Name], Birthdate\nFROM Subscribers\nWHERE Birthdate BETWEEN '1980-01-01' AND '1990-12-31'\nORDER BY Birthdate ASC` },
+    { label: 'IN list filter',
+      sql: `SELECT [First Name], [Last Name], State\nFROM Subscribers\nWHERE State IN ('TX', 'CA', 'NY', 'FL')\nORDER BY State, [Last Name]` },
+    { label: 'IS NULL — find missing data',
+      sql: `SELECT [Subscriber Key], [Email Address], [Last Name]\nFROM Subscribers\nWHERE [Last Name] IS NULL\n   OR [Last Name] = ''` },
+    { label: 'LIKE pattern matching',
+      sql: `SELECT [First Name], [Last Name], [Email Address]\nFROM Subscribers\nWHERE [Email Address] LIKE '%gmail.com'\n  AND [Last Name] LIKE '[A-M]%'\nORDER BY [Last Name] ASC` },
+  ]},
+  { cat: 'STRING Functions', queries: [
+    { label: 'CONCAT — full name column',
+      sql: `SELECT\n  CONCAT([First Name], ' ', [Last Name]) AS FullName,\n  [Email Address],\n  State\nFROM Subscribers\nORDER BY [Last Name] ASC` },
+    { label: 'UPPER / LOWER formatting',
+      sql: `SELECT\n  UPPER([Last Name]) AS LastName,\n  LOWER([First Name]) AS FirstName,\n  [Email Address]\nFROM Subscribers\nWHERE UPPER([Last Name]) LIKE '%SON%'` },
+    { label: 'LEN — filter by name length',
+      sql: `SELECT [First Name], [Last Name], LEN([Last Name]) AS NameLen\nFROM Subscribers\nWHERE LEN([Last Name]) < 5\nORDER BY NameLen ASC` },
+    { label: 'REPLACE — clean whitespace',
+      sql: `SELECT\n  [Subscriber Key],\n  REPLACE([Email Address], ' ', '') AS CleanEmail\nFROM Subscribers\nORDER BY CleanEmail` },
+    { label: 'CHARINDEX — find char position',
+      sql: `SELECT\n  [Email Address],\n  CHARINDEX('@', [Email Address]) AS AtPosition,\n  SUBSTRING([Email Address], CHARINDEX('@', [Email Address]) + 1, 50) AS Domain\nFROM Subscribers` },
+  ]},
+  { cat: 'DATE Functions', queries: [
+    { label: 'DATEPART — birthday this month',
+      sql: `SELECT [First Name], [Last Name], [Email Address], Birthdate\nFROM Subscribers\nWHERE DATEPART(MONTH, Birthdate) = DATEPART(MONTH, date('now'))\nORDER BY DATEPART(DAY, Birthdate) ASC` },
+    { label: 'DATEDIFF — days since last transaction',
+      sql: `SELECT\n  [First Name], [Last Name],\n  LastTransaction,\n  CAST(julianday('now') - julianday(LastTransaction) AS INT) AS DaysSince\nFROM Subscribers\nORDER BY DaysSince DESC` },
+    { label: 'DATEPART — filter by year range',
+      sql: `SELECT [First Name], [Last Name], Birthdate\nFROM Subscribers\nWHERE CAST(strftime('%Y', Birthdate) AS INT) BETWEEN 1985 AND 1995\nORDER BY Birthdate ASC` },
+  ]},
+  { cat: 'AGGREGATE Functions', queries: [
+    { label: 'COUNT rows and nulls',
+      sql: `SELECT\n  COUNT(*) AS TotalRows,\n  COUNT([Email Address]) AS WithEmail,\n  COUNT(*) - COUNT([Email Address]) AS MissingEmail\nFROM Subscribers` },
+    { label: 'MIN / MAX / AVG on numeric field',
+      sql: `SELECT\n  MIN(CAST(Tier AS INTEGER)) AS MinTier,\n  MAX(CAST(Tier AS INTEGER)) AS MaxTier,\n  AVG(CAST(Tier AS REAL)) AS AvgTier,\n  COUNT(*) AS Total\nFROM Subscribers` },
+    { label: 'COUNT DISTINCT — unique states',
+      sql: `SELECT\n  COUNT(DISTINCT State) AS UniqueStates,\n  COUNT(*) AS TotalRows\nFROM Subscribers` },
+  ]},
+  { cat: 'GROUP BY & HAVING', queries: [
+    { label: 'GROUP BY state — count per state',
+      sql: `SELECT State, COUNT(*) AS Total\nFROM Subscribers\nWHERE State IS NOT NULL\nGROUP BY State\nORDER BY Total DESC` },
+    { label: 'GROUP BY + HAVING — states with many subscribers',
+      sql: `SELECT State, COUNT(*) AS Total\nFROM Subscribers\nGROUP BY State\nHAVING COUNT(*) > 10\nORDER BY Total DESC` },
+    { label: 'GROUP BY + AVG — avg tier per state',
+      sql: `SELECT\n  State,\n  COUNT(*) AS Total,\n  ROUND(AVG(CAST(Tier AS REAL)), 2) AS AvgTier\nFROM Subscribers\nWHERE State IS NOT NULL\nGROUP BY State\nORDER BY AvgTier DESC` },
+    { label: 'HAVING — find duplicate emails',
+      sql: `SELECT [Email Address], COUNT(*) AS DupeCount\nFROM Subscribers\nGROUP BY [Email Address]\nHAVING COUNT(*) > 1\nORDER BY DupeCount DESC` },
+  ]},
+  { cat: 'CASE Statement', queries: [
+    { label: 'CASE — tier label',
+      sql: `SELECT\n  [First Name], [Last Name], Tier,\n  CASE CAST(Tier AS INTEGER)\n    WHEN 5 THEN 'Platinum'\n    WHEN 4 THEN 'Gold'\n    WHEN 3 THEN 'Silver'\n    WHEN 2 THEN 'Bronze'\n    ELSE 'Standard'\n  END AS TierLabel\nFROM Subscribers\nORDER BY CAST(Tier AS INTEGER) DESC` },
+    { label: 'CASE — activity buckets',
+      sql: `SELECT\n  [First Name], [Last Name], ActivityLevel,\n  CASE\n    WHEN ActivityLevel = 'Daily' THEN 'High'\n    WHEN ActivityLevel = 'Often' THEN 'Medium'\n    WHEN ActivityLevel = 'Sometimes' THEN 'Low'\n    ELSE 'Inactive'\n  END AS EngagementBucket\nFROM Subscribers\nORDER BY EngagementBucket` },
+    { label: 'CASE in GROUP BY — sales buckets',
+      sql: `SELECT\n  CASE\n    WHEN CAST(Amount AS REAL) > 10000 THEN 'Platinum'\n    WHEN CAST(Amount AS REAL) > 5000 THEN 'Gold'\n    WHEN CAST(Amount AS REAL) > 1000 THEN 'Silver'\n    ELSE 'Bronze'\n  END AS AmountBucket,\n  COUNT(*) AS Total,\n  ROUND(AVG(CAST(Amount AS REAL)), 2) AS AvgAmount\nFROM Sales_Opportunities\nGROUP BY\n  CASE\n    WHEN CAST(Amount AS REAL) > 10000 THEN 'Platinum'\n    WHEN CAST(Amount AS REAL) > 5000 THEN 'Gold'\n    WHEN CAST(Amount AS REAL) > 1000 THEN 'Silver'\n    ELSE 'Bronze'\n  END\nORDER BY AvgAmount DESC` },
+  ]},
+  { cat: 'JOINs', queries: [
+    { label: 'INNER JOIN — matching records only',
+      sql: `SELECT\n  t1.[First Name],\n  t1.[Last Name],\n  t1.[Email Address],\n  t2.[Agent ID]\nFROM Subscribers AS t1\nINNER JOIN Agents AS t2\n  ON TRIM(t1.[Subscriber Key]) = TRIM(t2.[Subscriber Key])` },
+    { label: 'LEFT JOIN — all left, nulls where no match',
+      sql: `SELECT\n  t1.[First Name],\n  t1.[Last Name],\n  t1.[Email Address],\n  t2.[Order ID]\nFROM Subscribers AS t1\nLEFT JOIN Orders AS t2\n  ON TRIM(t1.[Subscriber Key]) = TRIM(t2.[Subscriber Key])\nORDER BY t2.[Order ID] DESC` },
+    { label: 'LEFT JOIN — find subscribers with NO orders',
+      sql: `SELECT\n  t1.[First Name],\n  t1.[Last Name],\n  t1.[Email Address]\nFROM Subscribers AS t1\nLEFT JOIN Orders AS t2\n  ON TRIM(t1.[Subscriber Key]) = TRIM(t2.[Subscriber Key])\nWHERE t2.[Subscriber Key] IS NULL` },
+    { label: 'JOIN debug — check Agent ID overlap',
+      sql: `-- Step 1: see Agent IDs in each table\nSELECT [Agent ID], LENGTH([Agent ID]) AS Len,\n       TRIM([Agent ID]) AS Trimmed\nFROM Real_Estate_Agents LIMIT 10` },
+    { label: 'INTERSECT — common IDs between two tables',
+      sql: `SELECT TRIM([Agent ID]) FROM Real_Estate_Agents\nINTERSECT\nSELECT TRIM([Agent ID]) FROM Support_Agents` },
+  ]},
+  { cat: 'WINDOW Functions', queries: [
+    { label: 'RANK — rank subscribers by tier',
+      sql: `SELECT\n  [First Name], [Last Name], State,\n  CAST(Tier AS INTEGER) AS Tier,\n  RANK() OVER (ORDER BY CAST(Tier AS INTEGER) DESC) AS TierRank\nFROM Subscribers\nORDER BY TierRank` },
+    { label: 'ROW_NUMBER — deduplicate by email',
+      sql: `SELECT * FROM (\n  SELECT\n    [Email Address], [First Name], [Last Name], State,\n    ROW_NUMBER() OVER (\n      PARTITION BY [Email Address]\n      ORDER BY [Last Name]\n    ) AS RowNum\n  FROM Subscribers\n) sub\nWHERE RowNum = 1\nORDER BY [Email Address]` },
+    { label: 'DENSE_RANK + PARTITION BY — rank within state',
+      sql: `SELECT\n  [First Name], [Last Name], State,\n  CAST(Tier AS INTEGER) AS Tier,\n  DENSE_RANK() OVER (\n    PARTITION BY State\n    ORDER BY CAST(Tier AS INTEGER) DESC\n  ) AS RankInState\nFROM Subscribers\nORDER BY State, RankInState` },
+    { label: 'Running total — cumulative count by state',
+      sql: `SELECT\n  State,\n  COUNT(*) AS StateCount,\n  SUM(COUNT(*)) OVER (ORDER BY State) AS RunningTotal\nFROM Subscribers\nWHERE State IS NOT NULL\nGROUP BY State\nORDER BY State` },
+  ]},
+  { cat: 'SFMC Patterns', queries: [
+    { label: 'Campaign performance summary',
+      sql: `-- Paste into SFMC Automation Studio SQL Activity:\nSELECT\n  s.JobID,\n  COUNT(DISTINCT s.SubscriberKey) AS Sends,\n  COUNT(DISTINCT o.SubscriberKey) AS Opens,\n  COUNT(DISTINCT c.SubscriberKey) AS Clicks,\n  COUNT(DISTINCT b.SubscriberKey) AS Bounces,\n  COUNT(DISTINCT u.SubscriberKey) AS Unsubscribes\nFROM ENT.SentDataView s\nLEFT JOIN ENT.OpenDataView o\n  ON s.JobID = o.JobID AND s.SubscriberKey = o.SubscriberKey\nLEFT JOIN ENT.ClickDataView c\n  ON s.JobID = c.JobID AND s.SubscriberKey = c.SubscriberKey\nLEFT JOIN ENT.BounceDataView b\n  ON s.JobID = b.JobID AND s.SubscriberKey = b.SubscriberKey\nLEFT JOIN ENT.UnsubscribeDataView u\n  ON s.JobID = u.JobID AND s.SubscriberKey = u.SubscriberKey\nGROUP BY s.JobID\nORDER BY s.JobID OFFSET 0 ROWS` },
+    { label: 'Subscribers who OPENED but not CLICKED',
+      sql: `-- SFMC: openers who never clicked\nSELECT DISTINCT\n  o.SubscriberKey,\n  o.JobID\nFROM ENT.OpenDataView o\nLEFT JOIN ENT.ClickDataView c\n  ON o.JobID = c.JobID AND o.SubscriberKey = c.SubscriberKey\nWHERE c.SubscriberKey IS NULL\nORDER BY o.JobID OFFSET 0 ROWS` },
+    { label: 'Shared DE with ent. prefix',
+      sql: `SELECT TOP 200\n  PersonId,\n  [Email Address],\n  [First Name],\n  [Last Name],\n  City,\n  State,\n  Tier\nFROM ent.Person\nWHERE State = 'TX'\n  AND Tier >= 4\nORDER BY [Last Name] ASC OFFSET 0 ROWS` },
+  ]},
+];
+
+// ════════════════════════════════════════════════════════════
+//  CODEMIRROR
+// ════════════════════════════════════════════════════════════
+const tabContents = { q1: '', q2: '', q3: '' };
+let activeTab = 'q1';
+
+const editor = CodeMirror.fromTextArea(document.getElementById('sqlEditor'), {
+  mode: 'text/x-sql', theme: 'dracula', lineNumbers: true, autofocus: true,
+  indentWithTabs: false, tabSize: 2,
+  extraKeys: { 'Ctrl-Space': 'autocomplete', 'Ctrl-Enter': runSQL },
+  hintOptions: { completeSingle: false },
+});
+editor.setSize('100%', '100%');
+editor.setValue("SELECT *\nFROM Subscribers\nWHERE State = 'TX'\n  AND Tier >= 4\nORDER BY LastName ASC");
+
+function switchTab(t) {
+  tabContents[activeTab] = editor.getValue();
+  activeTab = t;
+  ['q1','q2','q3'].forEach(id => {
+    document.getElementById('tab-'+id).classList.toggle('active', id === t);
+  });
+  editor.setValue(tabContents[t] || '');
+  editor.focus();
+}
+function clearEditor() { editor.setValue(''); editor.focus(); }
+
+// ════════════════════════════════════════════════════════════
+//  DATA PANEL TABS
+// ════════════════════════════════════════════════════════════
+function switchDataTab(t) {
+  ['de','results','schema'].forEach(id => {
+    document.getElementById('dtab-'+id).classList.toggle('active', id === t);
+    document.getElementById('panel-'+id).classList.toggle('hidden', id !== t);
+  });
+}
+
+// ════════════════════════════════════════════════════════════
+//  SQL.JS ENGINE
+// ════════════════════════════════════════════════════════════
+let sqlDb = null;
+let loadedDEs = {};
+
+async function initDB() {
+  if (sqlDb) return;
+  const SQL = await initSqlJs({
+    locateFile: f => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.2/${f}`
+  });
+  sqlDb = new SQL.Database();
+}
+
+// ════════════════════════════════════════════════════════════
+//  CSV UPLOAD
+// ════════════════════════════════════════════════════════════
+async function handleCSVUpload(event) {
+  const files = [...event.target.files];
+  if (!files.length) return;
+  await initDB();
+  for (const file of files) {
+    await importCSV(file);
+  }
+  event.target.value = '';
+}
+
+function importCSV(file) {
+  return new Promise(resolve => {
+    const tableName = file.name.replace(/\.csv$/i,'').replace(/[^a-zA-Z0-9_]/g,'_');
+    Papa.parse(file, {
+      header: true, skipEmptyLines: true,
+      complete: async (result) => {
+        try {
+          const cols = result.meta.fields;
+          const rows = result.data;
+          try { sqlDb.run(`DROP TABLE IF EXISTS "${tableName}"`); } catch(e){}
+          const colDefs = cols.map(c => `"${c}" TEXT`).join(', ');
+          sqlDb.run(`CREATE TABLE "${tableName}" (${colDefs})`);
+          if (rows.length > 0) {
+            const ph = cols.map(() => '?').join(', ');
+            const cn = cols.map(c => `"${c}"`).join(', ');
+            const stmt = sqlDb.prepare(`INSERT INTO "${tableName}" (${cn}) VALUES (${ph})`);
+            rows.forEach(r => stmt.run(cols.map(c => r[c] ?? null)));
+            stmt.free();
+          }
+          loadedDEs[tableName] = { columns: cols, rowCount: rows.length, rows: rows.slice(0, 50) };
+          updateDEUI(tableName, cols, rows.length);
+          renderSchema();
+          updateEditorHints();
+          const colList = cols.slice(0,6).map(c => c.includes(' ') ? `"${c}"` : c).join(',\n  ');
+          editor.setValue(`SELECT\n  ${colList}\nFROM ${tableName}\nLIMIT 100`);
+        } catch(err) { showError('Import error: ' + err.message); }
+        resolve();
+      },
+      error: (err) => { showError('CSV parse error: ' + err.message); resolve(); }
+    });
+  });
+}
+
+function updateDEUI(tableName, cols, rowCount) {
+  const sel = document.getElementById('deSelect');
+  if (![...sel.options].find(o => o.value === tableName)) {
+    const opt = document.createElement('option');
+    opt.value = tableName; opt.textContent = tableName;
+    sel.appendChild(opt);
+  }
+  sel.value = tableName;
+
+  document.getElementById('decard-'+tableName)?.remove();
+  const card = document.createElement('div');
+  card.className = 'de-card'; card.id = 'decard-'+tableName;
+  const nameEl = document.createElement('div');
+  nameEl.innerHTML = `<div class="de-card-name"></div><div class="de-card-meta"></div>`;
+  nameEl.querySelector('.de-card-name').textContent = tableName;
+  nameEl.querySelector('.de-card-meta').textContent = `${cols.length} fields · ${rowCount} rows`;
+  const delBtn = document.createElement('button');
+  delBtn.className = 'de-card-del'; delBtn.title = 'Remove'; delBtn.textContent = '✕';
+  delBtn.onclick = () => removeDE(tableName);
+  card.appendChild(nameEl); card.appendChild(delBtn);
+  document.getElementById('deCardList').appendChild(card);
+  onDeSelectChange();
+}
+
+function onDeSelectChange() {
+  const name = document.getElementById('deSelect').value;
+  const info = document.getElementById('deInfoLabel');
+  const ta = document.getElementById('deJsonEditor');
+  if (!name || !loadedDEs[name]) { info.textContent = 'No DE selected — upload a CSV to begin'; ta.value = ''; return; }
+  const de = loadedDEs[name];
+  info.textContent = `${name} — ${de.columns.length} fields, ${de.rowCount} rows (showing first 50)`;
+  ta.value = JSON.stringify(de.rows, null, 2);
+}
+
+function removeDE(tableName) {
+  try { sqlDb && sqlDb.run(`DROP TABLE IF EXISTS "${tableName}"`); } catch(e){}
+  delete loadedDEs[tableName];
+  document.getElementById('decard-'+tableName)?.remove();
+  const sel = document.getElementById('deSelect');
+  [...sel.options].find(o => o.value === tableName)?.remove();
+  sel.value = '';
+  onDeSelectChange(); renderSchema();
+}
+
+function renderSchema() {
+  const el = document.getElementById('schemaContent');
+  const tables = Object.keys(loadedDEs);
+  if (!tables.length) { el.innerHTML = '<div class="empty-state">Upload CSVs to see schemas.</div>'; return; }
+  el.innerHTML = tables.map(t => {
+    const de = loadedDEs[t];
+    const colsHtml = de.columns.map(c => {
+      const safe = c.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      const display = c.includes(' ') ? `[${safe}]` : safe;
+      return `<div class="schema-col"><span>${display}</span> <span class="schema-type">TEXT</span></div>`;
+    }).join('');
+    const tSafe = t.replace(/</g,'&lt;');
+    return `<div style="margin-bottom:12px"><div class="schema-table-name">${tSafe}</div>${colsHtml}</div>`;
+  }).join('');
+}
+
+function updateEditorHints() {
+  const tables = {};
+  Object.keys(loadedDEs).forEach(t => { tables[t] = loadedDEs[t].columns; });
+  editor.setOption('hintOptions', { tables, completeSingle: false });
+}
+
+// ════════════════════════════════════════════════════════════
+//  RUN SQL
+// ════════════════════════════════════════════════════════════
+async function runSQL() {
+  const sql = editor.getValue().trim();
+  if (!sql) return;
+  const btn = document.getElementById('runBtn');
+  btn.disabled = true; btn.textContent = '⏳ Running…';
+  try {
+    await initDB();
+    const t0 = performance.now();
+    const results = sqlDb.exec(sql);
+    const ms = (performance.now() - t0).toFixed(1);
+    switchDataTab('results');
+    if (!results || !results.length) {
+      document.getElementById('resultsMeta').textContent = `Query OK (${ms}ms) — no rows returned.`;
+      document.getElementById('resultsWrap').innerHTML = '<div class="empty-state">Query ran successfully. No rows returned.</div>';
+      return;
+    }
+    const { columns, values } = results[0];
+    document.getElementById('resultsMeta').textContent =
+      `${values.length} row${values.length !== 1 ? 's' : ''} · ${columns.length} cols · ${ms}ms`;
+    const thead = '<tr>' + columns.map(c => `<th>${esc(c)}</th>`).join('') + '</tr>';
+    const tbody = values.map(row =>
+      '<tr>' + row.map(cell =>
+        `<td>${cell === null ? '<em style="color:#3a5a7a">NULL</em>' : esc(String(cell))}</td>`
+      ).join('') + '</tr>'
+    ).join('');
+    document.getElementById('resultsWrap').innerHTML =
+      `<table class="results-table"><thead>${thead}</thead><tbody>${tbody}</tbody></table>`;
+  } catch(err) {
+    switchDataTab('results');
+    document.getElementById('resultsMeta').textContent = 'Error';
+    document.getElementById('resultsWrap').innerHTML = `<div class="error-box">⚠ ${esc(err.message)}</div>`;
+  } finally {
+    btn.disabled = false; btn.innerHTML = '&#9654; Run Query';
+  }
+}
+
+function esc(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function showError(msg) {
+  switchDataTab('results');
+  document.getElementById('resultsMeta').textContent = 'Error';
+  document.getElementById('resultsWrap').innerHTML = `<div class="error-box">⚠ ${esc(msg)}</div>`;
+}
+
+// ════════════════════════════════════════════════════════════
+//  FOOTER CHIPS  — using data-idx to avoid HTML injection
+// ════════════════════════════════════════════════════════════
+let activeCat = 0;
+// flat array of all snippets keyed by [catIdx, itemIdx]
+const SNIPPETS = [];
+
+function buildFooter() {
+  const catsEl = document.getElementById('footerCats');
+  SQL_CATS.forEach((cat, ci) => {
+    cat.items.forEach((item, ii) => SNIPPETS.push({ ci, ii, s: item.s }));
+    const div = document.createElement('div');
+    div.className = 'footer-cat' + (ci === 0 ? ' active' : '');
+    div.textContent = cat.name;
+    div.onclick = () => selectCat(ci);
+    catsEl.appendChild(div);
+  });
+  renderChips();
+
+  // chip click via delegation (safe — no inline onclick with user data)
+  document.getElementById('footerChips').addEventListener('click', e => {
+    const chip = e.target.closest('.fn-chip');
+    if (!chip) return;
+    const si = parseInt(chip.dataset.si, 10);
+    const snippet = SNIPPETS[si];
+    if (snippet) { editor.replaceRange(snippet.s, editor.getCursor()); editor.focus(); }
+  });
+}
+
+function selectCat(ci) {
+  activeCat = ci;
+  document.querySelectorAll('.footer-cat').forEach((el, i) =>
+    el.classList.toggle('active', i === ci));
+  renderChips();
+}
+
+function renderChips() {
+  const cat = SQL_CATS[activeCat];
+  const chipsEl = document.getElementById('footerChips');
+  chipsEl.innerHTML = '';
+  // find starting index in SNIPPETS for this cat
+  let si = SNIPPETS.findIndex(s => s.ci === activeCat);
+  cat.items.forEach((item, ii) => {
+    const chip = document.createElement('div');
+    chip.className = 'fn-chip';
+    chip.dataset.si = si + ii;
+    chip.title = item.s;
+    const nameEl = document.createElement('span');
+    nameEl.className = 'fn-name'; nameEl.textContent = item.n;
+    const descEl = document.createElement('span');
+    descEl.className = 'fn-desc'; descEl.textContent = item.d;
+    chip.appendChild(nameEl); chip.appendChild(descEl);
+    chipsEl.appendChild(chip);
+  });
+}
+
+// ════════════════════════════════════════════════════════════
+//  SAMPLE QUERIES DROPDOWN
+// ════════════════════════════════════════════════════════════
+function buildSamplesDropdown() {
+  const dd = document.getElementById('samplesDropdown');
+  SAMPLE_QUERIES.forEach(cat => {
+    const hdr = document.createElement('div');
+    hdr.className = 'samples-cat-header';
+    hdr.textContent = cat.cat;
+    dd.appendChild(hdr);
+    cat.queries.forEach(q => {
+      const item = document.createElement('div');
+      item.className = 'sample-item';
+      item.innerHTML = '<span class="si-icon">&#9654;</span>';
+      const label = document.createElement('span');
+      label.textContent = q.label;
+      item.appendChild(label);
+      item.onclick = () => {
+        editor.setValue(q.sql);
+        editor.focus();
+        closeSamples();
+      };
+      dd.appendChild(item);
+    });
+  });
+}
+
+function toggleSamples(e) {
+  e.stopPropagation();
+  document.getElementById('samplesDropdown').classList.toggle('open');
+}
+function closeSamples() {
+  document.getElementById('samplesDropdown').classList.remove('open');
+}
+document.addEventListener('click', closeSamples);
+
+// ════════════════════════════════════════════════════════════
+//  INIT
+// ════════════════════════════════════════════════════════════
+buildFooter();
+buildSamplesDropdown();
+initDB().catch(console.error);
+</script>
+</body>
+</html>
