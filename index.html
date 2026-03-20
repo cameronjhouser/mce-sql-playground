@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MCE SQL Playground</title>
-<link rel="icon" type="image/png" href="AcademyImage_AKey.png">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
@@ -19,85 +19,124 @@
   body { font-family: Arial, sans-serif; background: #0f1117; color: #e0e0e0;
          display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
 
-  /* ── TOP NAV ── */
-  .topnav {
+  /* ── HEADER ── */
+  .header {
     background: #0d1b2a; display: flex; align-items: center; gap: 10px;
     padding: 0 14px; height: 44px; flex-shrink: 0; border-bottom: 1px solid #1e3a5f;
   }
-  .logo { display: flex; align-items: center; }
-  .logo img { height: 32px; width: auto; display: block; }
-  .app-title { font-size: 14px; font-weight: bold; color: #fff; }
+  .logo img { height: 30px; width: auto; display: block; }
+  .app-title { font-size: 14px; font-weight: bold; color: #fff; white-space: nowrap; }
   .badge { background: #0070d2; color: #fff; font-size: 10px; font-weight: bold;
     padding: 2px 7px; border-radius: 3px; letter-spacing: .5px; }
-  .topnav-right { margin-left: auto; display: flex; gap: 8px; align-items: center; }
+  .warning-banner {
+    background: #2a1a00; border: 1px solid #7a4400; color: #f59e0b;
+    font-size: 11px; font-weight: bold; padding: 3px 10px; border-radius: 4px;
+    white-space: nowrap; letter-spacing: .2px;
+  }
+  .header-right { margin-left: auto; display: flex; gap: 8px; align-items: center; }
 
   /* Sample queries dropdown */
   .sample-wrap { position: relative; }
   .btn-samples {
     background: #1a1f2e; border: 1px solid #1e3a5f; color: #a0c4e8;
-    padding: 5px 12px; border-radius: 4px; font-size: 12px; cursor: pointer;
-    white-space: nowrap; display: flex; align-items: center; gap: 5px;
+    padding: 4px 11px; border-radius: 4px; font-size: 12px; cursor: pointer;
+    white-space: nowrap;
   }
   .btn-samples:hover { border-color: #0070d2; color: #fff; }
   .samples-dropdown {
     position: absolute; top: calc(100% + 4px); right: 0; z-index: 999;
     background: #0d1b2a; border: 1px solid #1e3a5f; border-radius: 6px;
-    min-width: 320px; max-height: 480px; overflow-y: auto;
+    min-width: 280px; max-height: 440px; overflow-y: auto;
     box-shadow: 0 8px 24px rgba(0,0,0,.6); display: none;
   }
   .samples-dropdown.open { display: block; }
   .samples-cat-header {
     font-size: 10px; font-weight: bold; letter-spacing: .8px; color: #0070d2;
-    padding: 8px 12px 4px; text-transform: uppercase; border-top: 1px solid #1e3a5f;
-    margin-top: 2px;
+    padding: 7px 12px 3px; text-transform: uppercase; border-top: 1px solid #1e3a5f;
   }
-  .samples-cat-header:first-child { border-top: none; margin-top: 0; }
+  .samples-cat-header:first-child { border-top: none; }
   .sample-item {
-    padding: 6px 12px; cursor: pointer; font-size: 12px; color: #c0d8f0;
+    padding: 5px 12px; cursor: pointer; font-size: 12px; color: #c0d8f0;
     display: flex; align-items: center; gap: 6px;
   }
   .sample-item:hover { background: #1a2f4a; color: #fff; }
   .sample-item .si-icon { font-size: 10px; color: #3a5a80; }
 
+  /* ── ACTION BAR (run/clear + samples) ── */
+  .action-bar {
+    background: #0a1520; border-bottom: 1px solid #1e3a5f;
+    display: flex; align-items: center; padding: 0 14px;
+    height: 36px; flex-shrink: 0; gap: 6px;
+  }
+
+  /* ── QUERY TOOLBAR (tabs only) ── */
+  .query-toolbar {
+    background: #0a1520; border-bottom: 1px solid #1e3a5f;
+    display: flex; align-items: center; padding: 0 14px;
+    height: 36px; flex-shrink: 0; gap: 6px;
+  }
+  .qtab {
+    font-size: 12px; padding: 0 12px; height: 36px; display: flex; align-items: center;
+    cursor: pointer; color: #7b9ec4; border-bottom: 2px solid transparent; white-space: nowrap;
+    gap: 6px;
+  }
+  .qtab.active { color: #fff; border-bottom-color: #0070d2; }
+  .qtab:hover:not(.active) { color: #ccc; }
+  .qtab-close {
+    font-size: 11px; color: #445; cursor: pointer; padding: 0 2px;
+    line-height: 1; border-radius: 2px;
+  }
+  .qtab-close:hover { color: #f87; background: #2a1010; }
+  .btn-add-tab {
+    background: none; border: 1px dashed #1e3a5f; color: #4a6a8a;
+    width: 24px; height: 24px; border-radius: 4px; cursor: pointer;
+    font-size: 16px; line-height: 1; display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .btn-add-tab:hover { border-color: #0070d2; color: #60a5fa; }
+  #qtabBar { display: flex; align-items: center; overflow-x: auto; max-width: calc(100vw - 220px); scrollbar-width: none; }
+  #qtabBar::-webkit-scrollbar { display: none; }
+  .toolbar-spacer { flex: 1; }
   .btn-run {
     background: #0070d2; color: #fff; border: none; padding: 5px 16px;
-    border-radius: 4px; font-size: 13px; font-weight: bold; cursor: pointer;
+    border-radius: 4px; font-size: 12px; font-weight: bold; cursor: pointer; white-space: nowrap;
   }
   .btn-run:hover { background: #005fb2; }
   .btn-run:disabled { background: #1e3a5f; color: #445; cursor: default; }
   .btn-clear {
     background: transparent; color: #7b9ec4; border: 1px solid #1e3a5f;
-    padding: 5px 12px; border-radius: 4px; font-size: 12px; cursor: pointer;
+    padding: 5px 11px; border-radius: 4px; font-size: 12px; cursor: pointer;
   }
   .btn-clear:hover { border-color: #0070d2; color: #fff; }
-
-  /* ── QUERY TABS ── */
-  .tabbar {
-    background: #0d1b2a; border-bottom: 1px solid #1e3a5f;
-    display: flex; align-items: center; padding: 0 14px; height: 32px; flex-shrink: 0; gap: 2px;
-  }
-  .tab {
-    font-size: 12px; padding: 0 14px; height: 32px; display: flex; align-items: center;
-    cursor: pointer; color: #7b9ec4; border-bottom: 2px solid transparent; white-space: nowrap;
-  }
-  .tab.active { color: #fff; border-bottom-color: #0070d2; }
-  .tab:hover:not(.active) { color: #ccc; }
 
   /* ── MAIN LAYOUT ── */
   .main { display: flex; flex: 1; overflow: hidden; min-height: 0; }
 
-  /* ── EDITOR PANE ── */
+  /* ── EDITOR ── */
   .editor-pane {
-    flex: 1; display: flex; flex-direction: column; border-right: 1px solid #1e3a5f; min-width: 0;
+    flex: 1; display: flex; flex-direction: column; min-width: 0;
   }
   .editor-wrap { flex: 1; overflow: hidden; }
   .editor-wrap .CodeMirror {
     height: 100%; font-size: 13px; font-family: 'Consolas','Courier New',monospace;
   }
 
-  /* ── RIGHT DATA PANE ── */
+  /* ── RIGHT PANEL RESIZER ── */
+  .v-pane-resizer {
+    width: 6px; flex-shrink: 0; cursor: ew-resize; background: #1e3a5f;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .v-pane-resizer::before {
+    content: ''; display: block; width: 2px; height: 40px;
+    border-radius: 2px; background: #3a5a80; transition: background .15s;
+  }
+  .v-pane-resizer:hover { background: #0d2a4a; }
+  .v-pane-resizer:hover::before { background: #0070d2; }
+
+  /* ── RIGHT PANEL ── */
   .data-pane {
-    width: 370px; flex-shrink: 0; display: flex; flex-direction: column; background: #111827;
+    width: 50vw; min-width: 200px; max-width: 70vw;
+    flex-shrink: 0; display: flex; flex-direction: column; background: #111827;
   }
   .data-tabs {
     display: flex; background: #0d1b2a; border-bottom: 1px solid #1e3a5f;
@@ -109,7 +148,6 @@
   }
   .data-tab.active { color: #fff; border-bottom-color: #0070d2; }
   .data-tab:hover:not(.active) { color: #ccc; }
-
   .panel-body {
     flex: 1; overflow-y: auto; padding: 8px 10px;
     display: flex; flex-direction: column; gap: 7px;
@@ -128,115 +166,154 @@
     padding: 5px 9px; border-radius: 4px; font-size: 12px; cursor: pointer; white-space: nowrap;
   }
   .btn-upload:hover { border-color: #0070d2; color: #fff; }
+  .btn-upload-wrap:hover .btn-upload { border-color: #0070d2; color: #fff; }
   #csvFileInput { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; }
   .de-info { font-size: 11px; color: #7b9ec4; flex-shrink: 0; }
-  .de-json-editor {
-    flex: 1; background: #0d1b2a; border: 1px solid #1e3a5f; color: #86efac;
-    font-family: 'Consolas','Courier New',monospace; font-size: 11px;
-    padding: 7px; border-radius: 4px; resize: none; min-height: 100px; overflow-y: auto;
+  .de-view {
+    flex: 1; display: flex; gap: 8px; min-height: 0; overflow: hidden;
   }
+  .de-rows-wrap {
+    flex: 1; overflow: auto; min-width: 0;
+    border: 1px solid #1e3a5f; border-radius: 4px; background: #07101c;
+  }
+  .de-schema-side {
+    flex: 1; min-height: 0; overflow-y: auto;
+    border: 1px solid #1e3a5f; border-radius: 4px;
+    background: #0d1b2a; padding: 6px 8px; display: flex; flex-direction: column; gap: 4px;
+  }
+  .de-schema-side .schema-col { padding: 2px 0; border-bottom: 1px solid #1a2540; }
+  .de-schema-side .schema-col:last-child { border-bottom: none; }
   .de-card {
     background: #1a1f2e; border: 1px solid #1e3a5f; border-radius: 5px;
-    padding: 6px 9px; display: flex; align-items: center; justify-content: space-between;
-    flex-shrink: 0;
+    padding: 6px 9px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;
+    cursor: pointer;
   }
+  .de-card:hover { border-color: #0070d2; background: #1e2a40; }
+  .de-card.active { border-color: #0070d2; background: #0d2240; }
   .de-card-name { font-size: 12px; font-weight: bold; color: #60a5fa; }
   .de-card-meta { font-size: 10px; color: #7b9ec4; }
   .de-card-del { background: none; border: none; color: #c03030; cursor: pointer; font-size: 13px; padding: 0 2px; }
   .de-card-del:hover { color: #f55; }
 
-  /* Results */
-  .results-meta { font-size: 11px; color: #7b9ec4; flex-shrink: 0; }
-  .results-wrap { flex: 1; overflow: auto; }
-  .results-table { width: 100%; border-collapse: collapse; font-size: 11px; }
-  .results-table th {
-    background: #0d1b2a; color: #60a5fa; padding: 5px 8px; text-align: left;
-    border-bottom: 1px solid #1e3a5f; white-space: nowrap; position: sticky; top: 0; z-index: 1;
-  }
-  .results-table td { padding: 4px 8px; border-bottom: 1px solid #1a2540; white-space: nowrap; color: #d0e8ff; }
-  .results-table tr:hover td { background: #1a1f2e; }
-  .empty-state { color: #3a4a5a; font-size: 12px; padding: 20px 0; text-align: center; }
-  .error-box {
-    background: #2a0d0d; border: 1px solid #7b1010; color: #f87171;
-    padding: 8px 10px; border-radius: 4px; font-size: 12px; font-family: monospace;
-  }
-
-  /* Schema */
+  /* Schema panel */
   .schema-table-name { font-size: 12px; font-weight: bold; color: #60a5fa; margin-bottom: 3px; }
   .schema-col { font-size: 11px; color: #7b9ec4; padding: 1px 0 1px 10px; }
   .schema-col span { color: #c0d8f0; }
-  .schema-type { color: #3a5a80; }
+  .schema-type { color: #3a5a80; font-size: 10px; font-weight: bold; }
+  .schema-type-integer { color: #86efac; }
+  .schema-type-decimal { color: #fcd34d; }
+  .schema-type-date     { color: #c084fc; }
+  .schema-type-datetime { color: #e879f9; }
+  .schema-type-text    { color: #3a5a80; }
 
-  /* ── FOOTER ── */
-  .footer {
-    background: #07101c; border-top: 2px solid #1e3a5f;
-    flex-shrink: 0;
+  /* SQL Functions panel */
+  .fn-panel-cats {
+    display: flex; flex-wrap: wrap; gap: 4px; padding: 6px 0 2px; flex-shrink: 0;
   }
-  .footer-cats {
-    display: flex; overflow-x: auto; padding: 0 12px;
-    scrollbar-width: none; border-bottom: 1px solid #1a2540;
+  .fn-panel-cat {
+    font-size: 10px; font-weight: bold; padding: 3px 8px; cursor: pointer;
+    background: #0d1b2a; border: 1px solid #1e3a5f; border-radius: 3px;
+    color: #4a6a8a; white-space: nowrap;
   }
-  .footer-cats::-webkit-scrollbar { display: none; }
-  .footer-cat {
-    font-size: 11px; font-weight: bold; padding: 5px 12px; cursor: pointer;
-    color: #4a6a8a; border-bottom: 2px solid transparent; white-space: nowrap; letter-spacing: .3px;
+  .fn-panel-cat.active { background: #0070d2; border-color: #0070d2; color: #fff; }
+  .fn-panel-cat:hover:not(.active) { color: #a0c0e0; border-color: #3a6a9a; }
+  .fn-chips-wrap {
+    flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 4px;
   }
-  .footer-cat.active { color: #fff; border-bottom-color: #0070d2; }
-  .footer-cat:hover:not(.active) { color: #a0c0e0; }
-  .footer-chips {
-    display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 5px;
-    padding: 5px 12px 7px;
-    scrollbar-width: thin; scrollbar-color: #1e3a5f transparent;
-    min-height: 54px; align-items: flex-start;
-  }
-  .footer-chips::-webkit-scrollbar { height: 3px; }
-  .footer-chips::-webkit-scrollbar-thumb { background: #1e3a5f; }
   .fn-chip {
-    display: flex; flex-direction: column; align-items: flex-start;
     background: #0d1b2a; border: 1px solid #1e3a5f; border-radius: 4px;
-    padding: 4px 8px; cursor: pointer; min-width: 76px; flex-shrink: 0;
+    padding: 5px 9px; cursor: pointer; display: flex; align-items: baseline; gap: 8px;
   }
   .fn-chip:hover { border-color: #0070d2; background: #101e32; }
-  .fn-name { font-size: 11px; font-weight: bold; color: #60a5fa; font-family: monospace; }
-  .fn-desc { font-size: 10px; color: #4a6a8a; margin-top: 1px; white-space: nowrap; }
+  .fn-name { font-size: 12px; font-weight: bold; color: #60a5fa; font-family: monospace; flex-shrink: 0; }
+  .fn-desc { font-size: 11px; color: #4a6a8a; }
+  .fn-doc-link {
+    margin-left: auto; flex-shrink: 0; font-size: 10px; font-weight: 600;
+    color: #3a5a80; border: 1px solid #1e3a5f; border-radius: 3px;
+    padding: 1px 5px; text-decoration: none; white-space: nowrap;
+    background: #07101c; line-height: 1.6;
+    transition: color .15s, border-color .15s, background .15s;
+  }
+  .fn-doc-link:hover { color: #60a5fa; border-color: #0070d2; background: #0d1b2a; }
+
+  /* ── RESULTS FOOTER ── */
+  .results-footer {
+    background: #07101c;
+    flex-shrink: 0; display: flex; flex-direction: column;
+    height: 180px; min-height: 36px; max-height: 80vh;
+  }
+  .results-resizer {
+    height: 6px; flex-shrink: 0; cursor: ns-resize;
+    background: #1e3a5f; border-top: 1px solid #1e3a5f;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .results-resizer::before {
+    content: ''; display: block; width: 40px; height: 2px;
+    border-radius: 2px; background: #3a5a80;
+    transition: background .15s;
+  }
+  .results-resizer:hover { background: #0d2a4a; }
+  .results-resizer:hover::before { background: #0070d2; }
+  .results-footer-header {
+    display: flex; align-items: center; gap: 10px; padding: 5px 12px;
+    border-bottom: 1px solid #1a2540; flex-shrink: 0; background: #0a1520;
+  }
+  .results-footer-title { font-size: 11px; font-weight: bold; color: #60a5fa; letter-spacing: .3px; }
+  .results-meta { font-size: 11px; color: #7b9ec4; }
+  .results-body { flex: 1; overflow: auto; padding: 0 4px; }
+  .results-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+  .results-table th {
+    background: #0a1520; color: #60a5fa; padding: 4px 8px; text-align: left;
+    border-bottom: 1px solid #1e3a5f; white-space: nowrap; position: sticky; top: 0; z-index: 1;
+  }
+  .results-table td { padding: 3px 8px; border-bottom: 1px solid #1a2540; white-space: nowrap; color: #d0e8ff; }
+  .results-table tr:hover td { background: #1a1f2e; }
+  .empty-state { color: #3a4a5a; font-size: 12px; padding: 16px; text-align: center; }
+  .error-box {
+    background: #2a0d0d; border: 1px solid #7b1010; color: #f87171;
+    padding: 8px 10px; border-radius: 4px; font-size: 12px; font-family: monospace; margin: 6px;
+  }
 
   /* scrollbars */
-  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
   ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: #1e3a5f; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb { background: #4a90d9; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #6aaff0; }
 </style>
 </head>
 <body>
 
-<!-- TOP NAV -->
-<div class="topnav">
+<!-- ── HEADER ── -->
+<div class="header">
   <div class="logo">
-    <img src="AcademyImage_WhiteText.png" alt="ListEngage Academy">
+    <img src="data:image/png;base64,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" alt="ListEngage Academy">
   </div>
   <span class="app-title">MCE SQL Playground</span>
   <span class="badge">SQL</span>
-  <div class="topnav-right">
-    <!-- Sample Queries Dropdown -->
-    <div class="sample-wrap">
-      <button class="btn-samples" id="samplesBtn" onclick="toggleSamples(event)">
-        &#9660; Sample Queries
-      </button>
-      <div class="samples-dropdown" id="samplesDropdown"></div>
-    </div>
-    <button class="btn-clear" onclick="clearEditor()">Clear</button>
-    <button class="btn-run" id="runBtn" onclick="runSQL()">&#9654; Run Query</button>
+  <span class="warning-banner">⚠ For learning purposes only — Do not use client data</span>
+  <div class="header-right"></div>
+</div>
+
+<!-- ── ACTION BAR: run/clear + samples ── -->
+<div class="action-bar">
+  <button class="btn-clear" onclick="clearEditor()">Clear</button>
+  <button class="btn-run" id="runBtn" onclick="runSQL()">&#9654; Run Query</button>
+  <div class="toolbar-spacer"></div>
+  <div class="sample-wrap">
+    <button class="btn-samples" id="samplesBtn" onclick="toggleSamples(event)">&#9660; Sample Queries</button>
+    <div class="samples-dropdown" id="samplesDropdown"></div>
   </div>
 </div>
 
-<!-- QUERY TABS -->
-<div class="tabbar">
-  <div class="tab active" id="tab-q1" onclick="switchTab('q1')">Query 1</div>
-  <div class="tab" id="tab-q2" onclick="switchTab('q2')">Query 2</div>
-  <div class="tab" id="tab-q3" onclick="switchTab('q3')">Query 3</div>
+<!-- ── QUERY TOOLBAR: tabs only ── -->
+<div class="query-toolbar">
+  <div id="qtabBar"></div>
+  <button class="btn-add-tab" id="btnAddTab" title="Add query tab" onclick="addTab()">+</button>
 </div>
 
-<!-- MAIN -->
+<!-- ── MAIN ── -->
 <div class="main">
+
   <!-- EDITOR -->
   <div class="editor-pane">
     <div class="editor-wrap">
@@ -244,12 +321,16 @@
     </div>
   </div>
 
+  <!-- VERTICAL RESIZER -->
+  <div class="v-pane-resizer" id="vPaneResizer"></div>
+
   <!-- RIGHT PANEL -->
   <div class="data-pane">
     <div class="data-tabs">
-      <div class="data-tab active" id="dtab-de" onclick="switchDataTab('de')">Data Extensions</div>
-      <div class="data-tab" id="dtab-results" onclick="switchDataTab('results')">Results</div>
-      <div class="data-tab" id="dtab-schema" onclick="switchDataTab('schema')">Schema</div>
+      <div class="data-tab active" id="dtab-de"        onclick="switchDataTab('de')">Data Extensions</div>
+      <div class="data-tab"        id="dtab-schema"    onclick="switchDataTab('schema')">Schema(s)</div>
+      <div class="data-tab"        id="dtab-functions" onclick="switchDataTab('functions')">SQL Functions</div>
+      
     </div>
 
     <!-- DE PANEL -->
@@ -265,16 +346,19 @@
       </div>
       <div id="deCardList"></div>
       <div class="de-info" id="deInfoLabel">No DE selected — upload a CSV to begin</div>
-      <textarea class="de-json-editor" id="deJsonEditor" spellcheck="false"
-        placeholder="Row preview shown here as JSON..."></textarea>
+      <div class="de-view">
+        <div class="de-rows-wrap" id="deRowsWrap"></div>
+        <div style="display:flex;flex-direction:column;width:115px;flex-shrink:0;gap:4px;min-height:0;overflow:hidden;">
+          <div style="font-size:10px;font-weight:bold;color:#60a5fa;letter-spacing:.6px;text-transform:uppercase;padding:2px 2px 0;">Schema</div>
+          <div class="de-schema-side" id="deSchemaWrap"></div>
+        </div>
+      </div>
     </div>
 
-    <!-- RESULTS PANEL -->
-    <div class="panel-body hidden" id="panel-results">
-      <div class="results-meta" id="resultsMeta">Run a query to see results.</div>
-      <div class="results-wrap" id="resultsWrap">
-        <div class="empty-state">No results yet.</div>
-      </div>
+    <!-- SQL FUNCTIONS PANEL -->
+    <div class="panel-body hidden" id="panel-functions">
+      <div class="fn-panel-cats" id="fnPanelCats"></div>
+      <div class="fn-chips-wrap" id="fnChipsWrap"></div>
     </div>
 
     <!-- SCHEMA PANEL -->
@@ -284,242 +368,188 @@
   </div>
 </div>
 
-<!-- FOOTER -->
-<div class="footer">
-  <div class="footer-cats" id="footerCats"></div>
-  <div class="footer-chips" id="footerChips"></div>
+<!-- ── RESULTS FOOTER ── -->
+<div class="results-footer" id="resultsFooter">
+  <div class="results-resizer" id="resultsResizer"></div>
+  <div class="results-footer-header">
+    <span class="results-footer-title" id="resultsLabel">RESULTS — Query 1</span>
+    <span class="results-meta" id="resultsMeta">Run a query to see results.</span>
+  </div>
+  <div class="results-body" id="resultsWrap">
+    <div class="empty-state">No results yet.</div>
+  </div>
 </div>
 
 <script>
 // ════════════════════════════════════════════════════════════
-//  DATA — FOOTER CHIPS
+//  SQL FUNCTION REFERENCE
 // ════════════════════════════════════════════════════════════
 const SQL_CATS = [
   { name: 'SELECT', items: [
-    { n: 'SELECT',       d: 'Choose columns',    s: 'SELECT ' },
-    { n: 'SELECT *',     d: 'All columns',        s: 'SELECT * FROM ' },
-    { n: 'SELECT TOP',   d: 'Limit rows',         s: 'SELECT TOP 100 ' },
-    { n: 'TOP PERCENT',  d: '% of rows',          s: 'SELECT TOP 10 PERCENT ' },
-    { n: 'DISTINCT',     d: 'Unique values',      s: 'SELECT DISTINCT ' },
-    { n: 'AS alias',     d: 'Column alias',       s: ' AS "MyAlias"' },
-    { n: 'FROM',         d: 'Source table',       s: 'FROM ' },
-    { n: 'ORDER BY ASC', d: 'Sort ascending',     s: 'ORDER BY col ASC' },
-    { n: 'ORDER BY DESC',d: 'Sort descending',    s: 'ORDER BY col DESC' },
-    { n: 'OFFSET/FETCH', d: 'Pagination',         s: 'ORDER BY col OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY' },
+    { n: 'SELECT',        d: 'Choose columns',     s: 'SELECT ',                                                                    doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-transact-sql' },
+    { n: 'SELECT *',      d: 'All columns',        s: 'SELECT * FROM ',                                                            doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-transact-sql' },
+    { n: 'SELECT TOP',    d: 'Limit rows',         s: 'SELECT TOP 100 ',                                                           doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/top-transact-sql' },
+    { n: 'TOP PERCENT',   d: '% of rows',          s: 'SELECT TOP 10 PERCENT ',                                                    doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/top-transact-sql' },
+    { n: 'DISTINCT',      d: 'Unique values',      s: 'SELECT DISTINCT ',                                                          doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-clause-transact-sql' },
+    { n: 'AS alias',      d: 'Column alias',       s: ' AS "MyAlias"',                                                            doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-clause-transact-sql' },
+    { n: 'ORDER BY ASC',  d: 'Sort ascending',     s: 'ORDER BY col ASC',                                                         doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-order-by-clause-transact-sql' },
+    { n: 'ORDER BY DESC', d: 'Sort descending',    s: 'ORDER BY col DESC',                                                        doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-order-by-clause-transact-sql' },
+    { n: 'OFFSET/FETCH',  d: 'Pagination',         s: 'ORDER BY col OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY',                      doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-order-by-clause-transact-sql' },
   ]},
   { name: 'FILTERING', items: [
-    { n: 'WHERE',        d: 'Filter rows',        s: 'WHERE ' },
-    { n: '= equal',      d: 'Exact match',        s: "WHERE col = 'value'" },
-    { n: '<> not equal', d: 'Exclude value',      s: "WHERE col <> 'value'" },
-    { n: 'BETWEEN',      d: 'Range filter',       s: "WHERE col BETWEEN 'a' AND 'b'" },
-    { n: 'IN (...)',     d: 'List filter',        s: "WHERE col IN ('a','b','c')" },
-    { n: 'NOT IN',       d: 'Exclude list',       s: "WHERE col NOT IN ('a','b')" },
-    { n: 'IS NULL',      d: 'Null check',         s: 'WHERE col IS NULL' },
-    { n: 'IS NOT NULL',  d: 'Non-null check',     s: 'WHERE col IS NOT NULL' },
-    { n: 'LIKE %',       d: 'Contains pattern',   s: "WHERE col LIKE '%value%'" },
-    { n: 'LIKE _',       d: 'Single char',        s: "WHERE col LIKE '_a%'" },
-    { n: 'LIKE [...]',   d: 'Char group',         s: "WHERE col LIKE '[ABC]%'" },
-    { n: 'LIKE [^...]',  d: 'Exclude chars',      s: "WHERE col LIKE '[^C]%'" },
+    { n: 'WHERE',         d: 'Filter rows',        s: 'WHERE ',                                                                    doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/where-transact-sql' },
+    { n: '= equal',       d: 'Exact match',        s: "WHERE col = 'value'",                                                      doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/equals-transact-sql' },
+    { n: '<> not equal',  d: 'Exclude value',      s: "WHERE col <> 'value'",                                                     doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/not-equal-to-transact-sql-traditional' },
+    { n: 'BETWEEN',       d: 'Range filter',       s: "WHERE col BETWEEN 'a' AND 'b'",                                            doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/between-transact-sql' },
+    { n: 'IN (...)',      d: 'List filter',        s: "WHERE col IN ('a','b','c')",                                               doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/in-transact-sql' },
+    { n: 'NOT IN',        d: 'Exclude list',       s: "WHERE col NOT IN ('a','b')",                                              doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/in-transact-sql' },
+    { n: 'IS NULL',       d: 'Null check',         s: 'WHERE col IS NULL',                                                        doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/is-null-transact-sql' },
+    { n: 'IS NOT NULL',   d: 'Non-null check',     s: 'WHERE col IS NOT NULL',                                                    doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/is-null-transact-sql' },
+    { n: 'LIKE %',        d: 'Contains pattern',   s: "WHERE col LIKE '%value%'",                                                 doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/like-transact-sql' },
+    { n: 'LIKE _',        d: 'Single char wildcard',s: "WHERE col LIKE '_a%'",                                                   doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/like-transact-sql' },
+    { n: 'LIKE [...]',    d: 'Char group',         s: "WHERE col LIKE '[ABC]%'",                                                  doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/like-transact-sql' },
   ]},
   { name: 'LOGIC', items: [
-    { n: 'AND',          d: 'Both true',          s: ' AND ' },
-    { n: 'OR',           d: 'Either true',        s: ' OR ' },
-    { n: 'NOT',          d: 'Negate',             s: 'NOT ' },
-    { n: 'NOT BETWEEN',  d: 'Exclude range',      s: 'WHERE col NOT BETWEEN 10 AND 20' },
-    { n: 'AND+OR combo', d: 'Grouped logic',      s: "WHERE col1 = 'a' AND (col2 = 'b' OR col2 = 'c')" },
+    { n: 'AND',           d: 'Both true',          s: ' AND ',                                                                    doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/and-transact-sql' },
+    { n: 'OR',            d: 'Either true',        s: ' OR ',                                                                     doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/or-transact-sql' },
+    { n: 'NOT',           d: 'Negate condition',   s: 'NOT ',                                                                     doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/not-transact-sql' },
+    { n: 'NOT BETWEEN',   d: 'Exclude range',      s: 'WHERE col NOT BETWEEN 10 AND 20',                                          doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/between-transact-sql' },
+    { n: 'AND + OR',      d: 'Grouped logic',      s: "WHERE col1 = 'a' AND (col2 = 'b' OR col2 = 'c')",                        doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/logical-operators-transact-sql' },
   ]},
   { name: 'STRING', items: [
-    { n: 'CONCAT()',     d: 'Join strings',       s: "CONCAT(FirstName, ' ', LastName)" },
-    { n: 'UPPER()',      d: 'Uppercase',           s: 'UPPER(col)' },
-    { n: 'LOWER()',      d: 'Lowercase',           s: 'LOWER(col)' },
-    { n: 'LTRIM()',      d: 'Trim left',           s: 'LTRIM(col)' },
-    { n: 'RTRIM()',      d: 'Trim right',          s: 'RTRIM(col)' },
-    { n: 'LEN()',        d: 'String length',       s: 'LEN(col)' },
-    { n: 'CHARINDEX()',  d: 'Find position',       s: "CHARINDEX('x', col)" },
-    { n: 'SUBSTRING()',  d: 'Extract part',        s: 'SUBSTRING(col, 1, 5)' },
-    { n: 'REPLACE()',    d: 'Replace text',        s: "REPLACE(col, 'old', 'new')" },
-    { n: 'STUFF()',      d: 'Insert/replace',      s: "STUFF(col, 1, 3, 'new')" },
+    { n: 'CONCAT()',      d: 'Join strings',       s: "CONCAT(FirstName, ' ', LastName)",                                        doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/concat-transact-sql' },
+    { n: 'UPPER()',       d: 'Uppercase',           s: 'UPPER(col)',                                                              doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/upper-transact-sql' },
+    { n: 'LOWER()',       d: 'Lowercase',           s: 'LOWER(col)',                                                              doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/lower-transact-sql' },
+    { n: 'LTRIM()',       d: 'Trim left spaces',    s: 'LTRIM(col)',                                                              doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/ltrim-transact-sql' },
+    { n: 'RTRIM()',       d: 'Trim right spaces',   s: 'RTRIM(col)',                                                              doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/rtrim-transact-sql' },
+    { n: 'LEN()',         d: 'String length',       s: 'LEN(col)',                                                                doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/len-transact-sql' },
+    { n: 'CHARINDEX()',   d: 'Find char position',  s: "CHARINDEX('x', col)",                                                    doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/charindex-transact-sql' },
+    { n: 'SUBSTRING()',   d: 'Extract part',        s: 'SUBSTRING(col, 1, 5)',                                                    doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/substring-transact-sql' },
+    { n: 'REPLACE()',     d: 'Replace text',        s: "REPLACE(col, 'old', 'new')",                                              doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/replace-transact-sql' },
+    { n: 'STUFF()',       d: 'Insert into string',  s: "STUFF(col, 1, 3, 'new')",                                                doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/stuff-transact-sql' },
   ]},
   { name: 'DATE', items: [
-    { n: 'GETDATE()',    d: 'Current datetime',    s: 'GETDATE()' },
-    { n: 'DATEPART()',   d: 'Extract part',        s: 'DATEPART(YEAR, col)' },
-    { n: 'DATENAME()',   d: 'Named part',          s: 'DATENAME(WEEKDAY, col)' },
-    { n: 'DATEDIFF()',   d: 'Days between dates',  s: 'DATEDIFF(day, StartDate, GETDATE())' },
-    { n: 'DATEADD()',    d: 'Add to date',         s: 'DATEADD(day, 30, GETDATE())' },
-    { n: 'CONVERT date', d: 'Format date',         s: 'CONVERT(NVARCHAR, col, 112)' },
-    { n: 'Birthday mo.', d: 'Current month filter',s: 'DATEPART(MONTH, Birthdate) = DATEPART(MONTH, GETDATE())' },
+    { n: 'GETDATE()',     d: 'Current datetime',    s: 'GETDATE()',                                                               doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/getdate-transact-sql' },
+    { n: 'DATEPART()',    d: 'Extract date part',   s: 'DATEPART(YEAR, col)',                                                     doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/datepart-transact-sql' },
+    { n: 'DATENAME()',    d: 'Named date part',     s: 'DATENAME(WEEKDAY, col)',                                                  doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/datename-transact-sql' },
+    { n: 'DATEDIFF()',    d: 'Days between dates',  s: 'DATEDIFF(day, StartDate, GETDATE())',                                    doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/datediff-transact-sql' },
+    { n: 'DATEADD()',     d: 'Add to date',         s: 'DATEADD(day, 30, GETDATE())',                                            doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/dateadd-transact-sql' }
   ]},
   { name: 'CONVERT', items: [
-    { n: 'CAST INT',     d: 'To integer',          s: 'CAST(col AS INT)' },
-    { n: 'CAST decimal', d: 'To decimal',          s: 'CAST(col AS DECIMAL(18,2))' },
-    { n: 'CAST text',    d: 'To varchar',          s: 'CAST(col AS NVARCHAR(254))' },
-    { n: 'CONVERT()',    d: 'Convert type',        s: 'CONVERT(INT, col)' },
-    { n: 'NULLIF()',     d: 'Null if equal',       s: 'NULLIF(col1, col2)' },
+    { n: 'CAST',          d: 'Cast type',           s: 'CAST ( expression AS data_type [ ( length ) ] )',                        doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/cast-and-convert-transact-sql' },
+    { n: 'CONVERT()',     d: 'Convert type',        s: 'CONVERT ( data_type [ ( length ) ] , expression [ , style ] )',         doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/cast-and-convert-transact-sql' },
+    { n: 'NULLIF()',      d: 'Null if equal',       s: 'NULLIF(col1, col2)',                                                     doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/nullif-transact-sql' },
   ]},
   { name: 'AGGREGATE', items: [
-    { n: 'COUNT(*)',     d: 'Count all rows',      s: 'COUNT(*)' },
-    { n: 'COUNT(col)',   d: 'Count non-null',      s: 'COUNT(col)' },
-    { n: 'COUNT DIST.',  d: 'Count unique',        s: 'COUNT(DISTINCT col)' },
-    { n: 'SUM()',        d: 'Total',               s: 'SUM(col)' },
-    { n: 'AVG()',        d: 'Average',             s: 'AVG(col)' },
-    { n: 'MIN()',        d: 'Minimum',             s: 'MIN(col)' },
-    { n: 'MAX()',        d: 'Maximum',             s: 'MAX(col)' },
-    { n: 'ROUND()',      d: 'Round number',        s: 'ROUND(col, 2)' },
-    { n: 'Null %',       d: 'Null percentage',     s: '(COUNT(*) - COUNT(col)) * 100 / COUNT(*) AS NullPct' },
+    { n: 'COUNT(*)',      d: 'Count all rows',      s: 'COUNT(*)',                                                               doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/count-transact-sql' },
+    { n: 'COUNT(col)',    d: 'Count non-null',      s: 'COUNT(col)',                                                             doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/count-transact-sql' },
+    { n: 'COUNT DIST.',   d: 'Count unique',        s: 'COUNT(DISTINCT col)',                                                    doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/count-transact-sql' },
+    { n: 'SUM()',         d: 'Total',               s: 'SUM(col)',                                                               doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/sum-transact-sql' },
+    { n: 'AVG()',         d: 'Average',             s: 'AVG(col)',                                                               doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/avg-transact-sql' },
+    { n: 'MIN()',         d: 'Minimum value',       s: 'MIN(col)',                                                               doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/min-transact-sql' },
+    { n: 'MAX()',         d: 'Maximum value',       s: 'MAX(col)',                                                               doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/max-transact-sql' },
+    { n: 'ROUND()',       d: 'Round number',        s: 'ROUND(col, 2)',                                                          doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/round-transact-sql' },
   ]},
   { name: 'GROUP BY', items: [
-    { n: 'GROUP BY',     d: 'Group rows',          s: 'GROUP BY col' },
-    { n: 'HAVING',       d: 'Filter groups',       s: 'HAVING COUNT(*) > 1' },
-    { n: 'HAVING AVG',   d: 'Avg threshold',       s: 'HAVING AVG(col) > 1000' },
-    { n: 'ROLLUP',       d: 'Subtotals',           s: 'GROUP BY ROLLUP(col1, col2)' },
-    { n: 'CUBE',         d: 'All subtotals',       s: 'GROUP BY CUBE(col1, col2)' },
+    { n: 'GROUP BY',      d: 'Group rows',          s: 'GROUP BY col',                                                          doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-group-by-transact-sql' },
+    { n: 'HAVING',        d: 'Filter groups',       s: 'HAVING COUNT(*) > 1',                                                   doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-having-transact-sql' },
+    { n: 'ROLLUP',        d: 'Subtotals',           s: 'GROUP BY ROLLUP(col1, col2)',                                           doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-group-by-transact-sql' },
+    { n: 'CUBE',          d: 'All subtotals',       s: 'GROUP BY CUBE(col1, col2)',                                             doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-group-by-transact-sql' },
   ]},
   { name: 'CASE', items: [
-    { n: 'CASE WHEN',    d: 'Conditional col',     s: "CASE\n  WHEN col > 10 THEN 'High'\n  WHEN col > 5 THEN 'Mid'\n  ELSE 'Low'\nEND AS Category" },
-    { n: 'CASE simple',  d: 'Exact match',         s: "CASE col\n  WHEN 'A' THEN 'Alpha'\n  WHEN 'B' THEN 'Beta'\n  ELSE 'Other'\nEND" },
-    { n: 'CASE range',   d: 'Tier buckets',        s: "CASE\n  WHEN Amount > 10000 THEN 'Platinum'\n  WHEN Amount > 5000 THEN 'Gold'\n  WHEN Amount > 1000 THEN 'Silver'\n  ELSE 'Bronze'\nEND AS Tier" },
+    { n: 'CASE WHEN',     d: 'Conditional column',  s: "CASE\n  WHEN col > 10 THEN 'High'\n  WHEN col > 5 THEN 'Mid'\n  ELSE 'Low'\nEND AS Category",                                  doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/case-transact-sql' },
+    { n: 'CASE simple',   d: 'Exact match',         s: "CASE col\n  WHEN 'A' THEN 'Alpha'\n  WHEN 'B' THEN 'Beta'\n  ELSE 'Other'\nEND",                                              doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/case-transact-sql' },
+    { n: 'CASE range',    d: 'Tier buckets',        s: "CASE\n  WHEN Amount > 10000 THEN 'Platinum'\n  WHEN Amount > 5000 THEN 'Gold'\n  WHEN Amount > 1000 THEN 'Silver'\n  ELSE 'Bronze'\nEND AS Tier", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/case-transact-sql' },
   ]},
   { name: 'JOINS', items: [
-    { n: 'INNER JOIN',   d: 'Matching rows',       s: 'INNER JOIN table2 t2 ON t1.id = t2.id' },
-    { n: 'LEFT JOIN',    d: 'All left rows',       s: 'LEFT JOIN table2 t2 ON t1.id = t2.id' },
-    { n: 'RIGHT JOIN',   d: 'All right rows',      s: 'RIGHT OUTER JOIN table2 t2 ON t1.id = t2.id' },
-    { n: 'FULL OUTER',   d: 'All rows both',       s: 'FULL OUTER JOIN table2 t2 ON t1.id = t2.id' },
-    { n: 'LEFT excl.',   d: 'No match rows',       s: 'LEFT JOIN table2 t2 ON t1.id = t2.id\nWHERE t2.id IS NULL' },
-    { n: '3-table JOIN', d: 'Chain joins',         s: 'INNER JOIN t2 ON t1.id = t2.id\nINNER JOIN t3 ON t2.id = t3.id' },
-    { n: 'INTERSECT',    d: 'Common rows',         s: 'SELECT col FROM t1\nINTERSECT\nSELECT col FROM t2' },
+    { n: 'INNER JOIN',    d: 'Matching rows only',  s: 'INNER JOIN table2 t2 ON t1.id = t2.id',                                doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql' },
+    { n: 'LEFT JOIN',     d: 'All left rows',       s: 'LEFT JOIN table2 t2 ON t1.id = t2.id',                                 doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql' },
+    { n: 'RIGHT JOIN',    d: 'All right rows',      s: 'RIGHT OUTER JOIN table2 t2 ON t1.id = t2.id',                          doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql' },
+    { n: 'FULL OUTER',    d: 'All rows both tables',s: 'FULL OUTER JOIN table2 t2 ON t1.id = t2.id',                           doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql' },
+    { n: 'INTERSECT',     d: 'Common rows',         s: 'SELECT col FROM t1\nINTERSECT\nSELECT col FROM t2',                    doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/set-operators-intersect-transact-sql' },
   ]},
   { name: 'WINDOW', items: [
-    { n: 'RANK()',        d: 'Rank with gaps',      s: 'RANK() OVER (ORDER BY col DESC) AS Rnk' },
-    { n: 'DENSE_RANK()', d: 'Rank no gaps',        s: 'DENSE_RANK() OVER (ORDER BY col DESC) AS DRnk' },
-    { n: 'ROW_NUMBER()', d: 'Row sequence',        s: 'ROW_NUMBER() OVER (ORDER BY col DESC) AS RowNum' },
-    { n: 'PARTITION BY', d: 'Rank within group',   s: 'RANK() OVER (PARTITION BY group_col ORDER BY col DESC) AS GroupRank' },
-    { n: 'SUM OVER',     d: 'Running total',       s: 'SUM(col) OVER (ORDER BY col2) AS RunTotal' },
-    { n: 'AVG OVER',     d: 'Running avg',         s: 'AVG(col) OVER (ORDER BY col2) AS RunAvg' },
-    { n: 'ROWS BETWEEN', d: 'Cumulative sum',      s: 'SUM(col) OVER (\n  ORDER BY col2\n  ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW\n) AS CumSum' },
-    { n: '30-day avg',   d: 'Moving average',      s: 'AVG(col) OVER (\n  ORDER BY DateCol\n  ROWS BETWEEN 29 PRECEDING AND CURRENT ROW\n) AS Avg30Day' },
-    { n: 'OVER ()',      d: 'Global aggregate',    s: 'MIN(col) OVER () AS GlobalMin, MAX(col) OVER () AS GlobalMax' },
+    { n: 'RANK()',         d: 'Rank with gaps',      s: 'RANK() OVER (ORDER BY col DESC) AS Rnk',                               doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/rank-transact-sql' },
+    { n: 'DENSE_RANK()',   d: 'Rank no gaps',        s: 'DENSE_RANK() OVER (ORDER BY col DESC) AS DRnk',                       doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/dense-rank-transact-sql' },
+    { n: 'ROW_NUMBER()',   d: 'Row sequence',        s: 'ROW_NUMBER() OVER (ORDER BY col DESC) AS RowNum',                      doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/row-number-transact-sql' },
+    { n: 'PARTITION BY',   d: 'Rank within group',   s: 'RANK() OVER (PARTITION BY group_col ORDER BY col DESC) AS GroupRank', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-over-clause-transact-sql' },
+    { n: 'SUM OVER',       d: 'Running total',       s: 'SUM(col) OVER (ORDER BY col2) AS RunTotal',                           doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-over-clause-transact-sql' }
   ]},
   { name: 'SFMC', items: [
-    { n: 'ent. prefix',  d: 'Shared DE',           s: 'SELECT * FROM ent.DEName' },
-    { n: '[Field Name]', d: 'Space in field',      s: '[Field Name]' },
-    { n: '_Open DV',     d: 'Open data view',      s: 'ENT.OpenDataView o' },
-    { n: '_Sent DV',     d: 'Sent data view',      s: 'ENT.SentDataView s' },
-    { n: '_Click DV',    d: 'Click data view',     s: 'ENT.ClickDataView c' },
-    { n: '_Bounce DV',   d: 'Bounce data view',    s: 'ENT.BounceDataView b' },
-    { n: '_Unsub DV',    d: 'Unsub data view',     s: 'ENT.UnsubscribeDataView u' },
-    { n: 'ORDER BY fix', d: 'Automation fix',      s: 'ORDER BY col OFFSET 0 ROWS' },
+    { n: 'ent. prefix',   d: 'Shared DE query',     s: 'SELECT * FROM ent.DEName',                                             doc: 'https://help.salesforce.com/s/articleView?id=sf.mc_as_using_data_extensions_in_query_activities.htm&type=5' },
+    { n: '[Field Name]',  d: 'Bracket field spaces', s: '[Field Name]',                                                        doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/reserved-keywords-transact-sql' },
+    { n: '[Data View]',   d: 'Data view',            s: '_[Data View]',                                                        doc: 'https://help.salesforce.com/s/articleView?id=sf.mc_as_data_views.htm&type=5' }
   ]},
 ];
 
 // ════════════════════════════════════════════════════════════
-//  DATA — SAMPLE QUERIES
+//  SAMPLE QUERIES (simplified — most common only)
 // ════════════════════════════════════════════════════════════
 const SAMPLE_QUERIES = [
-  { cat: 'SELECT & ORDER BY', queries: [
-    { label: 'Basic SELECT with ORDER BY',
-      sql: `SELECT *\nFROM Subscribers\nORDER BY LastName ASC` },
-    { label: 'SELECT TOP 100 specific columns',
-      sql: `SELECT TOP 100\n  [First Name],\n  [Last Name],\n  [Email Address],\n  State,\n  Tier\nFROM Subscribers\nORDER BY [Last Name] ASC` },
+  { cat: 'SELECT', queries: [
+    { label: 'Basic SELECT with WHERE + ORDER BY',
+      sql: "SELECT TOP 100 *\nFROM Subscribers\nWHERE State = 'TX'\n  AND Tier >= 4\nORDER BY LastName ASC" },
     { label: 'SELECT DISTINCT values',
-      sql: `SELECT DISTINCT State\nFROM Subscribers\nORDER BY State ASC` },
-    { label: 'OFFSET / FETCH pagination',
-      sql: `SELECT [First Name], [Last Name], [Email Address]\nFROM Subscribers\nORDER BY [Last Name] ASC\nOFFSET 0 ROWS FETCH NEXT 25 ROWS ONLY` },
+      sql: "SELECT DISTINCT State\nFROM Subscribers\nORDER BY State ASC" },
   ]},
-  { cat: 'WHERE / FILTERING', queries: [
-    { label: 'Filter by state and tier',
-      sql: `SELECT [First Name], [Last Name], [Email Address], State, Tier\nFROM Subscribers\nWHERE State = 'TX'\n  AND Tier >= 4\nORDER BY Tier DESC` },
+  { cat: 'FILTERING', queries: [
     { label: 'BETWEEN date range',
-      sql: `SELECT [First Name], [Last Name], Birthdate\nFROM Subscribers\nWHERE Birthdate BETWEEN '1980-01-01' AND '1990-12-31'\nORDER BY Birthdate ASC` },
-    { label: 'IN list filter',
-      sql: `SELECT [First Name], [Last Name], State\nFROM Subscribers\nWHERE State IN ('TX', 'CA', 'NY', 'FL')\nORDER BY State, [Last Name]` },
-    { label: 'IS NULL — find missing data',
-      sql: `SELECT [Subscriber Key], [Email Address], [Last Name]\nFROM Subscribers\nWHERE [Last Name] IS NULL\n   OR [Last Name] = ''` },
-    { label: 'LIKE pattern matching',
-      sql: `SELECT [First Name], [Last Name], [Email Address]\nFROM Subscribers\nWHERE [Email Address] LIKE '%gmail.com'\n  AND [Last Name] LIKE '[A-M]%'\nORDER BY [Last Name] ASC` },
+      sql: "SELECT [First Name], [Last Name], Birthdate\nFROM Subscribers\nWHERE Birthdate BETWEEN '1980-01-01' AND '1990-12-31'" },
+    { label: 'IN list + IS NULL check',
+      sql: "SELECT [First Name], [Last Name], [Email Address], State\nFROM Subscribers\nWHERE State IN ('TX','CA','NY')\n  AND [Email Address] IS NOT NULL" },
+    { label: 'LIKE pattern match',
+      sql: "SELECT [First Name], [Last Name], [Email Address]\nFROM Subscribers\nWHERE [Email Address] LIKE '%gmail.com'" },
   ]},
   { cat: 'STRING Functions', queries: [
-    { label: 'CONCAT — full name column',
-      sql: `SELECT\n  CONCAT([First Name], ' ', [Last Name]) AS FullName,\n  [Email Address],\n  State\nFROM Subscribers\nORDER BY [Last Name] ASC` },
-    { label: 'UPPER / LOWER formatting',
-      sql: `SELECT\n  UPPER([Last Name]) AS LastName,\n  LOWER([First Name]) AS FirstName,\n  [Email Address]\nFROM Subscribers\nWHERE UPPER([Last Name]) LIKE '%SON%'` },
-    { label: 'LEN — filter by name length',
-      sql: `SELECT [First Name], [Last Name], LEN([Last Name]) AS NameLen\nFROM Subscribers\nWHERE LEN([Last Name]) < 5\nORDER BY NameLen ASC` },
-    { label: 'REPLACE — clean whitespace',
-      sql: `SELECT\n  [Subscriber Key],\n  REPLACE([Email Address], ' ', '') AS CleanEmail\nFROM Subscribers\nORDER BY CleanEmail` },
-    { label: 'CHARINDEX — find char position',
-      sql: `SELECT\n  [Email Address],\n  CHARINDEX('@', [Email Address]) AS AtPosition,\n  SUBSTRING([Email Address], CHARINDEX('@', [Email Address]) + 1, 50) AS Domain\nFROM Subscribers` },
+    { label: 'CONCAT full name + UPPER/LOWER',
+      sql: "SELECT\n  CONCAT(UPPER([Last Name]), ', ', [First Name]) AS FullName,\n  [Email Address]\nFROM Subscribers\nORDER BY [Last Name] ASC" },
+    { label: 'CHARINDEX — extract email domain',
+      sql: "SELECT\n  [Email Address],\n  SUBSTRING([Email Address], CHARINDEX('@', [Email Address]) + 1, 50) AS Domain\nFROM Subscribers" },
   ]},
   { cat: 'DATE Functions', queries: [
-    { label: 'DATEPART — birthday this month',
-      sql: `SELECT [First Name], [Last Name], [Email Address], Birthdate\nFROM Subscribers\nWHERE DATEPART(MONTH, Birthdate) = DATEPART(MONTH, date('now'))\nORDER BY DATEPART(DAY, Birthdate) ASC` },
-    { label: 'DATEDIFF — days since last transaction',
-      sql: `SELECT\n  [First Name], [Last Name],\n  LastTransaction,\n  CAST(julianday('now') - julianday(LastTransaction) AS INT) AS DaysSince\nFROM Subscribers\nORDER BY DaysSince DESC` },
-    { label: 'DATEPART — filter by year range',
-      sql: `SELECT [First Name], [Last Name], Birthdate\nFROM Subscribers\nWHERE CAST(strftime('%Y', Birthdate) AS INT) BETWEEN 1985 AND 1995\nORDER BY Birthdate ASC` },
+    { label: 'Birthday this month',
+      sql: "SELECT [First Name], [Last Name], [Email Address], Birthdate\nFROM Subscribers\nWHERE DATEPART(MONTH, Birthdate) = DATEPART(MONTH, date('now'))" },
+    { label: 'Days since last transaction',
+      sql: "SELECT [First Name], [Last Name],\n  LastTransaction,\n  CAST(julianday('now') - julianday(LastTransaction) AS INT) AS DaysSince\nFROM Subscribers\nORDER BY DaysSince DESC" },
   ]},
-  { cat: 'AGGREGATE Functions', queries: [
-    { label: 'COUNT rows and nulls',
-      sql: `SELECT\n  COUNT(*) AS TotalRows,\n  COUNT([Email Address]) AS WithEmail,\n  COUNT(*) - COUNT([Email Address]) AS MissingEmail\nFROM Subscribers` },
-    { label: 'MIN / MAX / AVG on numeric field',
-      sql: `SELECT\n  MIN(CAST(Tier AS INTEGER)) AS MinTier,\n  MAX(CAST(Tier AS INTEGER)) AS MaxTier,\n  AVG(CAST(Tier AS REAL)) AS AvgTier,\n  COUNT(*) AS Total\nFROM Subscribers` },
-    { label: 'COUNT DISTINCT — unique states',
-      sql: `SELECT\n  COUNT(DISTINCT State) AS UniqueStates,\n  COUNT(*) AS TotalRows\nFROM Subscribers` },
+  { cat: 'AGGREGATE', queries: [
+    { label: 'COUNT rows + null check',
+      sql: "SELECT\n  COUNT(*) AS TotalRows,\n  COUNT([Email Address]) AS WithEmail,\n  COUNT(*) - COUNT([Email Address]) AS MissingEmail\nFROM Subscribers" },
+    { label: 'GROUP BY state with HAVING',
+      sql: "SELECT State, COUNT(*) AS Total\nFROM Subscribers\nWHERE State IS NOT NULL\nGROUP BY State\nHAVING COUNT(*) > 5\nORDER BY Total DESC" },
   ]},
-  { cat: 'GROUP BY & HAVING', queries: [
-    { label: 'GROUP BY state — count per state',
-      sql: `SELECT State, COUNT(*) AS Total\nFROM Subscribers\nWHERE State IS NOT NULL\nGROUP BY State\nORDER BY Total DESC` },
-    { label: 'GROUP BY + HAVING — states with many subscribers',
-      sql: `SELECT State, COUNT(*) AS Total\nFROM Subscribers\nGROUP BY State\nHAVING COUNT(*) > 10\nORDER BY Total DESC` },
-    { label: 'GROUP BY + AVG — avg tier per state',
-      sql: `SELECT\n  State,\n  COUNT(*) AS Total,\n  ROUND(AVG(CAST(Tier AS REAL)), 2) AS AvgTier\nFROM Subscribers\nWHERE State IS NOT NULL\nGROUP BY State\nORDER BY AvgTier DESC` },
-    { label: 'HAVING — find duplicate emails',
-      sql: `SELECT [Email Address], COUNT(*) AS DupeCount\nFROM Subscribers\nGROUP BY [Email Address]\nHAVING COUNT(*) > 1\nORDER BY DupeCount DESC` },
-  ]},
-  { cat: 'CASE Statement', queries: [
-    { label: 'CASE — tier label',
-      sql: `SELECT\n  [First Name], [Last Name], Tier,\n  CASE CAST(Tier AS INTEGER)\n    WHEN 5 THEN 'Platinum'\n    WHEN 4 THEN 'Gold'\n    WHEN 3 THEN 'Silver'\n    WHEN 2 THEN 'Bronze'\n    ELSE 'Standard'\n  END AS TierLabel\nFROM Subscribers\nORDER BY CAST(Tier AS INTEGER) DESC` },
-    { label: 'CASE — activity buckets',
-      sql: `SELECT\n  [First Name], [Last Name], ActivityLevel,\n  CASE\n    WHEN ActivityLevel = 'Daily' THEN 'High'\n    WHEN ActivityLevel = 'Often' THEN 'Medium'\n    WHEN ActivityLevel = 'Sometimes' THEN 'Low'\n    ELSE 'Inactive'\n  END AS EngagementBucket\nFROM Subscribers\nORDER BY EngagementBucket` },
-    { label: 'CASE in GROUP BY — sales buckets',
-      sql: `SELECT\n  CASE\n    WHEN CAST(Amount AS REAL) > 10000 THEN 'Platinum'\n    WHEN CAST(Amount AS REAL) > 5000 THEN 'Gold'\n    WHEN CAST(Amount AS REAL) > 1000 THEN 'Silver'\n    ELSE 'Bronze'\n  END AS AmountBucket,\n  COUNT(*) AS Total,\n  ROUND(AVG(CAST(Amount AS REAL)), 2) AS AvgAmount\nFROM Sales_Opportunities\nGROUP BY\n  CASE\n    WHEN CAST(Amount AS REAL) > 10000 THEN 'Platinum'\n    WHEN CAST(Amount AS REAL) > 5000 THEN 'Gold'\n    WHEN CAST(Amount AS REAL) > 1000 THEN 'Silver'\n    ELSE 'Bronze'\n  END\nORDER BY AvgAmount DESC` },
+  { cat: 'CASE', queries: [
+    { label: 'Tier label with CASE',
+      sql: "SELECT [First Name], [Last Name],\n  CASE CAST(Tier AS INTEGER)\n    WHEN 5 THEN 'Platinum'\n    WHEN 4 THEN 'Gold'\n    WHEN 3 THEN 'Silver'\n    ELSE 'Standard'\n  END AS TierLabel\nFROM Subscribers\nORDER BY CAST(Tier AS INTEGER) DESC" },
   ]},
   { cat: 'JOINs', queries: [
-    { label: 'INNER JOIN — matching records only',
-      sql: `SELECT\n  t1.[First Name],\n  t1.[Last Name],\n  t1.[Email Address],\n  t2.[Agent ID]\nFROM Subscribers AS t1\nINNER JOIN Agents AS t2\n  ON TRIM(t1.[Subscriber Key]) = TRIM(t2.[Subscriber Key])` },
-    { label: 'LEFT JOIN — all left, nulls where no match',
-      sql: `SELECT\n  t1.[First Name],\n  t1.[Last Name],\n  t1.[Email Address],\n  t2.[Order ID]\nFROM Subscribers AS t1\nLEFT JOIN Orders AS t2\n  ON TRIM(t1.[Subscriber Key]) = TRIM(t2.[Subscriber Key])\nORDER BY t2.[Order ID] DESC` },
-    { label: 'LEFT JOIN — find subscribers with NO orders',
-      sql: `SELECT\n  t1.[First Name],\n  t1.[Last Name],\n  t1.[Email Address]\nFROM Subscribers AS t1\nLEFT JOIN Orders AS t2\n  ON TRIM(t1.[Subscriber Key]) = TRIM(t2.[Subscriber Key])\nWHERE t2.[Subscriber Key] IS NULL` },
-    { label: 'JOIN debug — check Agent ID overlap',
-      sql: `-- Step 1: see Agent IDs in each table\nSELECT [Agent ID], LENGTH([Agent ID]) AS Len,\n       TRIM([Agent ID]) AS Trimmed\nFROM Real_Estate_Agents LIMIT 10` },
-    { label: 'INTERSECT — common IDs between two tables',
-      sql: `SELECT TRIM([Agent ID]) FROM Real_Estate_Agents\nINTERSECT\nSELECT TRIM([Agent ID]) FROM Support_Agents` },
+    { label: 'INNER JOIN — matching records',
+      sql: "SELECT t1.[First Name], t1.[Last Name], t1.[Email Address], t2.[Agent ID]\nFROM Subscribers AS t1\nINNER JOIN Agents AS t2\n  ON TRIM(t1.[Subscriber Key]) = TRIM(t2.[Subscriber Key])" },
+    { label: 'LEFT JOIN — find records with no match',
+      sql: "SELECT t1.[First Name], t1.[Last Name], t1.[Email Address]\nFROM Subscribers AS t1\nLEFT JOIN Orders AS t2\n  ON TRIM(t1.[Subscriber Key]) = TRIM(t2.[Subscriber Key])\nWHERE t2.[Subscriber Key] IS NULL" },
+    { label: 'INTERSECT — common IDs between tables',
+      sql: "SELECT TRIM([Agent ID]) FROM Real_Estate_Agents\nINTERSECT\nSELECT TRIM([Agent ID]) FROM Support_Agents" },
   ]},
-  { cat: 'WINDOW Functions', queries: [
-    { label: 'RANK — rank subscribers by tier',
-      sql: `SELECT\n  [First Name], [Last Name], State,\n  CAST(Tier AS INTEGER) AS Tier,\n  RANK() OVER (ORDER BY CAST(Tier AS INTEGER) DESC) AS TierRank\nFROM Subscribers\nORDER BY TierRank` },
+  { cat: 'WINDOW', queries: [
+    { label: 'RANK subscribers by tier',
+      sql: "SELECT [First Name], [Last Name], State, CAST(Tier AS INTEGER) AS Tier,\n  RANK() OVER (ORDER BY CAST(Tier AS INTEGER) DESC) AS TierRank\nFROM Subscribers\nORDER BY TierRank" },
     { label: 'ROW_NUMBER — deduplicate by email',
-      sql: `SELECT * FROM (\n  SELECT\n    [Email Address], [First Name], [Last Name], State,\n    ROW_NUMBER() OVER (\n      PARTITION BY [Email Address]\n      ORDER BY [Last Name]\n    ) AS RowNum\n  FROM Subscribers\n) sub\nWHERE RowNum = 1\nORDER BY [Email Address]` },
-    { label: 'DENSE_RANK + PARTITION BY — rank within state',
-      sql: `SELECT\n  [First Name], [Last Name], State,\n  CAST(Tier AS INTEGER) AS Tier,\n  DENSE_RANK() OVER (\n    PARTITION BY State\n    ORDER BY CAST(Tier AS INTEGER) DESC\n  ) AS RankInState\nFROM Subscribers\nORDER BY State, RankInState` },
-    { label: 'Running total — cumulative count by state',
-      sql: `SELECT\n  State,\n  COUNT(*) AS StateCount,\n  SUM(COUNT(*)) OVER (ORDER BY State) AS RunningTotal\nFROM Subscribers\nWHERE State IS NOT NULL\nGROUP BY State\nORDER BY State` },
+      sql: "SELECT * FROM (\n  SELECT [Email Address], [First Name], [Last Name],\n    ROW_NUMBER() OVER (PARTITION BY [Email Address] ORDER BY [Last Name]) AS RowNum\n  FROM Subscribers\n) sub\nWHERE RowNum = 1" },
   ]},
-  { cat: 'SFMC Patterns', queries: [
-    { label: 'Campaign performance summary',
-      sql: `-- Paste into SFMC Automation Studio SQL Activity:\nSELECT\n  s.JobID,\n  COUNT(DISTINCT s.SubscriberKey) AS Sends,\n  COUNT(DISTINCT o.SubscriberKey) AS Opens,\n  COUNT(DISTINCT c.SubscriberKey) AS Clicks,\n  COUNT(DISTINCT b.SubscriberKey) AS Bounces,\n  COUNT(DISTINCT u.SubscriberKey) AS Unsubscribes\nFROM ENT.SentDataView s\nLEFT JOIN ENT.OpenDataView o\n  ON s.JobID = o.JobID AND s.SubscriberKey = o.SubscriberKey\nLEFT JOIN ENT.ClickDataView c\n  ON s.JobID = c.JobID AND s.SubscriberKey = c.SubscriberKey\nLEFT JOIN ENT.BounceDataView b\n  ON s.JobID = b.JobID AND s.SubscriberKey = b.SubscriberKey\nLEFT JOIN ENT.UnsubscribeDataView u\n  ON s.JobID = u.JobID AND s.SubscriberKey = u.SubscriberKey\nGROUP BY s.JobID\nORDER BY s.JobID OFFSET 0 ROWS` },
-    { label: 'Subscribers who OPENED but not CLICKED',
-      sql: `-- SFMC: openers who never clicked\nSELECT DISTINCT\n  o.SubscriberKey,\n  o.JobID\nFROM ENT.OpenDataView o\nLEFT JOIN ENT.ClickDataView c\n  ON o.JobID = c.JobID AND o.SubscriberKey = c.SubscriberKey\nWHERE c.SubscriberKey IS NULL\nORDER BY o.JobID OFFSET 0 ROWS` },
+  { cat: 'SFMC', queries: [
+    { label: 'Campaign performance (Automation Studio)',
+      sql: "SELECT s.JobID,\n  COUNT(DISTINCT s.SubscriberKey) AS Sends,\n  COUNT(DISTINCT o.SubscriberKey) AS Opens,\n  COUNT(DISTINCT c.SubscriberKey) AS Clicks\nFROM ENT.SentDataView s\nLEFT JOIN ENT.OpenDataView o ON s.JobID=o.JobID AND s.SubscriberKey=o.SubscriberKey\nLEFT JOIN ENT.ClickDataView c ON s.JobID=c.JobID AND s.SubscriberKey=c.SubscriberKey\nGROUP BY s.JobID\nORDER BY s.JobID OFFSET 0 ROWS" },
     { label: 'Shared DE with ent. prefix',
-      sql: `SELECT TOP 200\n  PersonId,\n  [Email Address],\n  [First Name],\n  [Last Name],\n  City,\n  State,\n  Tier\nFROM ent.Person\nWHERE State = 'TX'\n  AND Tier >= 4\nORDER BY [Last Name] ASC OFFSET 0 ROWS` },
+      sql: "SELECT TOP 200\n  PersonId, [Email Address], [First Name], [Last Name], City, State, Tier\nFROM ent.Person\nWHERE State = 'TX' AND Tier >= 4\nORDER BY [Last Name] ASC OFFSET 0 ROWS" },
   ]},
 ];
 
 // ════════════════════════════════════════════════════════════
-//  CODEMIRROR
+//  QUERY TABS (dynamic)
 // ════════════════════════════════════════════════════════════
-const tabContents = { q1: '', q2: '', q3: '' };
-let activeTab = 'q1';
+let tabs = [{ id: 'q1', label: 'Query 1', content: "SELECT *\nFROM Subscribers\nWHERE State = 'TX'\n  AND Tier >= 4\nORDER BY LastName ASC", results: null }];
+let activeTabId = 'q1';
+let tabCounter = 1;
 
 const editor = CodeMirror.fromTextArea(document.getElementById('sqlEditor'), {
   mode: 'text/x-sql', theme: 'dracula', lineNumbers: true, autofocus: true,
@@ -528,24 +558,82 @@ const editor = CodeMirror.fromTextArea(document.getElementById('sqlEditor'), {
   hintOptions: { completeSingle: false },
 });
 editor.setSize('100%', '100%');
-editor.setValue("SELECT *\nFROM Subscribers\nWHERE State = 'TX'\n  AND Tier >= 4\nORDER BY LastName ASC");
+editor.setValue(tabs[0].content);
 
-function switchTab(t) {
-  tabContents[activeTab] = editor.getValue();
-  activeTab = t;
-  ['q1','q2','q3'].forEach(id => {
-    document.getElementById('tab-'+id).classList.toggle('active', id === t);
+function renderTabs() {
+  const bar = document.getElementById('qtabBar');
+  bar.innerHTML = '';
+  tabs.forEach(t => {
+    const div = document.createElement('div');
+    div.className = 'qtab' + (t.id === activeTabId ? ' active' : '');
+    div.onclick = () => switchTab(t.id);
+    const label = document.createElement('span');
+    label.textContent = t.label;
+    div.appendChild(label);
+    if (tabs.length > 1) {
+      const x = document.createElement('span');
+      x.className = 'qtab-close'; x.textContent = '✕';
+      x.onclick = (e) => { e.stopPropagation(); closeTab(t.id); };
+      div.appendChild(x);
+    }
+    bar.appendChild(div);
   });
-  editor.setValue(tabContents[t] || '');
-  editor.focus();
+  document.getElementById('btnAddTab').style.display = tabs.length >= 15 ? 'none' : '';
 }
+
+function switchTab(id) {
+  const cur = tabs.find(t => t.id === activeTabId);
+  if (cur) cur.content = editor.getValue();
+  activeTabId = id;
+  const next = tabs.find(t => t.id === id);
+  editor.setValue(next ? next.content : '');
+  editor.focus();
+  renderTabs();
+  renderResults(next);
+}
+
+function renderResults(tab) {
+  document.getElementById('resultsLabel').textContent = 'RESULTS — ' + (tab ? tab.label : '');
+  const r = tab && tab.results;
+  document.getElementById('resultsMeta').textContent = r ? r.meta : 'Run a query to see results.';
+  document.getElementById('resultsWrap').innerHTML = r ? r.html : '<div class="empty-state">No results yet.</div>';
+}
+
+function setResults(meta, html) {
+  document.getElementById('resultsMeta').textContent = meta;
+  document.getElementById('resultsWrap').innerHTML = html;
+  const cur = tabs.find(t => t.id === activeTabId);
+  if (cur) cur.results = { meta, html };
+}
+
+function addTab() {
+  if (tabs.length >= 15) return;
+  const cur = tabs.find(t => t.id === activeTabId);
+  if (cur) cur.content = editor.getValue();
+  tabCounter++;
+  const id = 'q' + tabCounter;
+  tabs.push({ id, label: 'Query ' + tabCounter, content: '', results: null });
+  switchTab(id);
+}
+
+function closeTab(id) {
+  const idx = tabs.findIndex(t => t.id === id);
+  tabs.splice(idx, 1);
+  if (activeTabId === id) {
+    const next = tabs[Math.min(idx, tabs.length - 1)];
+    activeTabId = next.id;
+    editor.setValue(next.content);
+  }
+  renderTabs();
+}
+
 function clearEditor() { editor.setValue(''); editor.focus(); }
 
 // ════════════════════════════════════════════════════════════
 //  DATA PANEL TABS
 // ════════════════════════════════════════════════════════════
 function switchDataTab(t) {
-  ['de','results','schema'].forEach(id => {
+  ['de','functions','schema'].forEach(id => {
     document.getElementById('dtab-'+id).classList.toggle('active', id === t);
     document.getElementById('panel-'+id).classList.toggle('hidden', id !== t);
   });
@@ -559,10 +647,24 @@ let loadedDEs = {};
 
 async function initDB() {
   if (sqlDb) return;
-  const SQL = await initSqlJs({
-    locateFile: f => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.2/${f}`
-  });
+  const SQL = await initSqlJs({ locateFile: f => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.2/${f}` });
   sqlDb = new SQL.Database();
+}
+
+// ════════════════════════════════════════════════════════════
+//  TYPE DETECTION
+// ════════════════════════════════════════════════════════════
+function detectColType(col, rows) {
+  const vals = rows.map(r => r[col]).filter(v => v !== null && v !== undefined && String(v).trim() !== '');
+  if (!vals.length) return 'TEXT';
+  const s = vals.map(v => String(v).trim());
+  if (s.every(v => /^-?\d+$/.test(v))) return 'INTEGER';
+  if (s.every(v => /^-?(\d+\.?\d*|\.\d+)$/.test(v))) return 'DECIMAL';
+  const dtRe = /^(\d{4}[-/]\d{1,2}[-/]\d{1,2}[ T]\d{1,2}:\d{2}(:\d{2})?(\.\d+)?(Z|[+-]\d{2}:?\d{2})?|\d{1,2}[-/]\d{1,2}[-/]\d{4} \d{1,2}:\d{2}(:\d{2})? ?(AM|PM)?)$/i;
+  const dRe  = /^\d{4}[-/]\d{1,2}[-/]\d{1,2}$|^\d{1,2}[-/]\d{1,2}[-/]\d{4}$/;
+  if (s.every(v => dtRe.test(v))) return 'DATETIME';
+  if (s.every(v => dRe.test(v)))  return 'DATE';
+  return 'TEXT';
 }
 
 // ════════════════════════════════════════════════════════════
@@ -572,9 +674,7 @@ async function handleCSVUpload(event) {
   const files = [...event.target.files];
   if (!files.length) return;
   await initDB();
-  for (const file of files) {
-    await importCSV(file);
-  }
+  for (const file of files) await importCSV(file);
   event.target.value = '';
 }
 
@@ -585,24 +685,23 @@ function importCSV(file) {
       header: true, skipEmptyLines: true,
       complete: async (result) => {
         try {
-          const cols = result.meta.fields;
-          const rows = result.data;
+          const cols = result.meta.fields, rows = result.data;
+          const colTypes = {};
+          cols.forEach(c => { colTypes[c] = detectColType(c, rows); });
           try { sqlDb.run(`DROP TABLE IF EXISTS "${tableName}"`); } catch(e){}
-          const colDefs = cols.map(c => `"${c}" TEXT`).join(', ');
-          sqlDb.run(`CREATE TABLE "${tableName}" (${colDefs})`);
-          if (rows.length > 0) {
-            const ph = cols.map(() => '?').join(', ');
-            const cn = cols.map(c => `"${c}"`).join(', ');
-            const stmt = sqlDb.prepare(`INSERT INTO "${tableName}" (${cn}) VALUES (${ph})`);
+          sqlDb.run(`CREATE TABLE "${tableName}" (${cols.map(c => `"${c}" ${colTypes[c]}`).join(', ')})`);
+          if (rows.length) {
+            const stmt = sqlDb.prepare(`INSERT INTO "${tableName}" (${cols.map(c=>`"${c}"`).join(',')}) VALUES (${cols.map(()=>'?').join(',')})`);
             rows.forEach(r => stmt.run(cols.map(c => r[c] ?? null)));
             stmt.free();
           }
-          loadedDEs[tableName] = { columns: cols, rowCount: rows.length, rows: rows.slice(0, 50) };
+          loadedDEs[tableName] = { columns: cols, columnTypes: colTypes, rowCount: rows.length, rows: rows.slice(0,50) };
           updateDEUI(tableName, cols, rows.length);
-          renderSchema();
-          updateEditorHints();
+          renderSchema(); updateEditorHints();
           const colList = cols.slice(0,6).map(c => c.includes(' ') ? `"${c}"` : c).join(',\n  ');
           editor.setValue(`SELECT\n  ${colList}\nFROM ${tableName}\nLIMIT 100`);
+          const cur = tabs.find(t => t.id === activeTabId);
+          if (cur) cur.content = editor.getValue();
         } catch(err) { showError('Import error: ' + err.message); }
         resolve();
       },
@@ -615,22 +714,22 @@ function updateDEUI(tableName, cols, rowCount) {
   const sel = document.getElementById('deSelect');
   if (![...sel.options].find(o => o.value === tableName)) {
     const opt = document.createElement('option');
-    opt.value = tableName; opt.textContent = tableName;
-    sel.appendChild(opt);
+    opt.value = tableName; opt.textContent = tableName; sel.appendChild(opt);
   }
   sel.value = tableName;
-
   document.getElementById('decard-'+tableName)?.remove();
   const card = document.createElement('div');
   card.className = 'de-card'; card.id = 'decard-'+tableName;
-  const nameEl = document.createElement('div');
-  nameEl.innerHTML = `<div class="de-card-name"></div><div class="de-card-meta"></div>`;
-  nameEl.querySelector('.de-card-name').textContent = tableName;
-  nameEl.querySelector('.de-card-meta').textContent = `${cols.length} fields · ${rowCount} rows`;
-  const delBtn = document.createElement('button');
-  delBtn.className = 'de-card-del'; delBtn.title = 'Remove'; delBtn.textContent = '✕';
-  delBtn.onclick = () => removeDE(tableName);
-  card.appendChild(nameEl); card.appendChild(delBtn);
+  card.onclick = (e) => {
+    if (e.target.closest('.de-card-del')) return;
+    document.getElementById('deSelect').value = tableName;
+    onDeSelectChange();
+  };
+  const info = document.createElement('div');
+  info.innerHTML = `<div class="de-card-name">${esc(tableName)}</div><div class="de-card-meta">${cols.length} fields · ${rowCount} rows</div>`;
+  const del = document.createElement('button');
+  del.className = 'de-card-del'; del.textContent = '✕'; del.onclick = () => removeDE(tableName);
+  card.appendChild(info); card.appendChild(del);
   document.getElementById('deCardList').appendChild(card);
   onDeSelectChange();
 }
@@ -638,20 +737,47 @@ function updateDEUI(tableName, cols, rowCount) {
 function onDeSelectChange() {
   const name = document.getElementById('deSelect').value;
   const info = document.getElementById('deInfoLabel');
-  const ta = document.getElementById('deJsonEditor');
-  if (!name || !loadedDEs[name]) { info.textContent = 'No DE selected — upload a CSV to begin'; ta.value = ''; return; }
+  const rowsWrap = document.getElementById('deRowsWrap');
+  const schemaWrap = document.getElementById('deSchemaWrap');
+  // Show only the active card, hide others
+  document.querySelectorAll('.de-card').forEach(c => {
+    const isActive = c.id === 'decard-' + name;
+    c.classList.toggle('active', isActive);
+    c.style.display = isActive ? '' : 'none';
+  });
+  if (!name || !loadedDEs[name]) {
+    info.textContent = 'No DE selected — upload a CSV to begin';
+    rowsWrap.innerHTML = ''; schemaWrap.innerHTML = ''; return;
+  }
   const de = loadedDEs[name];
-  info.textContent = `${name} — ${de.columns.length} fields, ${de.rowCount} rows (showing first 50)`;
-  ta.value = JSON.stringify(de.rows, null, 2);
+  info.textContent = `${de.columns.length} fields · ${de.rowCount} rows (first 50 shown)`;
+
+  // Rows table
+  const thead = '<tr>' + de.columns.map(c => `<th>${esc(c)}</th>`).join('') + '</tr>';
+  const tbody = de.rows.map(row =>
+    '<tr>' + de.columns.map(c => {
+      const v = row[c];
+      return `<td>${(v === null || v === undefined || v === '') ? '<em style="color:#3a5a7a">NULL</em>' : esc(String(v))}</td>`;
+    }).join('') + '</tr>'
+  ).join('');
+  rowsWrap.innerHTML = `<table class="results-table"><thead>${thead}</thead><tbody>${tbody}</tbody></table>`;
+
+  // Schema sidebar
+  schemaWrap.innerHTML = de.columns.map(c => {
+    const type = de.columnTypes?.[c] || 'TEXT';
+    return `<div class="schema-col">
+      <div style="color:#c0d8f0;font-size:11px;word-break:break-word">${esc(c)}</div>
+      <span class="schema-type schema-type-${type.toLowerCase()}">${type}</span>
+    </div>`;
+  }).join('');
 }
 
 function removeDE(tableName) {
   try { sqlDb && sqlDb.run(`DROP TABLE IF EXISTS "${tableName}"`); } catch(e){}
   delete loadedDEs[tableName];
   document.getElementById('decard-'+tableName)?.remove();
-  const sel = document.getElementById('deSelect');
-  [...sel.options].find(o => o.value === tableName)?.remove();
-  sel.value = '';
+  [...document.getElementById('deSelect').options].find(o => o.value === tableName)?.remove();
+  document.getElementById('deSelect').value = '';
   onDeSelectChange(); renderSchema();
 }
 
@@ -661,13 +787,13 @@ function renderSchema() {
   if (!tables.length) { el.innerHTML = '<div class="empty-state">Upload CSVs to see schemas.</div>'; return; }
   el.innerHTML = tables.map(t => {
     const de = loadedDEs[t];
-    const colsHtml = de.columns.map(c => {
-      const safe = c.replace(/</g,'&lt;').replace(/>/g,'&gt;');
-      const display = c.includes(' ') ? `[${safe}]` : safe;
-      return `<div class="schema-col"><span>${display}</span> <span class="schema-type">TEXT</span></div>`;
-    }).join('');
-    const tSafe = t.replace(/</g,'&lt;');
-    return `<div style="margin-bottom:12px"><div class="schema-table-name">${tSafe}</div>${colsHtml}</div>`;
+    return `<div style="margin-bottom:12px">
+      <div class="schema-table-name">${esc(t)}</div>
+      ${de.columns.map(c => {
+        const type = de.columnTypes?.[c] || 'TEXT';
+        return `<div class="schema-col"><span>${esc(c.includes(' ') ? '['+c+']' : c)}</span> <span class="schema-type schema-type-${type.toLowerCase()}">${type}</span></div>`;
+      }).join('')}
+    </div>`;
   }).join('');
 }
 
@@ -690,94 +816,83 @@ async function runSQL() {
     const t0 = performance.now();
     const results = sqlDb.exec(sql);
     const ms = (performance.now() - t0).toFixed(1);
-    switchDataTab('results');
     if (!results || !results.length) {
-      document.getElementById('resultsMeta').textContent = `Query OK (${ms}ms) — no rows returned.`;
-      document.getElementById('resultsWrap').innerHTML = '<div class="empty-state">Query ran successfully. No rows returned.</div>';
+      setResults(`Query OK (${ms}ms) — no rows returned.`, '<div class="empty-state">Query ran successfully. No rows returned.</div>');
       return;
     }
     const { columns, values } = results[0];
-    document.getElementById('resultsMeta').textContent =
-      `${values.length} row${values.length !== 1 ? 's' : ''} · ${columns.length} cols · ${ms}ms`;
     const thead = '<tr>' + columns.map(c => `<th>${esc(c)}</th>`).join('') + '</tr>';
     const tbody = values.map(row =>
-      '<tr>' + row.map(cell =>
-        `<td>${cell === null ? '<em style="color:#3a5a7a">NULL</em>' : esc(String(cell))}</td>`
-      ).join('') + '</tr>'
+      '<tr>' + row.map(cell => `<td>${cell === null ? '<em style="color:#3a5a7a">NULL</em>' : esc(String(cell))}</td>`).join('') + '</tr>'
     ).join('');
-    document.getElementById('resultsWrap').innerHTML =
-      `<table class="results-table"><thead>${thead}</thead><tbody>${tbody}</tbody></table>`;
+    setResults(
+      `${values.length} row${values.length !== 1 ? 's' : ''} · ${columns.length} cols · ${ms}ms`,
+      `<table class="results-table"><thead>${thead}</thead><tbody>${tbody}</tbody></table>`
+    );
   } catch(err) {
-    switchDataTab('results');
-    document.getElementById('resultsMeta').textContent = 'Error';
-    document.getElementById('resultsWrap').innerHTML = `<div class="error-box">⚠ ${esc(err.message)}</div>`;
+    setResults('Error', `<div class="error-box">⚠ ${esc(err.message)}</div>`);
   } finally {
     btn.disabled = false; btn.innerHTML = '&#9654; Run Query';
   }
 }
 
 function esc(s) {
-  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 function showError(msg) {
-  switchDataTab('results');
-  document.getElementById('resultsMeta').textContent = 'Error';
-  document.getElementById('resultsWrap').innerHTML = `<div class="error-box">⚠ ${esc(msg)}</div>`;
+  setResults('Error', `<div class="error-box">⚠ ${esc(msg)}</div>`);
 }
 
 // ════════════════════════════════════════════════════════════
-//  FOOTER CHIPS  — using data-idx to avoid HTML injection
+//  SQL FUNCTIONS PANEL (right side)
 // ════════════════════════════════════════════════════════════
-let activeCat = 0;
-// flat array of all snippets keyed by [catIdx, itemIdx]
-const SNIPPETS = [];
+let activeFnCat = 0;
+const FN_SNIPPETS = [];
+SQL_CATS.forEach((cat, ci) => cat.items.forEach((item, ii) => FN_SNIPPETS.push({ ci, ii, s: item.s })));
 
-function buildFooter() {
-  const catsEl = document.getElementById('footerCats');
+function buildFnPanel() {
+  const catsEl = document.getElementById('fnPanelCats');
   SQL_CATS.forEach((cat, ci) => {
-    cat.items.forEach((item, ii) => SNIPPETS.push({ ci, ii, s: item.s }));
-    const div = document.createElement('div');
-    div.className = 'footer-cat' + (ci === 0 ? ' active' : '');
-    div.textContent = cat.name;
-    div.onclick = () => selectCat(ci);
-    catsEl.appendChild(div);
+    const btn = document.createElement('div');
+    btn.className = 'fn-panel-cat' + (ci === 0 ? ' active' : '');
+    btn.textContent = cat.name;
+    btn.onclick = () => selectFnCat(ci);
+    catsEl.appendChild(btn);
   });
-  renderChips();
-
-  // chip click via delegation (safe — no inline onclick with user data)
-  document.getElementById('footerChips').addEventListener('click', e => {
+  renderFnChips();
+  document.getElementById('fnChipsWrap').addEventListener('click', e => {
+    if (e.target.closest('.fn-doc-link')) return;
     const chip = e.target.closest('.fn-chip');
     if (!chip) return;
     const si = parseInt(chip.dataset.si, 10);
-    const snippet = SNIPPETS[si];
-    if (snippet) { editor.replaceRange(snippet.s, editor.getCursor()); editor.focus(); }
+    if (FN_SNIPPETS[si]) { editor.replaceRange(FN_SNIPPETS[si].s, editor.getCursor()); editor.focus(); }
   });
 }
 
-function selectCat(ci) {
-  activeCat = ci;
-  document.querySelectorAll('.footer-cat').forEach((el, i) =>
-    el.classList.toggle('active', i === ci));
-  renderChips();
+function selectFnCat(ci) {
+  activeFnCat = ci;
+  document.querySelectorAll('.fn-panel-cat').forEach((el, i) => el.classList.toggle('active', i === ci));
+  renderFnChips();
 }
 
-function renderChips() {
-  const cat = SQL_CATS[activeCat];
-  const chipsEl = document.getElementById('footerChips');
-  chipsEl.innerHTML = '';
-  // find starting index in SNIPPETS for this cat
-  let si = SNIPPETS.findIndex(s => s.ci === activeCat);
+function renderFnChips() {
+  const cat = SQL_CATS[activeFnCat];
+  const wrap = document.getElementById('fnChipsWrap');
+  wrap.innerHTML = '';
+  const startSi = FN_SNIPPETS.findIndex(s => s.ci === activeFnCat);
   cat.items.forEach((item, ii) => {
     const chip = document.createElement('div');
-    chip.className = 'fn-chip';
-    chip.dataset.si = si + ii;
-    chip.title = item.s;
-    const nameEl = document.createElement('span');
-    nameEl.className = 'fn-name'; nameEl.textContent = item.n;
-    const descEl = document.createElement('span');
-    descEl.className = 'fn-desc'; descEl.textContent = item.d;
-    chip.appendChild(nameEl); chip.appendChild(descEl);
-    chipsEl.appendChild(chip);
+    chip.className = 'fn-chip'; chip.dataset.si = startSi + ii; chip.title = item.s;
+    const n = document.createElement('span'); n.className = 'fn-name'; n.textContent = item.n;
+    const d = document.createElement('span'); d.className = 'fn-desc'; d.textContent = item.d;
+    chip.appendChild(n); chip.appendChild(d);
+    if (item.doc) {
+      const a = document.createElement('a');
+      a.className = 'fn-doc-link'; a.href = item.doc; a.target = '_blank'; a.rel = 'noopener noreferrer';
+      a.textContent = '📄 Docs';
+      chip.appendChild(a);
+    }
+    wrap.appendChild(chip);
   });
 }
 
@@ -788,39 +903,99 @@ function buildSamplesDropdown() {
   const dd = document.getElementById('samplesDropdown');
   SAMPLE_QUERIES.forEach(cat => {
     const hdr = document.createElement('div');
-    hdr.className = 'samples-cat-header';
-    hdr.textContent = cat.cat;
+    hdr.className = 'samples-cat-header'; hdr.textContent = cat.cat;
     dd.appendChild(hdr);
     cat.queries.forEach(q => {
       const item = document.createElement('div');
       item.className = 'sample-item';
       item.innerHTML = '<span class="si-icon">&#9654;</span>';
-      const label = document.createElement('span');
-      label.textContent = q.label;
-      item.appendChild(label);
+      const lbl = document.createElement('span'); lbl.textContent = q.label;
+      item.appendChild(lbl);
       item.onclick = () => {
+        const cur = tabs.find(t => t.id === activeTabId);
+        if (cur) cur.content = q.sql;
         editor.setValue(q.sql);
-        editor.focus();
-        closeSamples();
+        editor.focus(); closeSamples();
       };
       dd.appendChild(item);
     });
   });
 }
 
-function toggleSamples(e) {
-  e.stopPropagation();
-  document.getElementById('samplesDropdown').classList.toggle('open');
-}
-function closeSamples() {
-  document.getElementById('samplesDropdown').classList.remove('open');
-}
+function toggleSamples(e) { e.stopPropagation(); document.getElementById('samplesDropdown').classList.toggle('open'); }
+function closeSamples() { document.getElementById('samplesDropdown').classList.remove('open'); }
 document.addEventListener('click', closeSamples);
+
+// ════════════════════════════════════════════════════════════
+//  RIGHT PANEL RESIZE
+// ════════════════════════════════════════════════════════════
+(function() {
+  const resizer = document.getElementById('vPaneResizer');
+  const pane    = document.querySelector('.data-pane');
+  const main    = document.querySelector('.main');
+  let dragging = false, startX, startW;
+
+  resizer.addEventListener('mousedown', e => {
+    dragging = true;
+    startX = e.clientX;
+    startW = pane.offsetWidth;
+    document.body.style.cursor = 'ew-resize';
+    document.body.style.userSelect = 'none';
+    e.preventDefault();
+  });
+
+  document.addEventListener('mousemove', e => {
+    if (!dragging) return;
+    const delta = startX - e.clientX;          // drag left → wider right pane
+    const minW = 200, maxW = main.offsetWidth * 0.7;
+    pane.style.width = Math.max(minW, Math.min(startW + delta, maxW)) + 'px';
+  });
+
+  document.addEventListener('mouseup', () => {
+    if (!dragging) return;
+    dragging = false;
+    document.body.style.cursor = '';
+    document.body.style.userSelect = '';
+  });
+})();
+
+// ════════════════════════════════════════════════════════════
+//  RESULTS FOOTER RESIZE
+// ════════════════════════════════════════════════════════════
+(function() {
+  const resizer = document.getElementById('resultsResizer');
+  const footer  = document.getElementById('resultsFooter');
+  let dragging = false, startY, startH;
+
+  resizer.addEventListener('mousedown', e => {
+    dragging = true;
+    startY = e.clientY;
+    startH = footer.offsetHeight;
+    document.body.style.cursor = 'ns-resize';
+    document.body.style.userSelect = 'none';
+    e.preventDefault();
+  });
+
+  document.addEventListener('mousemove', e => {
+    if (!dragging) return;
+    const delta = startY - e.clientY;           // drag up → positive delta → taller
+    const minH = 36, maxH = window.innerHeight * 0.8;
+    footer.style.height = Math.max(minH, Math.min(startH + delta, maxH)) + 'px';
+  });
+
+  document.addEventListener('mouseup', () => {
+    if (!dragging) return;
+    dragging = false;
+    document.body.style.cursor = '';
+    document.body.style.userSelect = '';
+  });
+})();
 
 // ════════════════════════════════════════════════════════════
 //  INIT
 // ════════════════════════════════════════════════════════════
-buildFooter();
+renderTabs();
+buildFnPanel();
 buildSamplesDropdown();
 initDB().catch(console.error);
 </script>
