@@ -264,6 +264,17 @@
     transition: color .15s, border-color .15s, background .15s;
   }
   .fn-doc-link:hover { color: #60a5fa; border-color: #0070d2; background: #0d1b2a; }
+  .fn-chip.unsupported { opacity: 0.55; cursor: default; }
+  .fn-chip.unsupported:hover { border-color: #1e3a5f; background: #0d1b2a; }
+  .fn-unsupported-badge {
+    margin-left: auto; flex-shrink: 0; font-size: 9px; font-weight: 700;
+    color: #f59e0b; border: 1px solid #7a4400; border-radius: 3px;
+    padding: 1px 5px; background: #2a1a00; white-space: nowrap; letter-spacing: .3px;
+  }
+  .fn-cat-note {
+    font-size: 10px; color: #7a5a30; background: #1a1200; border: 1px solid #3a2a00;
+    border-radius: 4px; padding: 5px 8px; line-height: 1.5; flex-shrink: 0;
+  }
 
   /* ── RESULTS FOOTER ── */
   .results-footer {
@@ -411,17 +422,17 @@
         <span class="res-title">Data Extensions with Enhanced Subscriber Features</span>
         <span class="res-open">↗</span>
       </a>
-      <a class="res-card" href="https://help.salesforce.com/s/articleView?id=mktg.mc_as_using_the_query_activity.htm&type=5" target="_blank" rel="noopener noreferrer">
-        <span class="res-badge res-badge-sfmc">SFMC Help</span>
-        <span class="res-title">Retrieving and Segmenting Data with a SQL Query Activity</span>
-        <span class="res-open">↗</span>
-      </a>
       <a class="res-card" href="https://help.salesforce.com/s/articleView?id=000388307&type=1" target="_blank" rel="noopener noreferrer">
         <span class="res-badge res-badge-sfmc">SFMC Help</span>
         <span class="res-title">Marketing Cloud - applying an index to a Data Extension</span>
         <span class="res-open">↗</span>
       </a> 
-       <a class="res-card" href="https://help.salesforce.com/s/articleView?id=mktg.mc_as_optimize_the_query_activity.htm&type=5" target="_blank" rel="noopener noreferrer">
+      <a class="res-card" href="https://help.salesforce.com/s/articleView?id=mktg.mc_as_using_the_query_activity.htm&type=5" target="_blank" rel="noopener noreferrer">
+        <span class="res-badge res-badge-sfmc">SFMC Help</span>
+        <span class="res-title">Retrieving and Segmenting Data with a SQL Query Activity</span>
+        <span class="res-open">↗</span>
+      </a>
+      <a class="res-card" href="https://help.salesforce.com/s/articleView?id=mktg.mc_as_optimize_the_query_activity.htm&type=5" target="_blank" rel="noopener noreferrer">
         <span class="res-badge res-badge-sfmc">SFMC Help</span>
         <span class="res-title">Optimizing a SQL Query Activity</span>
         <span class="res-open">↗</span>
@@ -517,11 +528,11 @@ const SQL_CATS = [
     { n: 'ORDER BY DESC', d: 'Sort descending',     s: 'ORDER BY col DESC',                                                       doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-order-by-clause-transact-sql' },
     { n: 'OFFSET/FETCH',  d: 'Pagination',          s: 'ORDER BY col OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY',                     doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-order-by-clause-transact-sql' },
   ]},
-  { name: 'JOINS', items: [
+  { name: 'JOINS', note: 'INNER JOIN and LEFT JOIN run in the playground. RIGHT JOIN and FULL OUTER JOIN are T-SQL only — not supported by the SQLite engine used here.', items: [
     { n: 'INNER JOIN',    d: 'Matching rows only',  s: 'INNER JOIN table2 t2 ON t1.id = t2.id',                                  doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql' },
     { n: 'LEFT JOIN',     d: 'All left rows',       s: 'LEFT JOIN table2 t2 ON t1.id = t2.id',                                   doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql' },
-    { n: 'RIGHT JOIN',    d: 'All right rows',      s: 'RIGHT OUTER JOIN table2 t2 ON t1.id = t2.id',                            doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql' },
-    { n: 'FULL OUTER',    d: 'All rows both tables',s: 'FULL OUTER JOIN table2 t2 ON t1.id = t2.id',                             doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql' },
+    { n: 'RIGHT JOIN',    d: 'All right rows',      s: 'RIGHT OUTER JOIN table2 t2 ON t1.id = t2.id',                            doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql', sqliteUnsupported: true },
+    { n: 'FULL OUTER',    d: 'All rows both tables',s: 'FULL OUTER JOIN table2 t2 ON t1.id = t2.id',                             doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql', sqliteUnsupported: true },
     { n: 'INTERSECT',     d: 'Common rows',         s: 'SELECT col FROM t1\nINTERSECT\nSELECT col FROM t2',                      doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/set-operators-intersect-transact-sql' },
   ]},
   { name: 'WHERE', items: [
@@ -1027,14 +1038,25 @@ function renderFnChips() {
   const cat = SQL_CATS[activeFnCat];
   const wrap = document.getElementById('fnChipsWrap');
   wrap.innerHTML = '';
+  if (cat.note) {
+    const note = document.createElement('div');
+    note.className = 'fn-cat-note';
+    note.textContent = '⚠ ' + cat.note;
+    wrap.appendChild(note);
+  }
   const startSi = FN_SNIPPETS.findIndex(s => s.ci === activeFnCat);
   cat.items.forEach((item, ii) => {
     const chip = document.createElement('div');
-    chip.className = 'fn-chip'; chip.dataset.si = startSi + ii; chip.title = item.s;
+    chip.className = 'fn-chip' + (item.sqliteUnsupported ? ' unsupported' : '');
+    chip.dataset.si = startSi + ii; chip.title = item.s;
     const n = document.createElement('span'); n.className = 'fn-name'; n.textContent = item.n;
     const d = document.createElement('span'); d.className = 'fn-desc'; d.textContent = item.d;
     chip.appendChild(n); chip.appendChild(d);
-    if (item.doc) {
+    if (item.sqliteUnsupported) {
+      const badge = document.createElement('span');
+      badge.className = 'fn-unsupported-badge'; badge.textContent = 'T-SQL only';
+      chip.appendChild(badge);
+    } else if (item.doc) {
       const a = document.createElement('a');
       a.className = 'fn-doc-link'; a.href = item.doc; a.target = '_blank'; a.rel = 'noopener noreferrer';
       a.textContent = '📄 Docs';
