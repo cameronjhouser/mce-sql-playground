@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -19,7 +19,7 @@
   body { font-family: Arial, sans-serif; background: #0f1117; color: #e0e0e0;
          display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
 
-  /* ── HEADER ── */
+  /* HEADER */
   .header {
     background: #0d1b2a; display: flex; align-items: center; gap: 10px;
     padding: 0 14px; height: 44px; flex-shrink: 0; border-bottom: 1px solid #1e3a5f;
@@ -29,7 +29,7 @@
   .badge { background: #0070d2; color: #fff; font-size: 10px; font-weight: bold;
     padding: 2px 7px; border-radius: 3px; letter-spacing: .5px; }
   .warning-banner {
-    background: #2a1a00; border: 1px solid #7a4400; color: #f59e0b;
+    background: #2a1a00; border: 1px solid #7a4400; color: #FF0000;
     font-size: 11px; font-weight: bold; padding: 3px 10px; border-radius: 4px;
     white-space: nowrap; letter-spacing: .2px;
   }
@@ -62,14 +62,14 @@
   .sample-item:hover { background: #1a2f4a; color: #fff; }
   .sample-item .si-icon { font-size: 10px; color: #3a5a80; }
 
-  /* ── ACTION BAR (run/clear + samples) ── */
+  /* ACTION BAR (run/clear + samples) */
   .action-bar {
     background: #0a1520; border-bottom: 1px solid #1e3a5f;
     display: flex; align-items: center; padding: 0 14px;
     height: 36px; flex-shrink: 0; gap: 6px;
   }
 
-  /* ── QUERY TOOLBAR (tabs only) ── */
+  /* QUERY TOOLBAR (tabs only) */
   .query-toolbar {
     background: #0a1520; border-bottom: 1px solid #1e3a5f;
     display: flex; align-items: center; padding: 0 14px;
@@ -109,10 +109,10 @@
   }
   .btn-clear:hover { border-color: #0070d2; color: #fff; }
 
-  /* ── MAIN LAYOUT ── */
+  /* MAIN LAYOUT */
   .main { display: flex; flex: 1; overflow: hidden; min-height: 0; }
 
-  /* ── EDITOR ── */
+  /* EDITOR */
   .editor-pane {
     flex: 1; display: flex; flex-direction: column; min-width: 0;
   }
@@ -121,7 +121,7 @@
     height: 100%; font-size: 13px; font-family: 'Consolas','Courier New',monospace;
   }
 
-  /* ── RIGHT PANEL RESIZER ── */
+  /* RIGHT PANEL RESIZER */
   .v-pane-resizer {
     width: 6px; flex-shrink: 0; cursor: ew-resize; background: #1e3a5f;
     display: flex; align-items: center; justify-content: center;
@@ -133,7 +133,7 @@
   .v-pane-resizer:hover { background: #0d2a4a; }
   .v-pane-resizer:hover::before { background: #0070d2; }
 
-  /* ── RIGHT PANEL ── */
+  /* RIGHT PANEL */
   .data-pane {
     width: 50vw; min-width: 200px; max-width: 70vw;
     flex-shrink: 0; display: flex; flex-direction: column; background: #111827;
@@ -154,7 +154,7 @@
   }
   .panel-body.hidden { display: none; }
 
-  /* ── RESOURCES PANEL ── */
+  /* RESOURCES PANEL */
   .res-section-title {
     font-size: 10px; font-weight: bold; letter-spacing: .8px; color: #0070d2;
     text-transform: uppercase; padding: 2px 0 2px; border-bottom: 1px solid #1e3a5f;
@@ -265,7 +265,7 @@
   }
   .fn-doc-link:hover { color: #60a5fa; border-color: #0070d2; background: #0d1b2a; }
 
-  /* ── RESULTS FOOTER ── */
+  /* RESULTS FOOTER */
   .results-footer {
     background: #07101c;
     flex-shrink: 0; display: flex; flex-direction: column;
@@ -319,18 +319,18 @@
 </head>
 <body>
 
-<!-- ── HEADER ── -->
+<!-- HEADER -->
 <div class="header">
   <div class="logo">
     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArQAAACvCAYAAAAMsE2rAAAAA3NCSVQICAjb4U/gAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGHaVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8P3hwYWNrZXQgYmVnaW49J++7vycgaWQ9J1c1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCc/Pg0KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyI+PHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj48cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0idXVpZDpmYWY1YmRkNS1iYTNkLTExZGEtYWQzMS1kMzNkNzUxODJmMWIiIHhtbG5zOnRpZmY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vdGlmZi8xLjAvIj48dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPjwvcmRmOkRlc2NyaXB0aW9uPjwvcmRmOlJERj48L3g6eG1wbWV0YT4NCjw/eHBhY2tldCBlbmQ9J3cnPz4slJgLAAA7C0lEQVR4Xu3dS2wcR5og4MiiZkCVfOpSZ0QU1cAkx2j0hQKmCelgLykBRt9mDgtrR2DpZgMNNLwHGZB9WUkHUXuxBViHNRowIN9EQrMy5jB9MwzosfZBAnsA8WI0PMwBhqyMzBHnZJWEbrFyD8qUU6Gqynj8+ar6P4DodlCsR0Y+/vwz/ghCEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEI5HLkBoVnGOV+R2wghJAiC+3KbKc9z6bNnc7+U2+fnD/7k+1Eot5vyPJcOBs4HcRyvOo7zphBiQf43jLE9QsiXrVbra5PvOG57Fc3ks6Lm4ZyvzB/98y8G0aFfTdqPSbIvx3H8Q6vV6juO84AQsoX7SfGSc8DycDj8GfYRQgjVRDyC67p35H9ng3O+Ir9HHMcxpfSK/G9NcM5XXNe9I79+HkrprrfU6cmvN4n8GmVQ6Q9K6RX574qk8pmI4fbS7RMdJtsJaj8dh3O+whjboJTuyu+ti1K6yxjbqOrGS+YtdXryZ1RV5H6gq2l9JL9n0Yr8LgghpEQ+McUawYqqogJaz3MpY2xDfl1djLENz3Op/PqjyH9bBpX+MAnUbKh8JmKxvYq6QJpsJ9v9dBxvqdODCJDGMblhg2ZzfDLGNuTXK1tT+0h+n6IVdbyiyVpyA0KoeZLhBVtBEKzJv9MVBMHaYOBsqQa1qHjD4XBzWvsjDZJ2Hj2+Oe5RNQQhxMLOo8c3KaW7VQQcnudSm+MzCIK1qvaBWekj1GwY0CLUcGkwC3mhEUIsPHlCblV1AUWvSvtDbm8yz3Op67p3ig6SZEKIhX6/f49zfl7+XZGePZszDmZTEK+hY9b6CDUbBrQINdzTp63P8i42nPNNxtj64vGj5xaPHz3HGFtP2vbkf5sKw/DU06etz+R2VI0wDE8V9bi/bJzzlcHA2QrD8JT8u7L0+/3PynyMPxwOL8htuiBeQ9Us9hFqNpzlAKGMOI5juY1SejeKotNyuynO+Uq/378ntzPG1sMwvCy3T+ItdXo7jx7flNtTjLH1djv+fNLsCd5SpzeIDn0yLihePH70nL+9P/KiovtYcMz33mu1WlqZp7zKaErpFSHEJbm9KKr7yKj9S9ek/tBlsp1M9tOsvH22bJzzTSEE+LjNrHHHvIlut7uat//bmrY+gjjudJTRRwghNJE8uD/WKPhRBVkUNq5AQ3cMmue5dNJryf/elPzacQHblxgWO9lQ/Q7y35nQ7dtJTLaTyX6asqnyL1LRWUCbYjCZzfZXMY19JL9W0aCOT6QHhxwg1FCc85VxWdW2+/xjnQyB70dhux0vy0MQTLKnqFhCiIUmFonVLeuXFQTBWpHjNeM4XpXbLLwnN0Cpex8VMQMCmh4Y0CLUXMtyA0kef5s8kvb9KGy7zz9O/zsZrrCsExijcgghFpo0vplzvjKIDn0it9dJv9//rIjMmrfU6Y278TQhhFgoIrBrQh/tPHp8s4g+QtMBA1qEGiqO45NyGyGEHKEHX8htqvzt/Q3G2Hq3210Nw/DypLG3qFpFZxWheJ5Lh8PhJmRQV5ThcLgpt9l6Es79Vm6z9fQ//+rv5TYbs95HaDpgQItQQw2Hw67cRpKgVG7TEYbhZczKNkNRWUVIg4HzAVSgRCm9m87W0e12V7Mzdsj/1oQQYgFyjKrnubSIWQKg56Sd5T5C0wNnOUAoIx5RDatawa5qXMWzbvW467p3Rl0sHcep7XFdxvYlhtX7nPNNx3F+L7erUrkJGPX9bTHG9trteNkkm26ynXT2U89z6c5OKOR2Hcm47i9zZ+t4MR/zB4SQ92yCM5vtKTPZvqq63e6HQRBcl9t1zUIfmRx33W7XeNzz/PzBn1Q/G0IIFUIqVo1jjQp2VVCzHLiue0d+jdjgxF0m+bPGBWxfUkH1vir5PaGYzkRR9HYat4+qcl33jm4mctKMHaqgxqjafo5JTPtcNgt9JP+tCvk1UP3hkAOEpozuxQU1Xx0fw9o+buecb0ZRdFo305XO2KH7iJsxtscYW19cpMx22A4poBhMJoRYsB1uMut9hKYLBrQINZTjOK8NWyDJeDi5DU0/IcQlnaxV0WxmYbCdSN/3o/Dw4eGH8jR0o1BK7y4eP3ouDMNjkIWQ0IVbowyHw9/IbTpmvY/QdMGAFqGGarvPv5fbSBLY2GZuUDMNokOf1KXvTedeZYztHT48/FBu1+X7UThuDuVspi+KotPQ2T7Pc2kQBCPfG5jVnLSz3Edo+mBAi1BDJVNsjcxuDIfDzTpl61A56rLogs3j9lartQaVgQuC4D5jbD39b8bY3uLxo+fa7Xi5yEzfs2dzI4O0STjnm+OO53Fs5qSd9T5C0wcDWoQarNVqXZPbSHKh23n0+Cal9ErVwQ0ql6jBogumj9sppXdVZovQ0W7Hn3PON5O5lY/52/sbRQdJw+HwgtyW5/DP//KHccOIJjHd1qZ/Ny19hKYPBrQINVgQBNcppXfl9pQQ4tJg4GxhYDtbgiBYq7JIzPRRts2iIOP4fhQKIXrQQdg4k5aknujHuW9Mpo0znZN2lvsITafazleJUBVGTdcCPU8q1Dy0qWRuxy2ViyjnfPPw4eGHVWU/yti+xHD+T8bYXhzHP8jtKlQ//6jvX6Rut7s6KUgw3E65+6nJ92SM7YVheExubxrG2Ibu+NlsgRWldFflWM7SnZPWdO7ZpvaRyf44KVEwyRF68AWO90UIVe7VmQhfgJ4nFWoe2izdeR1d171jOvbOhvw54gK2LzGcX9WG/P7jyH+nwlvq9OQ2VZTS3UnZO5PtlLefjtu/8zDGpiII0DkOU9lj0bBPtOaknbU+kr9HkfKOD1QczNAilBGPCE6gM4jQGdos3YwbY2yv7T7/mPw4900ZWdsyti8x2A62VFdnG/X98ziO45hk/VKTsmom2ylvP/WWOr2dR49vyu15dLOMnPMV22mrVOStfpVl+t0XFylL32Pc+SFPXjY+y/RzNrWPTI47U3nHB0IIlUK62Y7jAjKI47IjUHf2nPMV3dV/KKW7ZYyzld83LmD7EsMslw35/ceR/04FMcjAy8Zl1ky2U95+avKacRzHutONmb6PLp3PxRjbkP8+z6i+MenrUa8zjum209kWxOJ9dOV9LvnfFynv+EDFwaIwhKZMEAT3oyg63e12V1XHgQkhFtICsiqGIqDJ/GRlJd1pnVJBEKzVvV/n5w/+JLc1iencs4d//pc/yG2EkC/lhjymRV466tpHdf1cqFwY0CI0pbKBreoSk+l0X4yxjaKztUiP70dh233+sdyuaufR45t5mawqTXpkXCXVx/jGK/T9OPeN3NRux5/LbXls5qRVVdc+quvnQuXCgBahKRcEwX0hRG9xkTLVwDYIgrXBwNnCoLZeksU0Xk5Cr6sOiy5MMe1Vuzjnm6OCMd+PQpNsvOncsghNAwxoEZoR6VyPi4uUMcbW8y6YQoiFJ0/ILQyA6iUMw8uqNyaytE/l9jpo8n5mOvfsmOEGhExYNGUS0zlpVRX52gjZwoAWoRnj+1EYhuHlZEzmxMA2DMNTVa86hV53+PDww0n9NkkYhqfqWLjy7NncL+W2qqlu4ziOfye3KRkx3CA1P39gdNNisuyuqib3EZp+GNAiNKOyge2kjF8TCopmje9HYavVWjO9mAshLhXVp61W62u5TdGy3FA1lYU2TIvBxg03SJkOO1BZdnfW+gjNBgxoEZpx6VCESWMzB9GhT+Q2VK0gCO7bFIkNokOfOI7zptxelTiOT8ptVWu1Wn257TVvHLwjN6mYNNwgZdK/QoiFoor/GttHaCZgQIsQIiQZmzkuqC3yIlkXnPPNbre7avIjv1ZZ/O39jUnZ9UmEEAsmmcU8qrMCyIoe/2nCcZwHcpvM+GZvwnCDl1T+zQh5QyBM+yiO49Um9pEJ+RhX/TGZoQLBUFrdBqFZEY+YJB96JatxKwHVZYWZcWvJQ3y+MrYvKWgFLAijvn8elVXIxvVZEVS2k+u6d8IwPCW351k8fvScv72vtECAt9TpPQnnfiu3yxzHedN023RzVt8adyznSYYSqM41+57u55+0OlxqVvqIFHjcIYRQbUmLvsRxAStZFb1SmC3O+Xn5s8VA20F+zRjodWUmKxSVsf3l91Qhv8YotiuJ6VDZTibbP05WrJNfy5a31OnJ76NKfi2Z6fcsQ94YadPP3rQ+IgUed6hecMgBQki2JTegekuLxOT2qpgWHSVDW87L7TZM52ZVHMqhPfdsWfK+9wz1EZoRGNAihF4x7vGdyeNJVJ4gCO53u90P5fYqBEFw36RCnyRV+lDjtU1nICAKRVveUqdn+pi8DHljkmehj9BswYAWoYbzPJdOunBBMb34ofIEQXC9Llkrkwp9kmQAoVY0s5pDOacgyzSrWKa8OWnr0EdWC33k9BGaLRjQItRAnPMVSukV13Xv7OyEwnTqoFHGXaRwvsdmsFl0AVKyTK/R5xBCLAwGzpZNFpAxtmGa+cubI9Ymq1im3Dlpf5z7puo+Mn3yk9dHaPZgQItQgySB7G6/378nhLiUXgwgs0V1XA0IqbNddAGSaQaQZLKAuuM1Pc+lNsEsSW4K5LaswcD5QG6ro7zp9pJ9RXuJ3VSd+wjNHpyWAqGMUdWt0NNKjZvqR2U6JM9z6c5OKOR2lWl6VI2b8krl8+UpY/uSCd9hEkrpXcdxXusXFW33+fcqUxmN+v55TKcP8pY6vZ1Hj2/K7bZ09wOIKcUYY3tJ4LU1bow353xlOBz+xmSaqyzO+aYQIm+GAOvvVJayvk/aR/PzB2Mzp2X2UZbJcTduTm4V7Xb8+bhtgBBCpZBmbonjAqaVsp22a9z0THnT9Kgq8vXl14wL2L7EYkoiU6rfQf47FfJr6ChiO6jup6lx+7sN13XvZH/k35uilO6OG3KTKuL7FEllmq0ivlOVfSSTX6Nok7LiqDg45GDKJfNTXnFd904aqFBKd13XvcM5P697YkDVG/eIcBAd+sS2Pznn58dmTrAAo3HCMLxMKb0rt5cpqaY3znaNEobhqeyP/HtTbff5x3mZtbxVuOpGCLGQdzM6bX2EZpPRoyxUf57n0qdPW5+pjFHSfYQ4zeIRGTHoR+I2Qw5I0reDgbM1KvDUfRSXlTwO3IR+3awyti8xHHJgQ/U7jPr+eUyHHKQm7S8mVPdTme2YyaKpfK9xQ35UQAWMJvu16v45DX00islxZ0Nl9TKEkIIkKzvysfE4jLHc8X+zQN4uscbjZFXjHu/pPMqd9CjZpC/TYjP5tVK2md+U/LpxAduX5GyfIqh+B/nvVMivYWLcPmdCZz+VTdrHqqR6zJiuaKX6+ipMt6HKMWxy7SiLzTaUX6toOOSgGjjkYAo9eUJu6WZjgiBYs7lQoXK12/Hn46rYk77cVTmppkNSklkTRu4zjLF1fMTXbHVZdKHdjperHgIh03n6MIgOfSK3qXAc5/dym4Uv5QYVKjMz+H4UNr2PEEJTgnN+Xr5b1KESBE0zeXvYGHeDMC5bNu7fj6OSLUrHSnPOV7I/3lKnxxjbyMvGmBRgTCK/fqyR3dSBGdrRGGMb8uvr0t1PR4H4HBB0sn7jjts8VKEoS4fnuVR+DxW6n6OJfTSO/JpFm/XrKELWIB4X6Z70po28PWyMu/CPuzCO+/eTFBm4QQezZMz2VQ0GdRS5XUZR/Q7y36mQX8MG0DlCez8dxVvq9Gw/iw3duVNN9ynd91Fhut10A62m9dE48usWTXc7Ixg45GCKPHs2tzbusbGqvIm4Ub2EYXi5iKVOkzkl13CowXRJHymPG65SJn97f6PdjpeL2H8noZTeTYp2rsu/y/Ge3KBifv4A/PuZLlihO0NDA/sIzTAMaKdI7jKHinRPeqhaQoje4vGj56CCFM75ZrsdL2OV7nTy/Sg0DYig+X4UCiF63W53tehxm4yxvcXjR89FUXRad9/2ljo9k2RBYcuzGk6hF8fxqu5Tl6b0EUIY0E4JzvmKyQl3lCAI1nRPeqhaEJmUNCsihOgVchFGteFv729ATSMFIQiC+1EUnV5cpIwxtg51c0aSoHLx+NFzYRgeU1nNbRTTpaWBi8Fe8v0oNDnWhRAL5I2Dd+R2FXXvI4Ss5jdE9QE9f6DpfH9NBzU+kLxYAOHrUVmGZF7Q1yqOx/17XZ7n0mfP5taGw+GFvJuc5KL0JdR75xm1fVWXjdXhLXV6T8K538rtRXEc557K8aI61jZLZf5QU4yxjeFw2JXbJzlCD76A7q9RkqFPy3EcnxwOh12VyfkZY3txHP/gOM69tvv8e/Lj3DcQN2cm/dZqtfpFVuZzzlcODg60b0pU91UVdeqjSUz6z8bc3NylMs6n6FUY0E4Bm8m+x2GM7YVheExuR80zbkw0nnBRE43an+fnD/5UdFCE1GEfIYSMmFbf5slbLhEhhBBCqA5wDO10MKq+zWM6bgwhhBBCCCFlKpPr28DiMIQQQgjVHWZoG67oLOqo4iWEEEIIIYRAmC6BqGPWVw5DCCGEUP1hhrbBysieCiEWsDgMIYQQQnWGAW2zFVIMJitzPk+EEEIIITQjii4Gk2FxGEIIIYTqCjO0DVV21rSM4Q0IIYQQQmhGlFEMJsPiMIQQQgjVFWZoG6iKbCkWhyGEEEKorjCgbaZSisFkg+jQJ3IbQgghhBBCWsouBpNxzlfkz4QQQgghVCXM0DZM2cVgsjiOfye3IYQQQghVCQPaBvE8l4ZheEpuL1Mcx6s4hRdCCCGE6gQD2gZ5+rT1mdxWNiHEAnnj4B25HSGEEEKoKhjQNkQyVdeq3F4FLA5DCCGEUJ1gQNsUbxy8I4RYkJurIIRYwOIwhBBCCNUFBrQNUbesKBaHIYQQQgghZZzzFXn6LFOMsQ25zRQWhyGEEEKoDjBD2wBQ2VBK6V0hRI8xtif/zsSzZ3NrchtCCCGEUNkcuQHVi+e5dGcnFHK7iW63uxoEwX3O+fl+v289YwJjbC8Mw2NyO/qJ57n02bO5X8rtsiAI7sttCCGEEFKDAW3NFRF8ep5LBwNnC6LILA2S5fZZkxTJLQ+Hw5/FcbzqOM6bJtuXMbYXx/EPjuPca7vPvyc/zn3j+1Eo/7tZMKrwcBr2NdWbnCrMzx/8aRr2t1H7zrTQ6SOb7TANx5oNm22n0kcQ54Em95HN9iUN/+4zi1K6K49dNeEtdXrZ14UaS8sY28i+7qzgnK9wzs+7rntH3ibQKKW7jLENuQ+nkbfU6eXtm03fFpBj4otCKd11XfcOpfSKt9Tp2V58ylbGcVkVnb6Q/1YHpXSXc35efs1pxzlfsb3uqvSR57nU9n2SPsp9rzrxljo92+/tuu4d+XVRzUFd+Cilu3IBF9RrxzNUHJacgK7YHow20uC2aSexPCYXEdd17zRxO0Aee2XK3ljV/ZjHgPYF+W9NNPnmURdEkBlr9BGl9Ir8t7qaFNR6S52e/PlN1P38g0bIy1SpGpdFhThw4xcH1BX5taeJt9Tp1fEC2dSATmZ7kmvaBbepAa2szsFtHY9XKDrHvPy3JkYlRKYV1H6j2kdQAXQT+sgkaTHKtMcbU8l7sTIYiHEHl20gkaKU7sqvPQ0gHo2UocmBLdQ+2KSgdloC2hSldJdSeqVOF1SowKSOdI51+W9NzUIQAXlc6vQR1Dmw7n0EcS1tQuCORoB4FBErBJsQO1ncsIAiD9SdZNkYYxtNOtghLyBxg/ZB6O9dJ3XZBzGgfUH+W1OzEEhA7jM6fUQA37uufQQVz+Sd43Ee2vp6T24w0Xaffyy3Sb6UG0w8/c+/+nu5rWk8z6WMsY1+v3/PZIaCqgVBsDYYOFtNKOTwPJcOh8NNud3GIDr0SV1P6LMiCIK1nZ1Q1C1ji+wIIRaePm1Zz7ZTV5zzlTAMT8ntZTlyhJyV20zUsY+S84B1PEMpvetv748cPpnCgLaGvKVODyKgYozt5e0A7Xb8udxmIgiCtSZfwLylTm8wcLaCIGj0YhFCiIV+v/9ZXTJl4wwGzgcQ+3iWEGJhMHA+kNtR+YQQlwYDZysvo4Kao+nn+Emgb651+X4UMsbW5XZdQRCs6WaHiwZ1rp+bm7skt8kwoK0hwGxnbvbV96OQUnpXbjfRxGAizcruPHp8E+Kgq4tMtrZWJ7cM6zv2MYp6XaRJCLGw8+jxTdd170xrIDRr6pgBtAWVQLLVbsefQ6zieXBwYB0YQ/E8lwohcgPRPIyxdZV5ZzGgrRnPcylUllA1+3qEHnwhtxlqVDDhJQtMQG3vuhFCLAyHw826ZcmKvIAIIRbq9n1nXRiGp2p+c4UU1TEDaGsQHfpEbquC70ehwhDBXGEYnqpLH0HcADHG9lRjGQxoawYqy8k538xbqSTlb+9vQNwZNimY4JyvQK2WVmdplqxO/QL4BGKkJ+Hcb+U2VK1kKMy9JozvRpPVKQNoi3N+vk7XAH97fwPiiWnVQyhIco2FSBa13ecfq8YyGNDWD0iW8/DP//IHuS1H7vAEFU0IJjjnK8PhcLNOJ7KiDaJDv5LbqgD5BGKcMAxP4SPuekrHd8vtqDnqlAG0kRSmXpDbqwZRIFaH5BLEjY9KIVhWbQNab6nTO3OVfHrmKnmQ+Yml//606k6DBPUoVqUYTKaa0s9T92BiFoNZnUc2RYN6ApGnrPdB+oIgWMOgttnqkAG0BVWsBA2qQKzKWV+gZo1QKQTLcuSGKnlLnd7y2f3zhJAT8u8UPNy61bmuG8jVieu6dyB2AsbYehiGl+X2PIyxDYjsmen7F62qYJYxthfH8Q9ye8pxnDeL/EzdbndVZUB9GSilu0V+1xRjbC8Mw2Nyex1wzlf6/f49uV1H3j6lC+K8o4tzvimEKCQhYXsuhd6+kObm5i6pHs9xHMdyG5TF40fPNfV6m9ZPFHUusj3nQn2+qq7FtscfMfzstQhoLQNZWSMDW89z6c5OKOR2E4uLlKmOOcnyljq9nUePb8rtupKM4LLJZygK1AkiD2Nsz3Gce47jPCCEbOmc1JLHeMtxHJ+M43gV4rOanBSKArV/qarrBRcioLW9YI7DOV+ZP/rnXyRDVN6D2AcnKSqotb2gUkrvRlF0Wm5vmiID2jrfNOahlF6BqL4fB+L4hDhfVnEtrvJzVzrk4N118taZq+TB8tn9m0DBLCGEnFg+u3/zzFXyoKp0uwmoR6Q6xWAyyOIw8sbBO3J7VcoIZjnnm4vHj54Lw/CYEKIXBMF13RNaEAT3gyC4LoTohWF4bPH40XM2BQKU0rt1CWZJCcVgsrLfbxoEQXDf397fCMPwchiGxxYXKWOMrUOcF0ZJquaxUKyBhBALdV9udRSoqaSKBlEgJiqYmxti1ohWq3XNJI6pLKD1ljo9xyHfAgayshPL70eiQWNsQYrBHMf5vdymCaQ4DGKnhvL0aeuzooJZzvnm4iJlQogedDbQ397fiKLo9OIiZZxzrTFrjLE9iOICKDbFYKbB1DRPBF8W34/Cl8Ht8aPnTPtikn6//9k0FBnNqPeadoxBTCVVFt0xpKMIIS6V1UcQs0YwxvaCILgut6uoJKA9c5V8mmRlC7d8dr9WUxaNAlkMppsVlEEVDwkhFupwkfKWOj3TQGoSSundl4GswZ2kDt+PQiFEb3GRMtU7dp2pTsrw7NmccR/YzM1YdnZimiWZ22PdbvdD6MB2OBxulnXRRXCqyADagJpKqixBENyHKBArI4iHmjWi1WoZ90/pAe2Zq+RTQoj1l9aRDEH4VG6vC6hsZqvVuia36fL9KNTNBo4Tx/Hv5LYyeZ5LobZtijG2t3j86Lkoik6XHTD6fhRGUXQ6L1PGGFuHzhbbMj3RsWTGjknfNwfIkw/0kyAIrrfb8bLqzZUKIcRCGRddVIjGZGkhppIqG8QKYmUsiAExawTnfNMmKVdqQFtFMJtxoY6ZWs75iu1OkJqfPwAJRA3msB0pjuPVKk900EMNXg5UrzhY9Lf3N9rteJlzvimf6Djnm3UaN0vs9/F0CIzRUBhRg/kYp1F6cwWRPUoFQbCGfdU8TbkZgZpKqmw+0ApiRQbzyXXeKnnAGNs7fHj4odyuo7SANjlRVRXMEpJkat9dJ2/J7VWCymLaFIPJLDNiL1VZHAb9aOllMAu0jW2lwxDa7Xh58fjRc91u98Nut7taRMW4LZt9vO0+/z77vyawOKw4YRheXjx+9JzcbqrKuTORuSaMVy8yoCsaRIFYGIanirphhEgemRaCZZUS0HqeS8saM5vHcYjRYOMieJ5L4zheldtNABSDyYwyYjLoR/6qIE9edQtms3w/Cv3t/Q2TWRXKYFsMlmbDbW6ymnCxbTJ/e38DKqht2phM9JM6Z2m9pU6vidnZLIgCsSKuxzbn+JRNIVhWKQHt8vtRpZlZyYnajKd94+Ad27saAlQMJmtycRjkyavOwWwT2BSDOY7zylyt8n/rsPkcKJ+/vb/R7XatHhemyqzKRnDKGKdpqohArmwQBWLJ9Rh0mrwnT8gtuU2XTSFYVuEBbXJisglor23d6pyLY/L21g2XxTF5e+tW5xwhxKYAyubzgIE6yCCKwWRNLg6D2q4YzNozLQYjI8Zy2zyFsPkcSE0QBNehzhl1zvah8SCfjEGBmkWoDiAKxIbD4QWoG0aIccm2hWBZhQe0FtnZa1s3XHb7IvnI397f+OoS+c73o/CrS+Q7f3t/4/ZF8tHWDZcRQh7Kf6ii6iytZaHMK6CKwWRyQGGqzEe+kNu11WqtYTBrzqYvssMNUkmGwuhkXsWTgll0+PAQZEqvMs8ZCE4YhqfqdpxBJTjqAKJADHJYj+0NDEQhWFahAa1pdnbrVufc7Yvko7xgwvej8PZFcjLJ2OqyuquwBZW1hCwGk9mMW5SV9cgXarsyxtah7hpnlU1fTBheYDy22+bzIDUQF9wU1EUX6bMpQBoOh4UkWEwkS9wa31TLbXUAUSAGMdUa0NC+LyHjl0IDWpMK9zgmb8uZmTz+9v6GQVB7oqoZDyAGUadsHsMqMg4gssp45Au1XZOhBiBjiGeVbcHjuP261Wp9LbepwqxfOYAuuMR2GiBk7gg9+MI0oKvLVHnJsW68D0GN6yyCbYEYxFRrtplvxtge9BSThQa0y2f3/05uy3Htq0vkO7lRRRIEaw0/cBzy3+W2MkBlK4soBpNBBXZlnOSgtmvdVtlqJIuCx0n7tc2wA0LMbrKRPtsLLinpnIFGe/b4r//DJplhG+xAsJnon1J6d9w5qA4gCsRsbvAhlrgt4oah0IBW97H+1g3Xqrhp64b7D3JbDq3PBwUqWwn1aG8SyOKwoucDhdiuo8ZuIn2WF7SJF1KbIkjLz4UUBUFwHyJLW/Q5A402f/TPv7ApQBJCLFBKr8jtZbHNzs7NzV2q21hgmU3/pExmKPAAlriFLATLAglo310nb3lLnd6Zq+TTM1fJg/SHEHJC/rcTWE+qm/y9zsVO5/OBsCmUyWKM7ZEf576R24vQhOIwz3MpxHa1CZbQC7b7eN5TAZsiSCwOK88RevCF3KbLZtgKMjeIDv0KYDy09ThNUzYT/dc9O5vy/Si0vV6ZFPHZZL5JAYVgWcYB7bvr5K0kgI0dh3ybLJxwIQkS0x9lcUz+WW4zsXWr869y2yRlH3BQhSmO49yzvQFQBVkcVlShB8RwA8bYnk2whF4YDoe/kdtUMcb28vZr26cGUMcgmgzivIHDDqpl04cCsJpeh20txZEj5KzcVldBEFw37Z+UThGfbeY7AVoIlqUd0CaB7APHId+azGAwzh+/dP9NbjPx63/c/3e5bZJfvxf9rdxWFNsDLWtc0UyBJj4G1mB7MIwUx/FJuU1XmTcJU864j1UzQjZPDeI4Xi37RnaGWZ83BtGhX8ltqDyqx+QYpWdpbYqdipw1qCi2Y1F1bhptMt+koEKwLOWA1vNceuYq+TQJZLWyryqathOZgLpbnVQ0U5S8x8CqdA4eHRCPJm2CJPSC9STmisNobDNHWBxWDptZKTKMb5CQPZtZKwRANb0OzvmKTdKoqEfhRQqC4L7NEyuiWFsAkZCzDb7zKAW0766Tt5bfj/4FMiM7o0BOzJZ3zEZsH/NmPQnnfiu32bAds0mwGAyMTd/qZkcmzFWbS+UEjuxZz0qR3oCgStnMWlFk7YTMZqJ/3fNPndguaCIUivhMCsiyiioEy8oNaN9dJ28VlZXNgpoT9o//1Pkbua0OrDNXiTKLwWRQGcwwDE9BnuDmj/75F3KbLpvgCL3geS61mWhbd/+yGXYjhFiA3AfReBDHlm7hCoJlO2tFGVlam2VYiyxUKgNEgdik4SE22zZVxvadGNBmgtnCQc0Jqzv3rem8t7psMldZVY7ztHnMK4MafkGAxtjFcfyD3Ib02PSpSYbcNvtn83mROqBja1luQOWyKZYKgmCt6JsSm+xskYVKZbEtEJtUxGe5bQljbL2M7Ts2oC0zmE1YRf/kpwq82g2LsM1cZdlkpSAADncAGX5BXmyTN+U2XUBj/WadTZ+aFg+Z/h2x/LxIEcSxNRwOfya3oXLZDjuzDYomsVmGlU3RypAAY1Rfy9LaZmfL3L6O3ECSACwZM1voMIMRrt2+SD6SG1WduUo+1QxoH96+SKyr4/Mk60kbj0FKUUrvRlF0Wm4vG6V0F2L4xOLxo+d0s3KjuK57x+aAI4SQxUXKyriDnFbeUqe38+jxTbldVbfbXTUZX+V5Lt3ZCYXcrgpqH9TBOV/p9/tWj+FNt1cVbPuIGJz7bM8JSabL5mbJGGQVeBzHsdymgjG2Pupz2PZlUfutzTVp3He1OU6L+p4qGGMbNsVb8jkR+vWKNDKgNQgMwcQxedtkGIC31Oklc+Eq27rVKWVD2xxsWWXuGJPULUA3PWlnOY4z8lhAamxOeslULsfkdlU2xxfUPqjD5kKZqvKCacL2GNXtJ9uAtkqQ5yLT7T4uyCOW53/bY30Um5vpSZ/H5jit8vj0PJcOBs6W6Tkxu01sb2B0j1tbrx04FQw1eI1uUGsSzCZsB1GrOPX//g878d/+pyD/93/F5H/8b8f4f4v8vHFM/vmPX7r/ppKltN3JsyAOfNOTdqrsg27a2O4P3W73wyAIrsvtqmwuaKSC7LzNhTIFcdyUyeamI6UT6GFA+4LpuXFSQGsbMEEmZor8LDbHadXHJ+f8fL/fNy7ES7eLzc0LqeDc+tqBY7BkbdbDrVud67/+x/1//+oS+c7zXPrr96K/TQq+Tmm+bu7wg2RoxIWqsslT6trWDTd3GWKoCwbnfFMIYTUvrelJO4UBrZ2qT3q2AfWki3cRbC6UqaovmLogzhc6gR7E+1VF53vmMT035h0TNsf8pKyoriI/h81xWofj0+YmMr0u27xG3j5UhFeKwpKps3SCztTDrRsuu32RnPS39zfS7KrvR+FXl8h3ty+Sj25fJCe3bnXOyX84wYUzV8mDM1fJp9kpvTzPpemyu8vvRwKDWXAXlt+PRN40ahDrtBOAVZsgKmdbrVZfbkNajIurKKV3bYJZAlCsYvP5EZpF7Xb8uWlFvcqcpyqS64bxsQtY4FxLNgViyawU5y2C2dIKwbJeCWgNp866dvsiOalyUfK39zfimLxNCHko/26ME4SQC45Dvj1zlcRnrpJ4+f1IQC+7i17nOOTbSYEm1BReogarNgFNKzSTbOdXhrox0p3DNksUtHodQtPK96PQMiB8rZpe12DgfGB67qGU3h031GBa2K4gNhwOjWOstvv8Y5WYEJo8bZfuF8gdFiD76hL5Lo7Jebkd1U8ynGMSkCpgXLWpuZ7+51/9vdymigEuEmJ7g2XzPRCaRTbHnJgw56kK2+yszcpnTWKzglgTbxZeBrR5j5hHeKgbzKa+ukS+0xx+gKoxMaCFeqQghFiAGDqAyuVZru0NvUiIzYpUZS7PidC0qCpL+/Rp6zObgKvq8a1lSc6vIIknVVXeLLwMaHWHG2zd6hhXJZPk7k5j6AGqyKQbHd+PQpvlELPiOP6d3Ibq7dmzOeNgllgOExjFdtERm4wRQrMoqYQ3ugYIIRZMlsS1vZGuMuCqQhiGl02ztLoYY+tV3ixkhxzoVIQ+hEgp2wbFqHpQYyAxQ9Y8NmOsmMFSt3lsl8K1eYSJ0KyyCRBNzvsmQXCKc75ZZcBVFZsCMVVVFYJlyWNoVRndkb0GaPwcqo7NOCqZScYP4uQUx/Gq3IYm45yvmD7ySxT1GMz4dbE4DCF9QRDcN83SEs0AlXO+YpOdPXx4+KHcNgtsC8RUVFUIlpUNaE2m67KSfHkcdtB8xkFElk3GD5XLdohIUXfytq+LxWHFcBznTbkNTY8jR8hZuU1VMkWUUg3FwcHButyminO+WXXAVSWbArE8VRaCZRllaLdudf5VbkNT6aHKim22QUSqquIwvNjqsR3DxhjbK+rCYjuu2+QRKMpnmc1/MSMGqi3buaBVAlXO+YrpYhmMsb1Zzc6miiwQsxl2AskooF0+u/93chuaPqpjnG1PZlkmmT/bi53txXbWmAwNyWq1WoUt4UwAxnXbfj/0KogbhLLnimaM7XW73dUqfuTP0hQ2AWMYhqfykhnD4dDmGvNlUTfRTVJEgVjVhWBZRgEtlOREV/pQB6Tkms4jBKiKdZMMGcTFLu9kin5iOzRkfv7A5sKUz3Jsvu33Q6969mzul3KbrrJX84vj+IcgCO5X8SN/lqbw/ShkjOVmWseZFLDaLOBSh2KlOoEsEKvbts0GtDpjWY3S/q+peIUoNJb2ghmQxWG60ydBXOzmj/75F3Ibep1tMVgZ49hsnxhUNfRlii3LDbogblpR8WyXxB1XlGm5+A5mZzMCwAKxOhSCZZlmaE+M2/F0LJ/d110xTCfoRvquxTF5WzeYzYAan6M1fRLExW4QHfqV3IZeZzIkJAsqk5/H9n1svyf6SRzHJ+U2Xa1W62u5DdWP7TjNUYGrbXY2DMPLcvussxkekqpLIViWk/4fb6nTWz67f/PVX0/08PZFYnyiUny/h1u3OtfJj3PfZO8CPM+l5I2Dd5KA2GjIwtYNl0HeWVBKrwghrAdGJwfgMbld1Zmr5IHhNrHqT5L0y85OKOR2E4vHj55TPVg45yv9ft94lSgCsN1ngee5dDBwtkwvLoQQUuYYQdt9YnGRgp4jUhD7a7fbXW3K42lK6a7NPkMM+sJ13TumBUQkuVhHUXRabm+aOI5juU0FY2zdNBC0PU/I+7bN/qNzHZHZHKfyd6gj22PEZh8pyssM7a//cf/fX/1VrhNnrpJP5UYV766Tt/KC2a1bnXO3L5KT/vb+hnwi8/0o9Lf3N25fJCdNl9Bdfj+CHienlVWcwPjutmq2j3qznoRzv5XbxpmfP/iT3KZLCLGgO3Z35rxx8I7phSXV7/fvlfUjv7c2HBJlzfNcarvPFDkrBoLn+1FosyRu9umIzRAnVsDiLajeXga0yfRMuo/0L+gGte+uk7cch0yqnn+4dcNlqjuiv72/EcfkbbldAVhAa/NIRFanAdYmbB/1psIwPKUaYCbFCEbjtrKwun2yUY8Dp9msfd8iQBxTjuPY35ygUtnUVGQLg22G/tgE1aiZ5DG0JvM3XjhzlTxQCT68pU7Pcci3kx6Jb91w/0H3bvyrS+Q7k6AWYhwwAZyMvYyCmaLZnMhkOsVhEBc9rG4fzyZT0lRYHGYP4piCuklG5bIJKAcD5wOb+a7rOL4TFe+VgHbrhms6P+SJ5fcjceYqeeAtdXrvrpO3SPK46d118taZq+TTM1fJA5VhBqYBXZJh1vr8EPPp2hx0sik6cUMNm1AexgGx7TCAGW84HP5GbpsFNhmiWQd2E2Q5DRuqhr+9v2GxyMl7Ntn9ukz0j8r1SkCbBJNaQaHkxPLZ/ZuOQ749c5XEy+9HIsnIXpiUlU08tL2jMgjIjQdEp3SyiJNM03gfqGETk6ZxeQ3QRQ8DmLGUby6mSRzHqypPn9DrII4lHD/bbKaBpRBiod/vfya3q6CU3q17QRYqhjzkwCQoBKG6KtUkBgF5XpCtAupCD5XVrFwVxWFQ42hNFnaYdpBjxJtGCLGAxWH6oJ5c2Ty2RtULguC+RZbWiGkQjZrvtYDW96PQdOYAGwazLIy0davzr3LbJDbBC+SFHiqrWReO4/xebjOhUxwGtaTq06cto8zAtFK9qZhWWBymD+wYAnrygqpTZoDJOd/E7Ozsei2gJcnYF4MZD6wkY2Ct6QbGv34v+lu5TRXUhX4aisFkQRDch8iYEo2LI9SSqkEQrOFY2hc8z6U2cxVOA5zSTQ9UdnYaz4uzCHJlqjwQCwag5hoZ0BJCSDLJfqlBbZNAXuihspl1A5UxVR3H6PtRCPV4a9K64rMEaox40+F2UPfkCbklt5mY1vPiLCoj0MQbIDQ2oCXJFFplBbUqAUudQF3gGGN70/qIBCpjqjOO8Qg9+EJuMyGEWKCUXpHbZxDUGPGmw+2ggHN+HuJGHwt7pktS47Aut0NhjO2VETSjepsY0Pp+FJYW1CoGLHn++E+dv5HboCXBN8gFDiqLWUeQxWGq4xgh58EVQlya5aEHkGPEm05rxo0ZlSwVqjQ8KE+Z4y5ROdrt+HOoc/MIX2J2Fk0MaMmrQW2hgRfEnLDkxeucl9smMRq7C7AEaAoqi5lh+sjd9O8mgnpsqDNHLGRl9HA43FR932lju2AI53yz2+2u1uXH9uYKasz8NOKcr0AN08Hs7HRKAk7w2XwYY3vTVlSNzDhywyTeUqeXBIwQ0129ZuuGy2zusjzPpcvvR0Jun+BhMlZYC6V0FyKg5ZxvCiFAsz5JH01cwGKUrVudc0XNg1v29vI8lw4GzhbEe5LkhNlqtdbqdpH1ljq9QXTok2R4xN25ublLUJ/R81y6sxPqHEuv6Xa7q1CfB0KSQbRaUW5xkVqdowjQ56jTtk2DWajjDWIbu657x2boA6X0bhRFp+X2ponjOJbbVDDG1sMwvCy324I+N5MCP6vNcVqn43Mc22OkqO1uIzdDm+Vv728kAeC1IoYhLL8f/YvcpsP271WArX4DmL3MMpyhwnpRi0mghlWozhHr+1EImaUVQizULVPLGNvYefT4ZrovhmF4qt/v34Ma92s7RryOY8MhZt6w3S7TBjqYZYyt2wazqL6gz82YnUVZWgFt6vZF8tHti+RkMl8tSLCSOGE6Tu3MVfKpbubYZDEHiNVvSMEX/DgmWsMudP+9LshhFarLIUKOpSWZoNZ0/4TieS6llO6OmxZJCHEJ6DPajhEHf7QIAeDmyna7TA3O+fl+v38PMJjF4GQGQJ6b2+7zj/EGCKWMAtpUkrH96PZF4sQxeTsT4GZ/tCyf3b+pe0FOgtkLcnsuzUm7Pc+lcRyvyu0mAC6sY311iXynujjG1q3OOaNxxBogi8OGw6FyP7darZFBnykhxMLOo8c3GWMbKpliaN5Sp6fyuG7n0WPtYygLohisroGJ7c2VwOIw4nkudV33DlQBWKrVaq1hcDIbILK0bIqWi0cwrALarK8uke8yAe7LH4PH32T57P7NM1fJg7yg4d118taZq+SBUTBLyEPdk+ezZ3Nrthf6lO2FNY+/vb+xdcNlE24qrm3dcFlZJwSo4RVCozgsecQMPlVMEARrg4GzVVZg43kulYcY5LEJam2LwRhje7rHVlkgbq5st09TJU8HruzshMJm7N0ojLH1op5Yofrxt/c3bOcMhwiK0XQBC2jHMXmsnzix/H4kzlwlD85cJZ96S53eu+vkLW+p0ztzlXx65ip54DjkW91hBimTx+w62cFJypoA2vejMJtBT39uXyTO7YvkozI+Qwpi/GJKZ9hHUVPFpNlaSuku5/x83s2XCc75CmNsY2cnFOOGGEwyiA59ohr8pzyAVZ7qfqE5/PO//EFu06E6lntaZPdDIQT4dFqc8826FZeg4tlMzUYpvVtWMgY1R+EBrWGRUtYJQsiF5bP7Nx2HfJtU8F8wDWQTD3Ufs9e9GCzPV5fId+mP/LuyQAU6OgGF70dhq9VaKyKoJUlg2+/3P9vZCQVjbMNb6vRUP9sonPMVSukVSuluv9+/ZxNcmhSzqY5RnkhzKE/pfpz7xnZ/mObiMM9zqbfU6UHth5MwnBB/ZgVBcN80S2sTDKPppTVtlynTqaSKEsfkbd3AjjG2AXFSZ4zthWF4TG6fBZBTtuhOGeItdXo7jx6Xtg8yxvYcx7kXx/EP5EUw//2zx3/9H+nvh8Phb9L/H8fxquM4b0Jsl1GSYptllYy87RRrqlOrVc32eLY5jm2mA0pxzjfTfQuC4zhvDofDbpH7oUxnv9QFMCXRXl0LG9vt+HPVbVa3abtkJteEss4xNscpTttVjVICWvKicOuBZVYVyrVkbK8yD2BOzlS32/0wCALTYRiNZxtIpEwCiqQqG7SQpQlUAwebE3hq8fjRwuYzhgRxg2P6XSG2c9Op7pOmbC/WdaYTLNU9oCWaU79RSu8eOULOFrXfZNkcpzp9VBXbY6TMfURV4UMOUqUtoTvZw60b7rgiqbEgHy8WXQxWd1DDLUyqzYMguG5bENQ0LFkUQuUCoDM2eRTWoKpjiKmDZrU4zFbRwSxqliAI7rfb8TLnfHPcMckY21s8fvRcFEWncb9B45QW0Pp+FJoUYkG6fZGcNDwYQOaeLKsYrM4gi8NMAgohRG9Wgto0mFXJFEAUg9X1Ee0EVp9XZyw3egGDWTSK70ehEKIXhuGxxUXKsktWO47jhGF4rCk3y6g6pQW0JClMimPyttxeBtP3hZiTMwWVnWy6KorDsoQQvSKm86oTnWCWABWDtVqtr+W2OoP4vBDbbVYksxkcw2AWTeL7URgEwf30R/49QuOUGtCSV4PasoYfPNy64TLdIrCUSRZwFFbgymCNA1BlnjIdDhKG4eXF40fPQX2OOtENZgnAlHRN3L8hnhbYbrdZkD4uLqOQByE0u0oPaEm6klU5Y2qvbd1w/8E0IwD0GJaQglcGaxrfj0LHcYwG249gPBzE397fKHJKryqkj3R1gkuIKemaun/bfm6dhT5mEaX0brsdL+PjYoRQ0SoJaMlPk/6fVF2iVdPDrVudc7aLB5hm/2SMsb1ZLwaTQQ2/MCkOy0oLEqZhCAJjbN1kfKJtMRhpcLEjxOeG2H7TBot4EEJlqyygTSXL5TrJEq22Gds0kD0JlBEwzv5lOY5zD0/qrwosJtWWPQnnfiu36fD9KAzD8HK3211tYraWMbbX7XZXwzC8rLufeZ5L4zheldt1UErv6r5vXfgAS+GajuWeRoyxvZc3VjDnYIQQUlJ5QJtKlmhNM7Y6we1DQsi1ZElXqEAWrBiM4Uo4Y0Gt9hKG4SmIgCIIgvthGB5jjK03IbDNBg86Qwxe8cbBO7b7+RF68IXc1iS2S+ESLA5Lb6o+bLfjZZMbK4QQslWbgDaVZGxfBLc3XBbH5O1MkHstDV7jmLy9dcNlty+Sk7cvko9Mi77GgSoGa7Va1/DkPlpSlAPyqB9qeAhJCsbSYQh1DWw555sQwcMgOvSJ3KaDNWju2XEg5qSd1eIwzvnm4vGj58IwPBYEwXWbfREhhBCw5DGsNcZYoy/0ZXFd94687XRRSnfl14WQWdd+V37PslFKdymlVyCy0SQpBpPfQweldBfqs1TNW+r05O+nS7U4zHa7V4lSussY2/CWOr069z3EOaWuVPczkqwUZoJSekV+rVljc5zq9FFVbI+ROu4jtcvQ1sIbB+/ITTpwmho9URSdts2GFlVt7vtR6G/vb4RheCwZY2v1OXWlwwqSMbLHbDOyWcPh8DdymyrG2F7bff4x1Gepmr+9v2E7jds0FocxxvaSFZxe7oNCiJ6/vb8xLX2PEJoOjtyAXmRrBtGhX8ntedru8++fPf7r/zAez4gI53xl/uiff2Gy/Vut1tdlbXvPcyl54+CdQXToV3Ecr9qsiZ1FKb3barX6h3/+lz+QH+e+KTJoYIxtDIfDrtw+ieM491qt1n/Nzx9M5ap3nufSZ8/m1obD4c90i+VarVZf5SaWc75ycHAAMtTGljx9XqvV+i9CyBZJhgRlf9cklNIruv3XFHNzc5dU+8Z13Ttym4oj9OCLpg8lsmVznOr0UVVsj5E67iMY0CIEJAmGfqkTkKerVc3PH/xpGgNEhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEHrF/wfQhS8G8LhFdwAAAABJRU5ErkJggg==" alt="ListEngage Academy">
   </div>
   <span class="app-title">MCE SQL Playground</span>
   <span class="badge">SQL</span>
-  <span class="warning-banner">⚠ For learning purposes only — Do not use client data</span>
+  <span class="warning-banner">! For learning purposes only - Do not use client data</span>
   <div class="header-right"></div>
 </div>
 
-<!-- ── ACTION BAR: run/clear + samples ── -->
+<!-- ACTION BAR: run/clear + samples -->
 <div class="action-bar">
   <button class="btn-clear" onclick="clearEditor()">Clear</button>
   <button class="btn-run" id="runBtn" onclick="runSQL()">&#9654; Run Query</button>
@@ -341,13 +341,13 @@
   </div>
 </div>
 
-<!-- ── QUERY TOOLBAR: tabs only ── -->
+<!-- QUERY TOOLBAR: tabs only -->
 <div class="query-toolbar">
   <div id="qtabBar"></div>
   <button class="btn-add-tab" id="btnAddTab" title="Add query tab" onclick="addTab()">+</button>
 </div>
 
-<!-- ── MAIN ── -->
+<!-- MAIN -->
 <div class="main">
 
   <!-- EDITOR -->
@@ -373,7 +373,7 @@
     <div class="panel-body" id="panel-de">
       <div class="de-header">
         <select class="de-select" id="deSelect" onchange="onDeSelectChange()">
-          <option value="">— select DE —</option>
+          <option value="">- select DE -</option>
         </select>
         <div class="btn-upload-wrap">
           <button class="btn-upload">&#8679; Upload CSV</button>
@@ -381,7 +381,7 @@
         </div>
       </div>
       <div id="deCardList"></div>
-      <div class="de-info" id="deInfoLabel">No DE selected — upload a CSV to begin</div>
+      <div class="de-info" id="deInfoLabel">No DE selected - upload a CSV to begin</div>
       <div class="de-view">
         <div class="de-rows-wrap" id="deRowsWrap"></div>
         <div style="display:flex;flex-direction:column;width:115px;flex-shrink:0;gap:4px;min-height:0;overflow:hidden;">
@@ -399,9 +399,7 @@
     
     </div>
 
-    <!--════════════════════════════════════════════════════════════
-            SQL Resources 
-      ════════════════════════════════════════════════════════════ -->
+    <!-- SQL Resources -->
 
     <!-- RESOURCES PANEL -->
     <div class="panel-body hidden" id="panel-resources">
@@ -409,54 +407,54 @@
       <a class="res-card" href="https://help.salesforce.com/s/articleView?id=mktg.mc_es_de_enhanced_subscriber.htm&type=5" target="_blank" rel="noopener noreferrer">
         <span class="res-badge res-badge-sfmc">SFMC Help</span>
         <span class="res-title">Data Extensions with Enhanced Subscriber Features</span>
-        <span class="res-open">↗</span>
+        <span class="res-open">open</span>
       </a>
       <a class="res-card" href="https://help.salesforce.com/s/articleView?id=000388307&type=1" target="_blank" rel="noopener noreferrer">
         <span class="res-badge res-badge-sfmc">SFMC Help</span>
         <span class="res-title">Marketing Cloud - applying an index to a Data Extension</span>
-        <span class="res-open">↗</span>
+        <span class="res-open">open</span>
       </a> 
       <a class="res-card" href="https://help.salesforce.com/s/articleView?id=mktg.mc_as_using_the_query_activity.htm&type=5" target="_blank" rel="noopener noreferrer">
         <span class="res-badge res-badge-sfmc">SFMC Help</span>
         <span class="res-title">Retrieving and Segmenting Data with a SQL Query Activity</span>
-        <span class="res-open">↗</span>
+        <span class="res-open">open</span>
       </a>
       <a class="res-card" href="https://help.salesforce.com/s/articleView?id=mktg.mc_as_optimize_the_query_activity.htm&type=5" target="_blank" rel="noopener noreferrer">
         <span class="res-badge res-badge-sfmc">SFMC Help</span>
         <span class="res-title">Optimizing a SQL Query Activity</span>
-        <span class="res-open">↗</span>
+        <span class="res-open">open</span>
       </a>
       <a class="res-card" href="https://help.salesforce.com/s/articleView?id=mktg.mc_as_data_views.htm&type=5" target="_blank" rel="noopener noreferrer">
         <span class="res-badge res-badge-sfmc">SFMC Help</span>
         <span class="res-title">Data Views</span>
-        <span class="res-open">↗</span>
+        <span class="res-open">open</span>
       </a>
       <a class="res-card" href="https://dataviews.io/" target="_blank" rel="noopener noreferrer">
         <span class="res-badge res-badge-sfmc">Dataviews.io</span>
         <span class="res-title">Data Views</span>
-        <span class="res-open">↗</span>
+        <span class="res-open">open</span>
       </a>
 
       <div class="res-section-title">SQL Reference</div>
       <a class="res-card" href="https://learn.microsoft.com/en-us/sql/t-sql/language-reference" target="_blank" rel="noopener noreferrer">
         <span class="res-badge res-badge-tsql">T-SQL</span>
         <span class="res-title">SQL Reference (Microsoft T-SQL)</span>
-        <span class="res-open">↗</span>
+        <span class="res-open">open</span>
       </a>
       <a class="res-card" href="https://mateuszdabrowski.pl/docs/sql/sfmc-sql-basics/" target="_blank" rel="noopener noreferrer">
         <span class="res-badge res-badge-sfmc">SFMC SQL</span>
         <span class="res-title">SFMC SQL Basics by Mateusz Dabrowski</span>
-        <span class="res-open">↗</span>
+        <span class="res-open">open</span>
       </a>
        <a class="res-card" href="https://medium.com/@krishna_Pande/mastering-sql-window-functions-a-deep-dive-into-rows-between-unbounded-and-more-2907e020ed9b" target="_blank" rel="noopener noreferrer">
         <span class="res-badge res-badge-sfmc">SFMC SQL</span>
         <span class="res-title">Mastering SQL Window Functions: A Deep Dive into ROWS BETWEEN, UNBOUNDED, and More</span>
-        <span class="res-open">↗</span>
+        <span class="res-open">open</span>
       </a>
       <a class="res-card" href="https://www.geeksforgeeks.org/sql/sql-rows-between/" target="_blank" rel="noopener noreferrer">
         <span class="res-badge res-badge-sfmc">SFMC SQL</span>
         <span class="res-title">SQL - ROWS BETWEEN</span>
-        <span class="res-open">↗</span>
+        <span class="res-open">open</span>
       </a>
 
       
@@ -464,17 +462,17 @@
 <a class="res-card" href="https://www.youtube.com/playlist?list=PLYjAMqKETE1pc21Q4_cCGq7tGyy-vy8qc" target="_blank" rel="noopener noreferrer">
         <span class="res-badge res-badge-sfmc">SFMC SQL</span>
         <span class="res-title">Cameron Roberts SQL Training Videos</span>
-        <span class="res-open">↗</span>
+        <span class="res-open">open</span>
       </a>
 <a class="res-card" href="https://marketingcloud30.com/challenge/sql30/" target="_blank" rel="noopener noreferrer">
         <span class="res-badge res-badge-community">Challenge</span>
         <span class="res-title">SQL 30-Day Challenge for Marketing Cloud</span>
-        <span class="res-open">↗</span>
+        <span class="res-open">open</span>
       </a>
 <a class="res-card" href="https://trailhead.salesforce.com/content/learn/modules/marketing-cloud-data-management/design-your-mc-data-model?trail_id=develop-for-marketing-cloud" target="_blank" rel="noopener noreferrer">
         <span class="res-badge res-badge-trailhead">Trailhead</span>
         <span class="res-title">Design Your Data Model</span>
-        <span class="res-open">↗</span>
+        <span class="res-open">open</span>
       </a>
 
 
@@ -488,13 +486,13 @@
   </div>
 </div>
 
-<!-- ── RESULTS FOOTER ── -->
+<!-- RESULTS FOOTER -->
 <div class="results-footer" id="resultsFooter">
   <div class="results-resizer" id="resultsResizer"></div>
   <div class="results-footer-header">
-    <span class="results-footer-title" id="resultsLabel">RESULTS — Query 1</span>
+    <span class="results-footer-title" id="resultsLabel">RESULTS - Query 1</span>
     <span class="results-meta" id="resultsMeta">Run a query to see results.</span>
-    <button class="btn-download-csv" id="btnDownloadCsv" onclick="downloadCSV()">⬇ Download CSV</button>
+    <button class="btn-download-csv" id="btnDownloadCsv" onclick="downloadCSV()">Download CSV</button>
   </div>
   <div class="results-body" id="resultsWrap">
     <div class="empty-state">No results yet.</div>
@@ -502,114 +500,176 @@
 </div>
 
 <script>
-// ════════════════════════════════════════════════════════════
-//  SQL FUNCTION REFERENCE
-// ════════════════════════════════════════════════════════════
+// ------------------------------------------------------------
+// SQL FUNCTION REFERENCE
+// ------------------------------------------------------------
 const SQL_CATS = [
   { name: 'SELECT', items: [
-    { n: 'SELECT',        d: 'Choose columns',      s: 'SELECT ',                                                                   doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-transact-sql' },
-    { n: 'SELECT *',      d: 'All columns',         s: 'SELECT * FROM ',                                                           doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-transact-sql' },
-    { n: 'SELECT TOP',    d: 'Limit rows',          s: 'SELECT TOP 100 ',                                                          doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/top-transact-sql' },
-    { n: 'TOP PERCENT',   d: '% of rows',           s: 'SELECT TOP 10 PERCENT ',                                                   doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/top-transact-sql' },
-    { n: 'DISTINCT',      d: 'Unique values',       s: 'SELECT DISTINCT ',                                                         doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-clause-transact-sql' },
-    { n: 'AS alias',      d: 'Column alias',        s: ' AS "MyAlias"',                                                           doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-clause-transact-sql' },
-    { n: 'ORDER BY ASC',  d: 'Sort ascending',      s: 'ORDER BY col ASC',                                                        doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-order-by-clause-transact-sql' },
-    { n: 'ORDER BY DESC', d: 'Sort descending',     s: 'ORDER BY col DESC',                                                       doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-order-by-clause-transact-sql' },
-    { n: 'OFFSET/FETCH',  d: 'Pagination',          s: 'ORDER BY col OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY',                     doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-order-by-clause-transact-sql' },
+    { n: 'SELECT', d: 'Choose columns', s: 'SELECT ', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-transact-sql' },
+    { n: 'SELECT *', d: 'All columns', s: 'SELECT * FROM ', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-transact-sql' },
+    { n: 'SELECT TOP', d: 'Limit rows', s: 'SELECT TOP 100 ', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/top-transact-sql' },
+    { n: 'TOP PERCENT', d: '% of rows', s: 'SELECT TOP 10 PERCENT ', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/top-transact-sql' },
+    { n: 'DISTINCT', d: 'Unique values', s: 'SELECT DISTINCT ', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-clause-transact-sql' },
+    { n: 'ORDER BY', d: 'Sort rows', s: 'ORDER BY col ASC', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-order-by-clause-transact-sql' },
+    { n: 'OFFSET/FETCH', d: 'Pagination', s: 'ORDER BY col OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-order-by-clause-transact-sql' },
   ]},
   { name: 'JOINS', items: [
-    { n: 'INNER JOIN',    d: 'Matching rows only',  s: 'INNER JOIN table2 t2 ON t1.id = t2.id',                                  doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql' },
-    { n: 'LEFT JOIN',     d: 'All left rows',       s: 'LEFT JOIN table2 t2 ON t1.id = t2.id',                                   doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql' },
-    { n: 'RIGHT JOIN',    d: 'All right rows',      s: 'RIGHT OUTER JOIN table2 t2 ON t1.id = t2.id',                            doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql' },
-    { n: 'FULL OUTER',    d: 'All rows both tables',s: 'FULL OUTER JOIN table2 t2 ON t1.id = t2.id',                             doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql' },
-    { n: 'INTERSECT',     d: 'Common rows',         s: 'SELECT col FROM t1\nINTERSECT\nSELECT col FROM t2',                      doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/set-operators-intersect-transact-sql' },
+    { n: 'INNER JOIN', d: 'Matching rows only', s: 'INNER JOIN table2 t2 ON t1.id = t2.id', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql' },
+    { n: 'LEFT JOIN', d: 'All left rows', s: 'LEFT JOIN table2 t2 ON t1.id = t2.id', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql' },
+    { n: 'RIGHT JOIN', d: 'All right rows', s: 'RIGHT OUTER JOIN table2 t2 ON t1.id = t2.id', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql' },
+    { n: 'FULL OUTER', d: 'All rows both tables', s: 'FULL OUTER JOIN table2 t2 ON t1.id = t2.id', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql' },
+    { n: 'CROSS JOIN', d: 'All combinations', s: 'CROSS JOIN table2 t2', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql' },
+    { n: 'ANTI JOIN', d: 'Left rows not matched', s: 'LEFT JOIN table2 t2 ON t1.id = t2.id\nWHERE t2.id IS NULL', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql' },
+    { n: 'UNION ALL', d: 'Append result sets', s: 'SELECT col FROM table1\nUNION ALL\nSELECT col FROM table2', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/set-operators-union-transact-sql' },
+    { n: 'INTERSECT', d: 'Common rows', s: 'SELECT col FROM table1\nINTERSECT\nSELECT col FROM table2', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/set-operators-except-and-intersect-transact-sql' },
   ]},
   { name: 'WHERE', items: [
-    { n: 'WHERE',         d: 'Filter rows',         s: 'WHERE ',                                                                   doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/where-transact-sql' },
-    { n: 'AND',           d: 'Both true',           s: ' AND ',                                                                    doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/and-transact-sql' },
-    { n: 'OR',            d: 'Either true',         s: ' OR ',                                                                     doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/or-transact-sql' },
-    { n: 'NOT',           d: 'Negate condition',    s: 'NOT ',                                                                     doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/not-transact-sql' },
-    { n: 'AND + OR',      d: 'Grouped logic',       s: "WHERE col1 = 'a' AND (col2 = 'b' OR col2 = 'c')",                        doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/logical-operators-transact-sql' },
+    { n: 'WHERE', d: 'Filter rows', s: 'WHERE ', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/where-transact-sql' },
+    { n: 'AND', d: 'Both true', s: ' AND ', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/and-transact-sql' },
+    { n: 'OR', d: 'Either true', s: ' OR ', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/or-transact-sql' },
+    { n: 'NOT', d: 'Negate condition', s: 'NOT ', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/not-transact-sql' },
   ]},
   { name: 'COMPARISON', items: [
-    { n: '= equal',       d: 'Exact match',         s: "WHERE col = 'value'",                                                     doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/equals-transact-sql' },
-    { n: '<> not equal',  d: 'Exclude value',       s: "WHERE col <> 'value'",                                                    doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/not-equal-to-transact-sql-traditional' },
-    { n: '< less than',   d: 'Less than',           s: 'WHERE col < value',                                                       doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/less-than-transact-sql' },
-    { n: '<= less or eq', d: 'Less than or equal',  s: 'WHERE col <= value',                                                      doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/less-than-or-equal-to-transact-sql' },
-    { n: '> greater than',d: 'Greater than',        s: 'WHERE col > value',                                                       doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/greater-than-transact-sql' },
-    { n: '>= greater eq', d: 'Greater or equal',    s: 'WHERE col >= value',                                                      doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/greater-than-or-equal-to-transact-sql' },
-    { n: 'BETWEEN',       d: 'Range filter',        s: "WHERE col BETWEEN 'a' AND 'b'",                                          doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/between-transact-sql' },
-    { n: 'NOT BETWEEN',   d: 'Exclude range',       s: 'WHERE col NOT BETWEEN 10 AND 20',                                        doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/between-transact-sql' },
-    { n: 'IN (...)',      d: 'List filter',         s: "WHERE col IN ('a','b','c')",                                              doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/in-transact-sql' },
-    { n: 'NOT IN',        d: 'Exclude list',        s: "WHERE col NOT IN ('a','b')",                                             doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/in-transact-sql' },
-    { n: 'IS NULL',       d: 'Null check',          s: 'WHERE col IS NULL',                                                       doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/is-null-transact-sql' },
-    { n: 'IS NOT NULL',   d: 'Non-null check',      s: 'WHERE col IS NOT NULL',                                                   doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/is-null-transact-sql' },
-    { n: 'LIKE %',        d: 'Contains pattern',    s: "WHERE col LIKE '%value%'",                                               doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/like-transact-sql' },
-    { n: 'LIKE _',        d: 'Single char wildcard',s: "WHERE col LIKE '_a%'",                                                   doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/like-transact-sql' },
-    { n: 'LIKE [...]',    d: 'Char group',          s: "WHERE col LIKE '[ABC]%'",                                                doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/like-transact-sql' },
+    { n: '= equal', d: 'Exact match', s: "WHERE col = 'value'", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/equals-transact-sql' },
+    { n: '<> not equal', d: 'Exclude value', s: "WHERE col <> 'value'", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/not-equal-to-transact-sql-traditional' },
+    { n: '!= not equal', d: 'Exclude value', s: "WHERE col != 'value'", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/not-equal-to-transact-sql-exclamation' },
+    { n: '< less than', d: 'Less than', s: 'WHERE col < value', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/less-than-transact-sql' },
+    { n: '<= less or eq', d: 'Less or equal', s: 'WHERE col <= value', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/less-than-or-equal-to-transact-sql' },
+    { n: '> greater than', d: 'Greater than', s: 'WHERE col > value', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/greater-than-transact-sql' },
+    { n: '>= greater eq', d: 'Greater or equal', s: 'WHERE col >= value', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/greater-than-or-equal-to-transact-sql' },
+    { n: 'BETWEEN', d: 'Range filter', s: "WHERE col BETWEEN 'a' AND 'b'", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/between-transact-sql' },
+    { n: 'NOT BETWEEN', d: 'Exclude range', s: 'WHERE col NOT BETWEEN 10 AND 20', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/between-transact-sql' },
+    { n: 'IN (...)', d: 'List filter', s: "WHERE col IN ('a','b','c')", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/in-transact-sql' },
+    { n: 'NOT IN', d: 'Exclude list', s: "WHERE col NOT IN ('a','b')", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/in-transact-sql' },
+    { n: 'IS NULL', d: 'Null check', s: 'WHERE col IS NULL', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/is-null-transact-sql' },
+    { n: 'IS NOT NULL', d: 'Non-null check', s: 'WHERE col IS NOT NULL', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/is-null-transact-sql' },
+    { n: 'LIKE %', d: 'Contains pattern', s: "WHERE col LIKE '%value%'", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/like-transact-sql' },
+    { n: 'LIKE _', d: 'Single wildcard', s: "WHERE col LIKE '_a%'", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/like-transact-sql' },
+    { n: 'LIKE [...]', d: 'Character group', s: "WHERE col LIKE '[ABC]%'", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/like-transact-sql' },
+    { n: 'NOT LIKE', d: 'Exclude pattern', s: "WHERE col NOT LIKE '%value%'", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/like-transact-sql' },
   ]},
   { name: 'AGGREGATE', items: [
-    { n: 'COUNT(*)',      d: 'Count all rows',      s: 'COUNT(*)',                                                               doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/count-transact-sql' },
-    { n: 'COUNT(col)',    d: 'Count non-null',      s: 'COUNT(col)',                                                             doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/count-transact-sql' },
-    { n: 'COUNT DIST.',   d: 'Count unique',        s: 'COUNT(DISTINCT col)',                                                    doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/count-transact-sql' },
-    { n: 'SUM()',         d: 'Total',               s: 'SUM(col)',                                                               doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/sum-transact-sql' },
-    { n: 'AVG()',         d: 'Average',             s: 'AVG(col)',                                                               doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/avg-transact-sql' },
-    { n: 'MIN()',         d: 'Minimum value',       s: 'MIN(col)',                                                               doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/min-transact-sql' },
-    { n: 'MAX()',         d: 'Maximum value',       s: 'MAX(col)',                                                               doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/max-transact-sql' },
-    { n: 'ROUND()',       d: 'Round number',        s: 'ROUND(col, 2)',                                                          doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/round-transact-sql' },
+    { n: 'COUNT(*)', d: 'Count all rows', s: 'COUNT(*)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/count-transact-sql' },
+    { n: 'COUNT(col)', d: 'Count non-null', s: 'COUNT(col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/count-transact-sql' },
+    { n: 'COUNT(ALL)', d: 'Count non-null', s: 'COUNT(ALL col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/count-transact-sql' },
+    { n: 'COUNT DISTINCT', d: 'Count unique', s: 'COUNT(DISTINCT col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/count-transact-sql' },
+    { n: 'SUM()', d: 'Total', s: 'SUM(col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/sum-transact-sql' },
+    { n: 'AVG()', d: 'Average', s: 'AVG(col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/avg-transact-sql' },
+    { n: 'MIN()', d: 'Minimum', s: 'MIN(col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/min-transact-sql' },
+    { n: 'MAX()', d: 'Maximum', s: 'MAX(col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/max-transact-sql' },
+    { n: 'STDEV()', d: 'Std deviation', s: 'STDEV(col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/stdev-transact-sql' },
+    { n: 'STDEVP()', d: 'Population stdev', s: 'STDEVP(col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/stdevp-transact-sql' },
+    { n: 'VAR()', d: 'Variance', s: 'VAR(col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/var-transact-sql' },
+    { n: 'VARP()', d: 'Population variance', s: 'VARP(col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/varp-transact-sql' },
+    { n: 'CHECKSUM_AGG()', d: 'Checksum aggregate', s: 'CHECKSUM_AGG(CHECKSUM(col))', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/checksum-agg-transact-sql' },
+    { n: 'STRING_AGG()', d: 'Join grouped rows', s: "STRING_AGG(col, ' | ')", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/string-agg-transact-sql' },
+    { n: 'ROUND()', d: 'Round number', s: 'ROUND(col, 2)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/round-transact-sql' },
+    { n: 'ABS()', d: 'Absolute value', s: 'ABS(col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/abs-transact-sql' },
+    { n: 'CEILING()', d: 'Round up', s: 'CEILING(col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/ceiling-transact-sql' },
+    { n: 'FLOOR()', d: 'Round down', s: 'FLOOR(col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/floor-transact-sql' },
+    { n: 'SIGN()', d: 'Number sign', s: 'SIGN(col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/sign-transact-sql' },
+    { n: 'POWER()', d: 'Raise to power', s: 'POWER(col, 2)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/power-transact-sql' },
+    { n: 'SQRT()', d: 'Square root', s: 'SQRT(col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/sqrt-transact-sql' },
+    { n: 'SQUARE()', d: 'Square number', s: 'SQUARE(col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/square-transact-sql' },
+    { n: 'LOG()', d: 'Natural log', s: 'LOG(col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/log-transact-sql' },
+    { n: 'LOG10()', d: 'Base-10 log', s: 'LOG10(col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/log10-transact-sql' },
+    { n: 'EXP()', d: 'e to power', s: 'EXP(col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/exp-transact-sql' },
+    { n: 'PI()', d: 'Pi constant', s: 'PI()', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/pi-transact-sql' },
+    { n: 'RAND()', d: 'Random number', s: 'RAND()', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/rand-transact-sql' },
+    { n: 'FORMAT()', d: 'Format value', s: "FORMAT(col, 'N2')", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/format-transact-sql' },
   ]},
   { name: 'GROUP BY', items: [
-    { n: 'GROUP BY',      d: 'Group rows',          s: 'GROUP BY col',                                                          doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-group-by-transact-sql' },
-    { n: 'HAVING',        d: 'Filter groups',       s: 'HAVING COUNT(*) > 1',                                                   doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-having-transact-sql' },
-    { n: 'ROLLUP',        d: 'Subtotals',           s: 'GROUP BY ROLLUP(col1, col2)',                                           doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-group-by-transact-sql' },
-    { n: 'CUBE',          d: 'All subtotals',       s: 'GROUP BY CUBE(col1, col2)',                                             doc: '' },
+    { n: 'GROUP BY', d: 'Group rows', s: 'GROUP BY col', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-group-by-transact-sql' },
+    { n: 'HAVING', d: 'Filter groups', s: 'HAVING COUNT(*) > 1', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-having-transact-sql' },
+    { n: 'ROLLUP', d: 'Subtotals', s: 'GROUP BY ROLLUP(col1, col2)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-group-by-transact-sql' },
+    { n: 'CUBE', d: 'All subtotals', s: 'GROUP BY CUBE(col1, col2)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-group-by-transact-sql' },
   ]},
   { name: 'CASE', items: [
-    { n: 'CASE WHEN',     d: 'Conditional column',  s: "CASE\n  WHEN col > 10 THEN 'High'\n  WHEN col > 5 THEN 'Mid'\n  ELSE 'Low'\nEND AS Category",                                  doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/case-transact-sql' },
-    { n: 'CASE simple',   d: 'Exact match',         s: "CASE col\n  WHEN 'A' THEN 'Alpha'\n  WHEN 'B' THEN 'Beta'\n  ELSE 'Other'\nEND",                                              doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/case-transact-sql' },
-    { n: 'CASE range',    d: 'Tier buckets',        s: "CASE\n  WHEN Amount > 10000 THEN 'Platinum'\n  WHEN Amount > 5000 THEN 'Gold'\n  WHEN Amount > 1000 THEN 'Silver'\n  ELSE 'Bronze'\nEND AS Tier", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/case-transact-sql' },
-    { n: 'NULLIF()',      d: 'Null if equal',       s: 'NULLIF(col1, col2)',                                                     doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/nullif-transact-sql' },
+    { n: 'CASE WHEN', d: 'Conditional column', s: "CASE\n  WHEN col > 10 THEN 'High'\n  ELSE 'Low'\nEND AS Category", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/case-transact-sql' },
+    { n: 'IIF()', d: 'Inline condition', s: "IIF(col = 'Y', 'Yes', 'No')", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/logical-functions-iif-transact-sql' },
+    { n: 'CHOOSE()', d: 'Pick by index', s: "CHOOSE(2, 'A', 'B', 'C')", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/logical-functions-choose-transact-sql' },
+    { n: 'ISNULL()', d: 'Replace null', s: "ISNULL(col, 'fallback')", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/isnull-transact-sql' },
+    { n: 'COALESCE()', d: 'First non-null', s: "COALESCE(col1, col2, 'fallback')", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/coalesce-transact-sql' },
+    { n: 'NULLIF()', d: 'Null if equal', s: 'NULLIF(col1, col2)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/nullif-transact-sql' },
   ]},
   { name: 'WINDOW', items: [
-    { n: 'RANK()',         d: 'Rank with gaps',      s: 'RANK() OVER (ORDER BY col DESC) AS Rnk',                               doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/rank-transact-sql' },
-    { n: 'ROW_NUMBER()',   d: 'Row sequence',        s: 'ROW_NUMBER() OVER (ORDER BY col DESC) AS RowNum',                      doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/row-number-transact-sql' },
-    { n: 'DENSE_RANK()',   d: 'Rank no gaps',        s: 'DENSE_RANK() OVER (ORDER BY col DESC) AS DRnk',                       doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/dense-rank-transact-sql' },
-    { n: 'PARTITION BY',   d: 'Rank within group',   s: 'RANK() OVER (PARTITION BY group_col ORDER BY col DESC) AS GroupRank', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-over-clause-transact-sql' },
-    { n: 'SUM OVER',       d: 'Running total',       s: 'SUM(col) OVER (ORDER BY col2) AS RunTotal',                           doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-over-clause-transact-sql' },
+    { n: 'ROW_NUMBER()', d: 'Row sequence', s: 'ROW_NUMBER() OVER (ORDER BY col DESC) AS RowNum', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/row-number-transact-sql' },
+    { n: 'RANK()', d: 'Rank with gaps', s: 'RANK() OVER (ORDER BY col DESC) AS Rnk', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/rank-transact-sql' },
+    { n: 'DENSE_RANK()', d: 'Rank no gaps', s: 'DENSE_RANK() OVER (ORDER BY col DESC) AS DRnk', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/dense-rank-transact-sql' },
+    { n: 'NTILE()', d: 'Bucket rows', s: 'NTILE(4) OVER (ORDER BY col DESC) AS Quartile', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/ntile-transact-sql' },
+    { n: 'LAG()', d: 'Previous value', s: 'LAG(col) OVER (PARTITION BY group_col ORDER BY date_col) AS PrevValue', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/lag-transact-sql' },
+    { n: 'LEAD()', d: 'Next value', s: 'LEAD(col) OVER (PARTITION BY group_col ORDER BY date_col) AS NextValue', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/lead-transact-sql' },
+    { n: 'FIRST_VALUE()', d: 'First window value', s: 'FIRST_VALUE(col) OVER (ORDER BY date_col) AS FirstValue', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/first-value-transact-sql' },
+    { n: 'LAST_VALUE()', d: 'Last window value', s: 'LAST_VALUE(col) OVER (ORDER BY date_col ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AS LastValue', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/last-value-transact-sql' },
+    { n: 'SUM OVER', d: 'Running total', s: 'SUM(col) OVER (ORDER BY col2) AS RunTotal', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/select-over-clause-transact-sql' },
   ]},
   { name: 'STRING', items: [
-    { n: 'CONCAT()',      d: 'Join strings',        s: "CONCAT(FirstName, ' ', LastName)",                                      doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/concat-transact-sql' },
-    { n: 'UPPER()',       d: 'Uppercase',            s: 'UPPER(col)',                                                            doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/upper-transact-sql' },
-    { n: 'LOWER()',       d: 'Lowercase',            s: 'LOWER(col)',                                                            doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/lower-transact-sql' },
-    { n: 'LTRIM()',       d: 'Trim left spaces',     s: 'LTRIM(col)',                                                            doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/ltrim-transact-sql' },
-    { n: 'RTRIM()',       d: 'Trim right spaces',    s: 'RTRIM(col)',                                                            doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/rtrim-transact-sql' },
-    { n: 'LEN()',         d: 'String length',        s: 'LEN(col)',                                                              doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/len-transact-sql' },
-    { n: 'CHARINDEX()',   d: 'Find char position',   s: "CHARINDEX('x', col)",                                                  doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/charindex-transact-sql' },
-    { n: 'SUBSTRING()',   d: 'Extract part',         s: 'SUBSTRING(col, 1, 5)',                                                  doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/substring-transact-sql' },
-    { n: 'REPLACE()',     d: 'Replace text',         s: "REPLACE(col, 'old', 'new')",                                           doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/replace-transact-sql' },
-    { n: 'STUFF()',       d: 'Insert into string',   s: "STUFF(col, 1, 3, 'new')",                                              doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/stuff-transact-sql' },
+    { n: 'LEFT()', d: 'Left characters', s: 'LEFT(col, 3)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/left-transact-sql' },
+    { n: 'RIGHT()', d: 'Right characters', s: 'RIGHT(col, 4)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/right-transact-sql' },
+    { n: 'LEN()', d: 'String length', s: 'LEN(col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/len-transact-sql' },
+    { n: 'DATALENGTH()', d: 'Byte length', s: 'DATALENGTH(col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/datalength-transact-sql' },
+    { n: 'CHARINDEX()', d: 'Find position', s: "CHARINDEX('x', col)", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/charindex-transact-sql' },
+    { n: 'PATINDEX()', d: 'Find pattern', s: "PATINDEX('%pattern%', col)", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/patindex-transact-sql' },
+    { n: 'SUBSTRING()', d: 'Extract part', s: 'SUBSTRING(col, 1, 5)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/substring-transact-sql' },
+    { n: 'CONCAT()', d: 'Join strings', s: "CONCAT(FirstName, ' ', LastName)", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/concat-transact-sql' },
+    { n: 'UPPER()', d: 'Uppercase', s: 'UPPER(col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/upper-transact-sql' },
+    { n: 'LOWER()', d: 'Lowercase', s: 'LOWER(col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/lower-transact-sql' },
+    { n: 'LTRIM()', d: 'Trim left', s: 'LTRIM(col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/ltrim-transact-sql' },
+    { n: 'RTRIM()', d: 'Trim right', s: 'RTRIM(col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/rtrim-transact-sql' },
+    { n: 'TRIM()', d: 'Trim both', s: 'TRIM(col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/trim-transact-sql' },
+    { n: 'REPLACE()', d: 'Replace text', s: "REPLACE(col, 'old', 'new')", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/replace-transact-sql' },
+    { n: 'STUFF()', d: 'Insert text', s: "STUFF(col, 1, 3, 'new')", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/stuff-transact-sql' },
+    { n: 'REPLICATE()', d: 'Repeat string', s: "REPLICATE('0', 5)", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/replicate-transact-sql' },
+    { n: 'REVERSE()', d: 'Reverse string', s: 'REVERSE(col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/reverse-transact-sql' },
+    { n: 'SPACE()', d: 'Spaces string', s: 'SPACE(5)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/space-transact-sql' },
+    { n: 'STR()', d: 'Number to string', s: 'STR(123.45, 8, 2)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/str-transact-sql' },
+    { n: 'UNICODE()', d: 'Unicode point', s: "UNICODE('A')", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/unicode-transact-sql' },
+    { n: 'NCHAR()', d: 'Unicode char', s: 'NCHAR(9733)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/nchar-transact-sql' },
+    { n: 'CHAR()', d: 'ASCII char', s: 'CHAR(65)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/char-transact-sql' },
+    { n: 'ASCII()', d: 'ASCII code', s: "ASCII('A')", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/ascii-transact-sql' },
+    { n: 'SOUNDEX()', d: 'Phonetic code', s: "SOUNDEX('Smith')", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/soundex-transact-sql' },
+    { n: 'DIFFERENCE()', d: 'Soundex similarity', s: "DIFFERENCE('Smith', 'Smyth')", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/difference-transact-sql' },
+    { n: 'QUOTENAME()', d: 'Quote identifier', s: "QUOTENAME('Field Name')", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/quotename-transact-sql' },
+    { n: 'NEWID()', d: 'Generate GUID', s: 'NEWID()', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/newid-transact-sql' },
   ]},
   { name: 'DATE', items: [
-    { n: 'GETDATE()',     d: 'Current datetime',     s: 'GETDATE()',                                                             doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/getdate-transact-sql' },
-    { n: 'DATEPART()',    d: 'Extract date part',    s: 'DATEPART(YEAR, col)',                                                   doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/datepart-transact-sql' },
-    { n: 'DATENAME()',    d: 'Named date part',      s: 'DATENAME(WEEKDAY, col)',                                                doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/datename-transact-sql' },
-    { n: 'DATEDIFF()',    d: 'Days between dates',   s: 'DATEDIFF(day, StartDate, GETDATE())',                                  doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/datediff-transact-sql' },
-    { n: 'DATEADD()',     d: 'Add to date',          s: 'DATEADD(day, 30, GETDATE())',                                          doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/dateadd-transact-sql' },
+    { n: 'GETDATE()', d: 'Current datetime', s: 'GETDATE()', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/getdate-transact-sql' },
+    { n: 'GETUTCDATE()', d: 'Current UTC', s: 'GETUTCDATE()', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/getutcdate-transact-sql' },
+    { n: 'SYSDATETIMEOFFSET()', d: 'Datetime offset', s: 'SYSDATETIMEOFFSET()', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/sysdatetimeoffset-transact-sql' },
+    { n: 'DATEPART()', d: 'Extract date part', s: 'DATEPART(YEAR, col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/datepart-transact-sql' },
+    { n: 'DATENAME()', d: 'Named date part', s: 'DATENAME(WEEKDAY, col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/datename-transact-sql' },
+    { n: 'YEAR()', d: 'Year shortcut', s: 'YEAR(col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/year-transact-sql' },
+    { n: 'MONTH()', d: 'Month shortcut', s: 'MONTH(col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/month-transact-sql' },
+    { n: 'DAY()', d: 'Day shortcut', s: 'DAY(col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/day-transact-sql' },
+    { n: 'DATEADD()', d: 'Add to date', s: 'DATEADD(day, 30, GETDATE())', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/dateadd-transact-sql' },
+    { n: 'DATEDIFF()', d: 'Date difference', s: 'DATEDIFF(day, StartDate, GETDATE())', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/datediff-transact-sql' },
+    { n: 'DATEFROMPARTS()', d: 'Build date', s: 'DATEFROMPARTS(2026, 4, 29)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/datefromparts-transact-sql' },
+    { n: 'DATETIMEFROMPARTS()', d: 'Build datetime', s: 'DATETIMEFROMPARTS(2026, 4, 29, 9, 30, 0, 0)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/datetimefromparts-transact-sql' },
+    { n: 'TIMEFROMPARTS()', d: 'Build time', s: 'TIMEFROMPARTS(9, 30, 0, 0, 0)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/timefromparts-transact-sql' },
+    { n: 'EOMONTH()', d: 'End of month', s: 'EOMONTH(GETDATE())', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/eomonth-transact-sql' },
+    { n: 'ISDATE()', d: 'Valid date check', s: "ISDATE('2026-04-29')", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/isdate-transact-sql' },
+    { n: 'AT TIME ZONE', d: 'Timezone offset', s: "GETDATE() AT TIME ZONE 'Central Standard Time'", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/queries/at-time-zone-transact-sql' },
+    { n: 'TODATETIMEOFFSET()', d: 'Add offset', s: "TODATETIMEOFFSET(GETDATE(), '-06:00')", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/todatetimeoffset-transact-sql' },
+    { n: 'SWITCHOFFSET()', d: 'Switch offset', s: "SWITCHOFFSET(SYSDATETIMEOFFSET(), '-05:00')", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/switchoffset-transact-sql' },
   ]},
   { name: 'CONVERT', items: [
-    { n: 'CAST',          d: 'Cast type',            s: 'CAST ( expression AS data_type [ ( length ) ] )',                      doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/cast-and-convert-transact-sql' },
-    { n: 'CONVERT()',     d: 'Convert type',         s: 'CONVERT ( data_type [ ( length ) ] , expression [ , style ] )',       doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/cast-and-convert-transact-sql' },
+    { n: 'CAST', d: 'Cast type', s: 'CAST(expression AS VARCHAR(50))', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/cast-and-convert-transact-sql' },
+    { n: 'CONVERT()', d: 'Convert type/style', s: 'CONVERT(VARCHAR(10), GETDATE(), 101)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/cast-and-convert-transact-sql' },
+    { n: 'TRY_CAST()', d: 'Safe cast', s: 'TRY_CAST(col AS INT)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/try-cast-transact-sql' },
+    { n: 'TRY_CONVERT()', d: 'Safe convert', s: 'TRY_CONVERT(INT, col)', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/try-convert-transact-sql' },
+    { n: 'PARSE()', d: 'Culture parse', s: "PARSE('31/12/2026' AS DATE USING 'en-GB')", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/parse-transact-sql' },
+    { n: 'TRY_PARSE()', d: 'Safe culture parse', s: "TRY_PARSE(col AS DATE USING 'en-US')", doc: 'https://learn.microsoft.com/en-us/sql/t-sql/functions/try-parse-transact-sql' },
   ]},
   { name: 'SFMC', items: [
-    { n: 'ent. prefix',   d: 'Shared DE query',      s: 'SELECT * FROM ent.DEName',                                            doc: 'https://help.salesforce.com/s/articleView?id=sf.mc_as_using_data_extensions_in_query_activities.htm&type=5' },
-    { n: '[Field Name]',  d: 'Bracket field spaces',  s: '[Field Name]',                                                       doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/reserved-keywords-transact-sql' },
-    { n: '[Data View]',   d: 'Data view',             s: '_[Data View]',                                                       doc: 'https://help.salesforce.com/s/articleView?id=sf.mc_as_data_views.htm&type=5' },
+    { n: 'ent. prefix', d: 'Shared DE query', s: 'SELECT * FROM ent.DEName', doc: 'https://help.salesforce.com/s/articleView?id=sf.mc_as_using_data_extensions_in_query_activities.htm&type=5' },
+    { n: '[Field Name]', d: 'Bracket spaces', s: '[Field Name]', doc: 'https://learn.microsoft.com/en-us/sql/t-sql/language-elements/reserved-keywords-transact-sql' },
+    { n: '[Data View]', d: 'Data view', s: '_[Data View]', doc: 'https://help.salesforce.com/s/articleView?id=sf.mc_as_data_views.htm&type=5' },
   ]},
 ];
 
-// ════════════════════════════════════════════════════════════
-//  SAMPLE QUERIES (simplified — most common only)
-// ════════════════════════════════════════════════════════════
+
+// SAMPLE QUERIES (simplified - most common only)
+// ------------------------------------------------------------
 const SAMPLE_QUERIES = [
   { cat: 'SELECT', queries: [
     { label: 'Basic SELECT with WHERE + ORDER BY',
@@ -628,7 +688,7 @@ const SAMPLE_QUERIES = [
   { cat: 'STRING Functions', queries: [
     { label: 'CONCAT full name + UPPER/LOWER',
       sql: "SELECT\n  CONCAT(UPPER([Last Name]), ', ', [First Name]) AS FullName,\n  [Email Address]\nFROM Subscribers\nORDER BY [Last Name] ASC" },
-    { label: 'CHARINDEX — extract email domain',
+    { label: 'CHARINDEX - extract email domain',
       sql: "SELECT\n  [Email Address],\n  SUBSTRING([Email Address], CHARINDEX('@', [Email Address]) + 1, 50) AS Domain\nFROM Subscribers" },
   ]},
   { cat: 'DATE Functions', queries: [
@@ -648,17 +708,17 @@ const SAMPLE_QUERIES = [
       sql: "SELECT [First Name], [Last Name],\n  CASE CAST(Tier AS INTEGER)\n    WHEN 5 THEN 'Platinum'\n    WHEN 4 THEN 'Gold'\n    WHEN 3 THEN 'Silver'\n    ELSE 'Standard'\n  END AS TierLabel\nFROM Subscribers\nORDER BY CAST(Tier AS INTEGER) DESC" },
   ]},
   { cat: 'JOINs', queries: [
-    { label: 'INNER JOIN — matching records',
+    { label: 'INNER JOIN - matching records',
       sql: "SELECT t1.[First Name], t1.[Last Name], t1.[Email Address], t2.[Agent ID]\nFROM Subscribers AS t1\nINNER JOIN Agents AS t2\n  ON TRIM(t1.[Subscriber Key]) = TRIM(t2.[Subscriber Key])" },
-    { label: 'LEFT JOIN — find records with no match',
+    { label: 'LEFT JOIN - find records with no match',
       sql: "SELECT t1.[First Name], t1.[Last Name], t1.[Email Address]\nFROM Subscribers AS t1\nLEFT JOIN Orders AS t2\n  ON TRIM(t1.[Subscriber Key]) = TRIM(t2.[Subscriber Key])\nWHERE t2.[Subscriber Key] IS NULL" },
-    { label: 'INTERSECT — common IDs between tables',
+    { label: 'INTERSECT - common IDs between tables',
       sql: "SELECT TRIM([Agent ID]) FROM Real_Estate_Agents\nINTERSECT\nSELECT TRIM([Agent ID]) FROM Support_Agents" },
   ]},
   { cat: 'WINDOW', queries: [
     { label: 'RANK subscribers by tier',
       sql: "SELECT [First Name], [Last Name], State, CAST(Tier AS INTEGER) AS Tier,\n  RANK() OVER (ORDER BY CAST(Tier AS INTEGER) DESC) AS TierRank\nFROM Subscribers\nORDER BY TierRank" },
-    { label: 'ROW_NUMBER — deduplicate by email',
+    { label: 'ROW_NUMBER - deduplicate by email',
       sql: "SELECT * FROM (\n  SELECT [Email Address], [First Name], [Last Name],\n    ROW_NUMBER() OVER (PARTITION BY [Email Address] ORDER BY [Last Name]) AS RowNum\n  FROM Subscribers\n) sub\nWHERE RowNum = 1" },
   ]},
   { cat: 'SFMC', queries: [
@@ -669,9 +729,9 @@ const SAMPLE_QUERIES = [
   ]},
 ];
 
-// ════════════════════════════════════════════════════════════
-//  QUERY TABS (dynamic)
-// ════════════════════════════════════════════════════════════
+// ------------------------------------------------------------
+// QUERY TABS (dynamic)
+// ------------------------------------------------------------
 let tabs = [{ id: 'q1', label: 'Query 1', content: "SELECT *\nFROM Subscribers\nWHERE State = 'TX'\n  AND Tier >= 4\nORDER BY LastName ASC", results: null }];
 let activeTabId = 'q1';
 let tabCounter = 1;
@@ -697,7 +757,7 @@ function renderTabs() {
     div.appendChild(label);
     if (tabs.length > 1) {
       const x = document.createElement('span');
-      x.className = 'qtab-close'; x.textContent = '✕';
+      x.className = 'qtab-close'; x.textContent = 'x';
       x.onclick = (e) => { e.stopPropagation(); closeTab(t.id); };
       div.appendChild(x);
     }
@@ -718,7 +778,7 @@ function switchTab(id) {
 }
 
 function renderResults(tab) {
-  document.getElementById('resultsLabel').textContent = 'RESULTS — ' + (tab ? tab.label : '');
+  document.getElementById('resultsLabel').textContent = 'RESULTS - ' + (tab ? tab.label : '');
   const r = tab && tab.results;
   document.getElementById('resultsMeta').textContent = r ? r.meta : 'Run a query to see results.';
   document.getElementById('resultsWrap').innerHTML = r ? r.html : '<div class="empty-state">No results yet.</div>';
@@ -776,9 +836,9 @@ function closeTab(id) {
 
 function clearEditor() { editor.setValue(''); editor.focus(); }
 
-// ════════════════════════════════════════════════════════════
-//  DATA PANEL TABS
-// ════════════════════════════════════════════════════════════
+// ------------------------------------------------------------
+// DATA PANEL TABS
+// ------------------------------------------------------------
 function switchDataTab(t) {
   ['de','functions','resources','schema'].forEach(id => {
     document.getElementById('dtab-'+id).classList.toggle('active', id === t);
@@ -786,9 +846,9 @@ function switchDataTab(t) {
   });
 }
 
-// ════════════════════════════════════════════════════════════
-//  SQL.JS ENGINE
-// ════════════════════════════════════════════════════════════
+// ------------------------------------------------------------
+// SQL.JS ENGINE
+// ------------------------------------------------------------
 let sqlDb = null;
 let loadedDEs = {};
 
@@ -796,11 +856,213 @@ async function initDB() {
   if (sqlDb) return;
   const SQL = await initSqlJs({ locateFile: f => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.2/${f}` });
   sqlDb = new SQL.Database();
+  registerSqlCompatFunctions(sqlDb);
 }
 
-// ════════════════════════════════════════════════════════════
-//  TYPE DETECTION
-// ════════════════════════════════════════════════════════════
+function registerSqlCompatFunctions(db) {
+  const pad2 = n => String(n).padStart(2, '0');
+  const parseDate = value => {
+    if (value instanceof Date) return new Date(value.getTime());
+    if (value === null || value === undefined || value === '') return null;
+    const raw = String(value).trim();
+    if (!raw) return null;
+
+    const candidates = [raw];
+    if (/^\d{4}-\d{1,2}-\d{1,2}\s+\d/.test(raw)) {
+      candidates.push(raw.replace(' ', 'T'));
+    }
+
+    const slashDate = raw.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})(?:\s+(\d{1,2}):(\d{2})(?::(\d{2}))?)?$/);
+    if (slashDate) {
+      const [, month, day, year, hour = '0', minute = '0', second = '0'] = slashDate;
+      const fullYear = year.length === 2 ? (Number(year) <= 49 ? 2000 + Number(year) : 1900 + Number(year)) : Number(year);
+      const parsed = new Date(fullYear, Number(month) - 1, Number(day), Number(hour), Number(minute), Number(second));
+      return Number.isNaN(parsed.getTime()) ? null : parsed;
+    }
+
+    for (const candidate of candidates) {
+      const parsed = new Date(candidate);
+      if (!Number.isNaN(parsed.getTime())) return parsed;
+    }
+    return null;
+  };
+  const formatDateTime = dt => `${dt.getFullYear()}-${pad2(dt.getMonth() + 1)}-${pad2(dt.getDate())} ${pad2(dt.getHours())}:${pad2(dt.getMinutes())}:${pad2(dt.getSeconds())}`;
+  const formatDateOnly = dt => `${dt.getFullYear()}-${pad2(dt.getMonth() + 1)}-${pad2(dt.getDate())}`;
+  const datePart = (part, value, asName) => {
+    const dt = parseDate(value);
+    if (!dt) return null;
+    const key = String(part || '').toLowerCase();
+    const dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    if (asName && ['weekday','dw','w'].includes(key)) return dayNames[dt.getDay()];
+    if (asName && ['month','mm','m'].includes(key)) return monthNames[dt.getMonth()];
+    if (['year','yyyy','yy'].includes(key)) return dt.getFullYear();
+    if (['quarter','qq','q'].includes(key)) return Math.floor(dt.getMonth() / 3) + 1;
+    if (['month','mm','m'].includes(key)) return dt.getMonth() + 1;
+    if (['day','dd','d'].includes(key)) return dt.getDate();
+    if (['weekday','dw','w'].includes(key)) return dt.getDay() + 1;
+    if (['hour','hh'].includes(key)) return dt.getHours();
+    if (['minute','mi','n'].includes(key)) return dt.getMinutes();
+    if (['second','ss','s'].includes(key)) return dt.getSeconds();
+    return null;
+  };
+  const dateAdd = (part, amount, value) => {
+    const dt = parseDate(value);
+    const n = Number(amount);
+    if (!dt || Number.isNaN(n)) return null;
+    const key = String(part || '').toLowerCase();
+    if (['year','yyyy','yy'].includes(key)) dt.setFullYear(dt.getFullYear() + n);
+    else if (['quarter','qq','q'].includes(key)) dt.setMonth(dt.getMonth() + n * 3);
+    else if (['month','mm','m'].includes(key)) dt.setMonth(dt.getMonth() + n);
+    else if (['week','wk','ww'].includes(key)) dt.setDate(dt.getDate() + n * 7);
+    else if (['dayofyear','dy','y','day','dd','d'].includes(key)) dt.setDate(dt.getDate() + n);
+    else if (['hour','hh'].includes(key)) dt.setHours(dt.getHours() + n);
+    else if (['minute','mi','n'].includes(key)) dt.setMinutes(dt.getMinutes() + n);
+    else if (['second','ss','s'].includes(key)) dt.setSeconds(dt.getSeconds() + n);
+    else return null;
+    return formatDateTime(dt);
+  };
+  const dateDiff = (part, startValue, endValue) => {
+    const start = parseDate(startValue);
+    const end = parseDate(endValue);
+    if (!start || !end) return null;
+    const key = String(part || '').toLowerCase();
+    const ms = end - start;
+    if (['year','yyyy','yy'].includes(key)) return end.getFullYear() - start.getFullYear();
+    if (['month','mm','m'].includes(key)) return (end.getFullYear() - start.getFullYear()) * 12 + end.getMonth() - start.getMonth();
+    if (['week','wk','ww'].includes(key)) return Math.floor(ms / 604800000);
+    if (['dayofyear','dy','y','day','dd','d'].includes(key)) return Math.floor(ms / 86400000);
+    if (['hour','hh'].includes(key)) return Math.floor(ms / 3600000);
+    if (['minute','mi','n'].includes(key)) return Math.floor(ms / 60000);
+    if (['second','ss','s'].includes(key)) return Math.floor(ms / 1000);
+    return null;
+  };
+  const convertValue = (typeName, value, style) => {
+    if (value === null || value === undefined) return null;
+    const type = String(typeName || '').replace(/\(.+\)/, '').trim().toLowerCase();
+    if (['char','nchar','varchar','nvarchar','text','string'].includes(type)) {
+      const dt = parseDate(value);
+      const st = Number(style);
+      if (dt && st === 101) return `${pad2(dt.getMonth() + 1)}/${pad2(dt.getDate())}/${dt.getFullYear()}`;
+      if (dt && st === 103) return `${pad2(dt.getDate())}/${pad2(dt.getMonth() + 1)}/${dt.getFullYear()}`;
+      if (dt && st === 120) return formatDateTime(dt);
+      return String(value);
+    }
+    if (type === 'date') { const dt = parseDate(value); return dt ? formatDateOnly(dt) : null; }
+    if (['datetime','datetime2'].includes(type)) { const dt = parseDate(value); return dt ? formatDateTime(dt) : null; }
+    if (['int','bigint'].includes(type)) return Number.isNaN(Number(value)) ? null : Math.trunc(Number(value));
+    if (['decimal','numeric','float','real'].includes(type)) return Number.isNaN(Number(value)) ? null : Number(value);
+    return value;
+  };
+  const soundex = value => {
+    const text = String(value || '').toUpperCase().replace(/[^A-Z]/g, '');
+    if (!text) return null;
+    const map = { B:1,F:1,P:1,V:1, C:2,G:2,J:2,K:2,Q:2,S:2,X:2,Z:2, D:3,T:3, L:4, M:5,N:5, R:6 };
+    let code = text[0], prev = map[text[0]] || '';
+    for (let i = 1; i < text.length && code.length < 4; i++) {
+      const cur = map[text[i]] || '';
+      if (cur && cur !== prev) code += cur;
+      prev = cur;
+    }
+    return (code + '000').slice(0, 4);
+  };
+  const simpleHash = value => {
+    let hash = 0;
+    for (const ch of String(value || '')) hash = ((hash << 5) - hash + ch.charCodeAt(0)) | 0;
+    return hash;
+  };
+  const numericAggInit = () => ({ n: 0, sum: 0, sumSq: 0 });
+  const numericAggStep = (state, value) => {
+    const n = Number(value);
+    if (value === null || value === undefined || Number.isNaN(n)) return state;
+    return { n: state.n + 1, sum: state.sum + n, sumSq: state.sumSq + n * n };
+  };
+  const variance = (state, sample) => {
+    if (!state || state.n < (sample ? 2 : 1)) return null;
+    return (state.sumSq - state.sum * state.sum / state.n) / (sample ? state.n - 1 : state.n);
+  };
+
+  db.create_function('CONCAT', (...args) => args.map(v => v == null ? '' : String(v)).join(''));
+  db.create_function('LEFT', (value, length) => value == null ? null : String(value).slice(0, Math.max(0, Number(length) || 0)));
+  db.create_function('RIGHT', (value, length) => value == null ? null : String(value).slice(-Math.max(0, Number(length) || 0)));
+  db.create_function('LEN', value => value == null ? null : String(value).replace(/\s+$/g, '').length);
+  db.create_function('DATALENGTH', value => value == null ? null : new TextEncoder().encode(String(value)).length);
+  db.create_function('CHARINDEX', (needle, haystack, start) => {
+    if (needle == null || haystack == null) return null;
+    const pos = String(haystack).indexOf(String(needle), Math.max(0, (Number(start) || 1) - 1));
+    return pos < 0 ? 0 : pos + 1;
+  });
+  db.create_function('PATINDEX', (pattern, value) => {
+    if (pattern == null || value == null) return null;
+    const re = new RegExp(String(pattern).replace(/^%|%$/g, '').replace(/%/g, '.*').replace(/_/g, '.'), 'i');
+    const text = String(value);
+    for (let i = 0; i < text.length; i++) if (re.test(text.slice(i))) return i + 1;
+    return 0;
+  });
+  db.create_function('STUFF', (value, start, length, replacement) => {
+    if (value == null) return null;
+    const text = String(value), pos = Number(start), count = Number(length);
+    return text.slice(0, pos - 1) + (replacement == null ? '' : String(replacement)) + text.slice(pos - 1 + count);
+  });
+  db.create_function('REPLICATE', (value, count) => value == null ? null : String(value).repeat(Math.max(0, Number(count) || 0)));
+  db.create_function('REVERSE', value => value == null ? null : [...String(value)].reverse().join(''));
+  db.create_function('SPACE', count => ' '.repeat(Math.max(0, Number(count) || 0)));
+  db.create_function('STR', (value, length, decimals) => Number(value).toFixed(Math.max(0, Number(decimals) || 0)).padStart(Number(length) || 10, ' '));
+  db.create_function('UNICODE', value => value == null || String(value) === '' ? null : String(value).codePointAt(0));
+  db.create_function('NCHAR', value => value == null ? null : String.fromCodePoint(Number(value)));
+  db.create_function('CHAR', value => value == null ? null : String.fromCharCode(Number(value)));
+  db.create_function('ASCII', value => value == null || String(value) === '' ? null : String(value).charCodeAt(0));
+  db.create_function('SOUNDEX', value => soundex(value));
+  db.create_function('DIFFERENCE', (a, b) => {
+    const sa = soundex(a), sb = soundex(b);
+    if (!sa || !sb) return null;
+    return [...sa].reduce((score, ch, i) => score + (ch === sb[i] ? 1 : 0), 0);
+  });
+  db.create_function('QUOTENAME', value => value == null ? null : '[' + String(value).slice(0, 128).replace(/\]/g, ']]') + ']');
+  db.create_function('NEWID', () => crypto.randomUUID ? crypto.randomUUID() : 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => ((c === 'x' ? Math.random() * 16 : Math.random() * 4 + 8) | 0).toString(16)));
+  db.create_function('GETDATE', () => formatDateTime(new Date()));
+  db.create_function('GETUTCDATE', () => {
+    const dt = new Date();
+    return `${dt.getUTCFullYear()}-${pad2(dt.getUTCMonth() + 1)}-${pad2(dt.getUTCDate())} ${pad2(dt.getUTCHours())}:${pad2(dt.getUTCMinutes())}:${pad2(dt.getUTCSeconds())}`;
+  });
+  db.create_function('SYSDATETIMEOFFSET', () => `${formatDateTime(new Date())}.0000000 -06:00`);
+  db.create_function('DATEPART', (part, value) => datePart(part, value, false));
+  db.create_function('DATENAME', (part, value) => datePart(part, value, true));
+  db.create_function('DATEADD', (part, amount, value) => dateAdd(part, amount, value));
+  db.create_function('DATEDIFF', (part, startValue, endValue) => dateDiff(part, startValue, endValue));
+  db.create_function('YEAR', value => datePart('year', value, false));
+  db.create_function('MONTH', value => datePart('month', value, false));
+  db.create_function('DAY', value => datePart('day', value, false));
+  db.create_function('ISDATE', value => parseDate(value) ? 1 : 0);
+  db.create_function('DATEFROMPARTS', (year, month, day) => formatDateOnly(new Date(Number(year), Number(month) - 1, Number(day))));
+  db.create_function('DATETIMEFROMPARTS', (year, month, day, hour, minute, second, millisecond) => formatDateTime(new Date(Number(year), Number(month) - 1, Number(day), Number(hour), Number(minute), Number(second), Number(millisecond))));
+  db.create_function('TIMEFROMPARTS', (hour, minute, second) => `${pad2(Number(hour))}:${pad2(Number(minute))}:${pad2(Number(second))}`);
+  db.create_function('EOMONTH', (value, offset) => { const dt = parseDate(value); return dt ? formatDateOnly(new Date(dt.getFullYear(), dt.getMonth() + 1 + (Number(offset) || 0), 0)) : null; });
+  db.create_function('TODATETIMEOFFSET', (value, offset) => { const dt = parseDate(value); return dt ? `${formatDateTime(dt)}.0000000 ${offset || '-06:00'}` : null; });
+  db.create_function('SWITCHOFFSET', (value, offset) => { const dt = parseDate(value); return dt ? `${formatDateTime(dt)}.0000000 ${offset || '-06:00'}` : null; });
+  db.create_function('TSQL_CONVERT', (typeName, value, style) => convertValue(typeName, value, style));
+  db.create_function('TSQL_FORMAT', (value, pattern) => value == null ? null : String(value));
+  db.create_function('CEILING', value => value == null ? null : Math.ceil(Number(value)));
+  db.create_function('SIGN', value => value == null ? null : Math.sign(Number(value)));
+  db.create_function('POWER', (base, exponent) => Math.pow(Number(base), Number(exponent)));
+  db.create_function('SQRT', value => Math.sqrt(Number(value)));
+  db.create_function('SQUARE', value => Math.pow(Number(value), 2));
+  db.create_function('LOG', value => Math.log(Number(value)));
+  db.create_function('LOG10', value => Math.log10(Number(value)));
+  db.create_function('EXP', value => Math.exp(Number(value)));
+  db.create_function('PI', () => Math.PI);
+  db.create_function('RAND', () => Math.random());
+  db.create_function('CHECKSUM', value => simpleHash(value));
+  db.create_aggregate('STDEV', { init: numericAggInit, step: numericAggStep, finalize: state => { const v = variance(state, true); return v === null ? null : Math.sqrt(v); } });
+  db.create_aggregate('STDEVP', { init: numericAggInit, step: numericAggStep, finalize: state => { const v = variance(state, false); return v === null ? null : Math.sqrt(v); } });
+  db.create_aggregate('VAR', { init: numericAggInit, step: numericAggStep, finalize: state => variance(state, true) });
+  db.create_aggregate('VARP', { init: numericAggInit, step: numericAggStep, finalize: state => variance(state, false) });
+  db.create_aggregate('CHECKSUM_AGG', { init: () => 0, step: (state, value) => (state ^ simpleHash(value)) | 0, finalize: state => state });
+}
+
+// ------------------------------------------------------------
+// TYPE DETECTION
+// ------------------------------------------------------------
 function detectColType(col, rows) {
   const vals = rows.map(r => r[col]).filter(v => v !== null && v !== undefined && String(v).trim() !== '');
   if (!vals.length) return 'TEXT';
@@ -814,9 +1076,9 @@ function detectColType(col, rows) {
   return 'TEXT';
 }
 
-// ════════════════════════════════════════════════════════════
-//  CSV UPLOAD
-// ════════════════════════════════════════════════════════════
+// ------------------------------------------------------------
+// CSV UPLOAD
+// ------------------------------------------------------------
 async function handleCSVUpload(event) {
   const files = [...event.target.files];
   if (!files.length) return;
@@ -873,9 +1135,9 @@ function updateDEUI(tableName, cols, rowCount) {
     onDeSelectChange();
   };
   const info = document.createElement('div');
-  info.innerHTML = `<div class="de-card-name">${esc(tableName)}</div><div class="de-card-meta">${cols.length} fields · ${rowCount} rows</div>`;
+  info.innerHTML = `<div class="de-card-name">${esc(tableName)}</div><div class="de-card-meta">${cols.length} fields | ${rowCount} rows</div>`;
   const del = document.createElement('button');
-  del.className = 'de-card-del'; del.textContent = '✕'; del.onclick = () => removeDE(tableName);
+  del.className = 'de-card-del'; del.textContent = 'x'; del.onclick = () => removeDE(tableName);
   card.appendChild(info); card.appendChild(del);
   document.getElementById('deCardList').appendChild(card);
   onDeSelectChange();
@@ -893,11 +1155,11 @@ function onDeSelectChange() {
     c.style.display = isActive ? '' : 'none';
   });
   if (!name || !loadedDEs[name]) {
-    info.textContent = 'No DE selected — upload a CSV to begin';
+    info.textContent = 'No DE selected - upload a CSV to begin';
     rowsWrap.innerHTML = ''; schemaWrap.innerHTML = ''; return;
   }
   const de = loadedDEs[name];
-  info.textContent = `${de.columns.length} fields · ${de.rowCount} rows (first 50 shown)`;
+  info.textContent = `${de.columns.length} fields | ${de.rowCount} rows (first 50 shown)`;
 
   // Rows table
   const thead = '<tr>' + de.columns.map(c => `<th>${esc(c)}</th>`).join('') + '</tr>';
@@ -950,21 +1212,102 @@ function updateEditorHints() {
   editor.setOption('hintOptions', { tables, completeSingle: false });
 }
 
-// ════════════════════════════════════════════════════════════
-//  RUN SQL
-// ════════════════════════════════════════════════════════════
+function splitTopLevelSqlArgs(text) {
+  const args = [];
+  let cur = '', depth = 0, quote = null;
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    if (quote) {
+      cur += ch;
+      if (ch === quote) {
+        if (text[i + 1] === quote) cur += text[++i];
+        else quote = null;
+      }
+    } else if (ch === "'" || ch === '"') {
+      quote = ch; cur += ch;
+    } else if (ch === '(') {
+      depth++; cur += ch;
+    } else if (ch === ')') {
+      depth--; cur += ch;
+    } else if (ch === ',' && depth === 0) {
+      args.push(cur.trim()); cur = '';
+    } else {
+      cur += ch;
+    }
+  }
+  if (cur.trim()) args.push(cur.trim());
+  return args;
+}
+
+function rewriteSqlFunctionCalls(sql, name, mapper) {
+  const source = String(sql || '');
+  const fnRe = new RegExp(`\\b${name}\\s*\\(`, 'ig');
+  let out = '', last = 0, match;
+  while ((match = fnRe.exec(source)) !== null) {
+    let pos = fnRe.lastIndex, depth = 1, quote = null;
+    while (pos < source.length && depth > 0) {
+      const ch = source[pos];
+      if (quote) {
+        if (ch === quote) {
+          if (source[pos + 1] === quote) pos++;
+          else quote = null;
+        }
+      } else if (ch === "'" || ch === '"') quote = ch;
+      else if (ch === '(') depth++;
+      else if (ch === ')') depth--;
+      pos++;
+    }
+    if (depth !== 0) break;
+    const argsText = source.slice(fnRe.lastIndex, pos - 1);
+    out += source.slice(last, match.index) + mapper(splitTopLevelSqlArgs(argsText), argsText);
+    last = pos;
+    fnRe.lastIndex = pos;
+  }
+  return out + source.slice(last);
+}
+
+function normalizeLocalSql(sql) {
+  let normalized = String(sql || '');
+  normalized = rewriteSqlFunctionCalls(normalized, 'STRING_AGG', args => args.length > 1 ? `GROUP_CONCAT(${args[0]}, ${args[1]})` : `GROUP_CONCAT(${args[0] || 'NULL'})`);
+  normalized = rewriteSqlFunctionCalls(normalized, 'CHOOSE', args => {
+    const branches = args.slice(1).map((arg, i) => `WHEN ${i + 1} THEN ${arg}`).join(' ');
+    return `(CASE CAST(${args[0]} AS INTEGER) ${branches} ELSE NULL END)`;
+  });
+  normalized = rewriteSqlFunctionCalls(normalized, 'ISNULL', args => args.length === 2 ? `IFNULL(${args[0]}, ${args[1]})` : `ISNULL(${args.join(', ')})`);
+  normalized = rewriteSqlFunctionCalls(normalized, 'IIF', args => args.length === 3 ? `(CASE WHEN ${args[0]} THEN ${args[1]} ELSE ${args[2]} END)` : `IIF(${args.join(', ')})`);
+  normalized = rewriteSqlFunctionCalls(normalized, 'CONVERT', args => args.length >= 2 ? `TSQL_CONVERT('${args[0].replace(/'/g, "''")}', ${args[1]}, ${args[2] || 'NULL'})` : `CONVERT(${args.join(', ')})`);
+  normalized = rewriteSqlFunctionCalls(normalized, 'TRY_CONVERT', args => args.length >= 2 ? `TSQL_CONVERT('${args[0].replace(/'/g, "''")}', ${args[1]}, ${args[2] || 'NULL'})` : `TRY_CONVERT(${args.join(', ')})`);
+  normalized = rewriteSqlFunctionCalls(normalized, 'TRY_CAST', (args, argsText) => {
+    const match = String(argsText || '').match(/^([\s\S]+?)\s+AS\s+([A-Za-z0-9_]+(?:\s*\([^)]*\))?)$/i);
+    return match ? `TSQL_CONVERT('${match[2].replace(/'/g, "''")}', ${match[1]}, NULL)` : `TRY_CAST(${argsText})`;
+  });
+  normalized = rewriteSqlFunctionCalls(normalized, 'FORMAT', args => args.length >= 2 ? `TSQL_FORMAT(${args[0]}, ${args[1]}, ${args[2] || 'NULL'})` : `FORMAT(${args.join(', ')})`);
+  normalized = rewriteSqlFunctionCalls(normalized, 'CONCAT', args => '(' + args.map(arg => `COALESCE(${arg}, '')`).join(' || ') + ')');
+  normalized = rewriteSqlFunctionCalls(normalized, 'CHARINDEX', args => args.length === 2 ? `CHARINDEX(${args[0]}, ${args[1]}, 1)` : `CHARINDEX(${args.join(', ')})`);
+  normalized = normalized.replace(/\b(DATEPART|DATENAME|DATEDIFF|DATEADD)\s*\(\s*([A-Za-z]+)\s*,/gi, "$1('$2',");
+  normalized = normalized.replace(/\bOFFSET\s+(\d+)\s+ROWS\s+FETCH\s+NEXT\s+(\d+)\s+ROWS\s+ONLY\b/gi, 'LIMIT $2 OFFSET $1');
+  normalized = normalized.replace(/^\s*SELECT\s+(DISTINCT\s+)?TOP\s+(\d+)\s+(?!PERCENT\b)([\s\S]+)$/i, (match, distinct, count, rest) => {
+    const body = rest.replace(/;\s*$/, '');
+    return `SELECT ${distinct || ''}${body}${/\bLIMIT\s+\d+\b/i.test(body) ? '' : `\nLIMIT ${count}`}`;
+  });
+  return normalized;
+}
+
+// ------------------------------------------------------------
+// RUN SQL
+// ------------------------------------------------------------
 async function runSQL() {
   const sql = editor.getValue().trim();
   if (!sql) return;
   const btn = document.getElementById('runBtn');
-  btn.disabled = true; btn.textContent = '⏳ Running…';
+  btn.disabled = true; btn.textContent = 'Running...';
   try {
     await initDB();
     const t0 = performance.now();
-    const results = sqlDb.exec(sql);
+    const results = sqlDb.exec(normalizeLocalSql(sql));
     const ms = (performance.now() - t0).toFixed(1);
     if (!results || !results.length) {
-      setResults(`Query OK (${ms}ms) — no rows returned.`, '<div class="empty-state">Query ran successfully. No rows returned.</div>');
+      setResults(`Query OK (${ms}ms) - no rows returned.`, '<div class="empty-state">Query ran successfully. No rows returned.</div>');
       return;
     }
     const { columns, values } = results[0];
@@ -973,12 +1316,12 @@ async function runSQL() {
       '<tr>' + row.map(cell => `<td>${cell === null ? '<em style="color:#3a5a7a">NULL</em>' : esc(String(cell))}</td>`).join('') + '</tr>'
     ).join('');
     setResults(
-      `${values.length} row${values.length !== 1 ? 's' : ''} · ${columns.length} cols · ${ms}ms`,
+      `${values.length} row${values.length !== 1 ? 's' : ''} | ${columns.length} cols | ${ms}ms`,
       `<table class="results-table"><thead>${thead}</thead><tbody>${tbody}</tbody></table>`,
       { columns, values }
     );
   } catch(err) {
-    setResults('Error', `<div class="error-box">⚠ ${esc(err.message)}</div>`);
+    setResults('Error', `<div class="error-box">! ${esc(err.message)}</div>`);
   } finally {
     btn.disabled = false; btn.innerHTML = '&#9654; Run Query';
   }
@@ -988,12 +1331,12 @@ function esc(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 function showError(msg) {
-  setResults('Error', `<div class="error-box">⚠ ${esc(msg)}</div>`);
+  setResults('Error', `<div class="error-box">! ${esc(msg)}</div>`);
 }
 
-// ════════════════════════════════════════════════════════════
-//  SQL FUNCTIONS PANEL (right side)
-// ════════════════════════════════════════════════════════════
+// ------------------------------------------------------------
+// SQL FUNCTIONS PANEL (right side)
+// ------------------------------------------------------------
 let activeFnCat = 0;
 const FN_SNIPPETS = [];
 SQL_CATS.forEach((cat, ci) => cat.items.forEach((item, ii) => FN_SNIPPETS.push({ ci, ii, s: item.s })));
@@ -1037,16 +1380,16 @@ function renderFnChips() {
     if (item.doc) {
       const a = document.createElement('a');
       a.className = 'fn-doc-link'; a.href = item.doc; a.target = '_blank'; a.rel = 'noopener noreferrer';
-      a.textContent = '📄 Docs';
+      a.textContent = 'Docs';
       chip.appendChild(a);
     }
     wrap.appendChild(chip);
   });
 }
 
-// ════════════════════════════════════════════════════════════
-//  SAMPLE QUERIES DROPDOWN
-// ════════════════════════════════════════════════════════════
+// ------------------------------------------------------------
+// SAMPLE QUERIES DROPDOWN
+// ------------------------------------------------------------
 function buildSamplesDropdown() {
   const dd = document.getElementById('samplesDropdown');
   SAMPLE_QUERIES.forEach(cat => {
@@ -1074,9 +1417,9 @@ function toggleSamples(e) { e.stopPropagation(); document.getElementById('sample
 function closeSamples() { document.getElementById('samplesDropdown').classList.remove('open'); }
 document.addEventListener('click', closeSamples);
 
-// ════════════════════════════════════════════════════════════
-//  RIGHT PANEL RESIZE
-// ════════════════════════════════════════════════════════════
+// ------------------------------------------------------------
+// RIGHT PANEL RESIZE
+// ------------------------------------------------------------
 (function() {
   const resizer = document.getElementById('vPaneResizer');
   const pane    = document.querySelector('.data-pane');
@@ -1094,7 +1437,7 @@ document.addEventListener('click', closeSamples);
 
   document.addEventListener('mousemove', e => {
     if (!dragging) return;
-    const delta = startX - e.clientX;          // drag left → wider right pane
+    const delta = startX - e.clientX;          // drag left -> wider right pane
     const minW = 200, maxW = main.offsetWidth * 0.7;
     pane.style.width = Math.max(minW, Math.min(startW + delta, maxW)) + 'px';
   });
@@ -1107,9 +1450,9 @@ document.addEventListener('click', closeSamples);
   });
 })();
 
-// ════════════════════════════════════════════════════════════
-//  RESULTS FOOTER RESIZE
-// ════════════════════════════════════════════════════════════
+// ------------------------------------------------------------
+// RESULTS FOOTER RESIZE
+// ------------------------------------------------------------
 (function() {
   const resizer = document.getElementById('resultsResizer');
   const footer  = document.getElementById('resultsFooter');
@@ -1126,7 +1469,7 @@ document.addEventListener('click', closeSamples);
 
   document.addEventListener('mousemove', e => {
     if (!dragging) return;
-    const delta = startY - e.clientY;           // drag up → positive delta → taller
+    const delta = startY - e.clientY;           // drag up -> positive delta -> taller
     const minH = 36, maxH = window.innerHeight * 0.8;
     footer.style.height = Math.max(minH, Math.min(startH + delta, maxH)) + 'px';
   });
@@ -1139,9 +1482,9 @@ document.addEventListener('click', closeSamples);
   });
 })();
 
-// ════════════════════════════════════════════════════════════
-//  INIT
-// ════════════════════════════════════════════════════════════
+// ------------------------------------------------------------
+// INIT
+// ------------------------------------------------------------
 renderTabs();
 buildFnPanel();
 buildSamplesDropdown();
@@ -1149,3 +1492,4 @@ initDB().catch(console.error);
 </script>
 </body>
 </html>
+
