@@ -1087,6 +1087,11 @@ async function handleCSVUpload(event) {
   event.target.value = '';
 }
 
+function getSqliteColumnType(type) {
+  const normalizedType = String(type || '').toUpperCase();
+  return (normalizedType === 'DATE' || normalizedType === 'DATETIME') ? 'TEXT' : normalizedType;
+}
+
 function parseSqlImportDate(value) {
   if (value === null || value === undefined || value === '') return null;
   const raw = String(value).trim();
@@ -1140,7 +1145,7 @@ function importCSV(file) {
           const colTypes = {};
           cols.forEach(c => { colTypes[c] = detectColType(c, rows); });
           try { sqlDb.run(`DROP TABLE IF EXISTS "${tableName}"`); } catch(e){}
-          sqlDb.run(`CREATE TABLE "${tableName}" (${cols.map(c => `"${c}" ${colTypes[c]}`).join(', ')})`);
+          sqlDb.run(`CREATE TABLE "${tableName}" (${cols.map(c => `"${c}" ${getSqliteColumnType(colTypes[c])}`).join(', ')})`);
           if (rows.length) {
             const stmt = sqlDb.prepare(`INSERT INTO "${tableName}" (${cols.map(c=>`"${c}"`).join(',')}) VALUES (${cols.map(()=>'?').join(',')})`);
             rows.forEach(r => stmt.run(cols.map(c => normalizeSqlTableValue(r[c], colTypes[c]))));
