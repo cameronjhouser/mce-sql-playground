@@ -1087,6 +1087,48 @@ async function handleCSVUpload(event) {
   event.target.value = '';
 }
 
+function parseSqlImportDate(value) {
+  if (value === null || value === undefined || value === '') return null;
+  const raw = String(value).trim();
+  if (!raw) return null;
+
+  const slashDate = raw.match(/^(\d{1,2})[\/](\d{1,2})[\/](\d{2,4})(?:\s+(\d{1,2}):(\d{2})(?::(\d{2}))?\s*(AM|PM)?)?$/i);
+  if (slashDate) {
+    const [, month, day, year, hourRaw = '0', minute = '0', second = '0', meridiem = ''] = slashDate;
+    const yy = Number(year);
+    const fullYear = year.length === 2 ? (yy <= 49 ? 2000 + yy : 1900 + yy) : yy;
+    let hour = Number(hourRaw);
+    if (/pm/i.test(meridiem) && hour < 12) hour += 12;
+    if (/am/i.test(meridiem) && hour === 12) hour = 0;
+    const parsed = new Date(fullYear, Number(month) - 1, Number(day), hour, Number(minute), Number(second));
+    return Number.isNaN(parsed.getTime()) ? null : parsed;
+  }
+
+  const candidates = [raw];
+  if (/^\d{4}-\d{1,2}-\d{1,2}\s+\d/.test(raw)) candidates.push(raw.replace(' ', 'T'));
+  for (const candidate of candidates) {
+    const parsed = new Date(candidate);
+    if (!Number.isNaN(parsed.getTime())) return parsed;
+  }
+  return null;
+}
+
+function formatSqlImportDate(dt, includeTime) {
+  const pad2 = n => String(n).padStart(2, '0');
+  const date = `${dt.getFullYear()}-${pad2(dt.getMonth() + 1)}-${pad2(dt.getDate())}`;
+  return includeTime ? `${date} ${pad2(dt.getHours())}:${pad2(dt.getMinutes())}:${pad2(dt.getSeconds())}` : date;
+}
+
+function normalizeSqlTableValue(value, type) {
+  if (value === null || value === undefined || value === '') return null;
+  const normalizedType = String(type || '').toUpperCase();
+  if (normalizedType === 'DATE' || normalizedType === 'DATETIME') {
+    const parsed = parseSqlImportDate(value);
+    if (parsed) return formatSqlImportDate(parsed, normalizedType === 'DATETIME');
+  }
+  return value;
+}
+
 function importCSV(file) {
   return new Promise(resolve => {
     const tableName = file.name.replace(/\.csv$/i,'').replace(/[^a-zA-Z0-9_]/g,'_');
@@ -1101,7 +1143,7 @@ function importCSV(file) {
           sqlDb.run(`CREATE TABLE "${tableName}" (${cols.map(c => `"${c}" ${colTypes[c]}`).join(', ')})`);
           if (rows.length) {
             const stmt = sqlDb.prepare(`INSERT INTO "${tableName}" (${cols.map(c=>`"${c}"`).join(',')}) VALUES (${cols.map(()=>'?').join(',')})`);
-            rows.forEach(r => stmt.run(cols.map(c => r[c] ?? null)));
+            rows.forEach(r => stmt.run(cols.map(c => normalizeSqlTableValue(r[c], colTypes[c]))));
             stmt.free();
           }
           loadedDEs[tableName] = { columns: cols, columnTypes: colTypes, rowCount: rows.length, rows: rows.slice(0,50) };
